@@ -1,0 +1,21 @@
+.code_container {
+    width: 70%;
+    margin: 0 auto;
+}
+
+.code_container  > input {
+    width: 100%;
+    height: 56.41px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    background-color: #FF916F;
+    border: 1px solid #FF916F;
+    border-radius: 20px;
+}
+
+.code_container  > input::placeholder {
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+}
