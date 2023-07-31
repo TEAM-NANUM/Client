@@ -6,6 +6,7 @@
 3. main 브랜치는 배포용. develop 브랜치는 작업물이 합쳐지는 공간.
 4. git 협업 flow, Branch 네이밍은 노션 페이지 Frontend 개발문서 - Convention 참고
 
+---
 
 ### 💬 commit 메세지
 
