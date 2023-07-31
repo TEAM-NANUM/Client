@@ -4,7 +4,7 @@
 1. 작업 시작 전 develop에서 풀(pull) 당기고 시작.
 2. 풀리퀘 보내기 전 main 브랜치에서 풀 당기고 보내기.
 3. main 브랜치는 배포용. develop 브랜치는 작업물이 합쳐지는 공간.
-4. git 협업 flow 및 Branch 네이밍은 노션 페이지 Frontend 개발문서 - Convention 참고
+4. git 협업 flow, Branch 네이밍은 노션 페이지 Frontend 개발문서 - Convention 참고
 
 ### 💬 commit 메세지
 
