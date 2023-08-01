@@ -25,6 +25,7 @@ const CategoryPage = () => {
             <div className='category_container'>
                 {category.categories.map((list, idx) => <CategoryList list={list} key={idx} />)}
             </div>
+            {/* footer 삽입 필요 */}
         </>
     );
 };
