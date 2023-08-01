@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import "../../styles/Account/Code.css";
 
-const Code = () => {
+const Code = ({code, setCode}) => {
+
+    const onCode = (e) => {
+        setCode(e.currentTarget.value);
+    }
+    
     return (
         <div className='code_container'>
-            <input type='text' placeholder='코드 입력' />
+            <input type='text' value={code} placeholder='코드 입력' onChange={onCode} />
         </div>
     );
 };
