@@ -1,0 +1,38 @@
+.NewItem_container {
+    margin: 10px 30px;
+}
+
+.NewItem_container .NewItem_header {
+    display: flex;
+    align-items: center;
+}
+
+.NewItem_title {
+    font-size: 15px;
+    margin: 5px 0;
+}
+
+.NewItem_title_new {
+    font-size: 13px;
+    margin-left: 5px;
+    color: #FF4A4A;
+}
+
+.NewItem_more {
+    margin-left: auto;
+}
+
+.NewItem_container .NewItem_list {
+    display: flex;
+    justify-content: space-between;
+}
+
+.NewItem_container .NewItem_list img {
+    width: 85px;
+    height: auto;
+}
+
+.NewItem_header img {
+    width: 20px;
+    height: 20px;
+}
