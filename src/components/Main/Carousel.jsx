@@ -6,6 +6,7 @@ import "../../styles/Main/Carousel.css"
 
 const Carousel = () => {
     const settings = {
+        dots: true,
         infinite: true,
         speed: 3000,
         slidesToShow: 1,

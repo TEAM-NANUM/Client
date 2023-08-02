@@ -1,8 +1,9 @@
 .NewItem_container {
-    margin: 10px 30px;
+    margin: 20px 30px;
 }
 
 .NewItem_container .NewItem_header {
+    margin: 5px 0;
     display: flex;
     align-items: center;
 }
