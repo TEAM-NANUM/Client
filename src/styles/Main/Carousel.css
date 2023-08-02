@@ -1,0 +1,10 @@
+.Carousel_container {
+    width: 300px;
+    margin: 20px auto;
+}
+
+.Carousel img {
+    margin: 0 auto;
+    width: auto;
+    height: 150px;
+}

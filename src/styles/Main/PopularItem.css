@@ -1,0 +1,33 @@
+.PopularItem_container {
+    margin: 20px 30px;
+}
+
+.PopularItem_container .PopularItem_header {
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+}
+
+.PopularItem_title {
+    font-size: 15px;
+    margin: 5px 0;
+}
+
+.PopularItem_more {
+    margin-left: auto;
+}
+
+.PopularItem_container .PopularItem_list {
+    display: flex;
+    justify-content: space-between;
+}
+
+.PopularItem_container .PopularItem_list img {
+    width: 85px;
+    height: auto;
+}
+
+.PopularItem_header img {
+    width: 20px;
+    height: 20px;
+}
