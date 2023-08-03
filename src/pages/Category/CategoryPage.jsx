@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import "../../styles/Category/CategoryPage.css"
 import SubHeader from '../../components/SubHeader';
 import CategoryList from '../../components/Category/CategoryList';
+import Footer from '../../components/Footer/Footer';
 
 const CategoryPage = () => {
 
@@ -15,7 +16,7 @@ const CategoryPage = () => {
         "id": 2,
         "name": "농산물"
       },
-      // ... 추가적인 1차 카테고리 정보 ...
+      // .... 추가적인 1차 카테고리 정보 ....
     ]
   })
 
@@ -25,7 +26,7 @@ const CategoryPage = () => {
       <div className='category_container'>
         {category.categories.map((list, idx) => <CategoryList list={list} key={idx} />)}
       </div>
-      {/* footer 삽입 필요 */}
+      <Footer />
     </>
   );
 };
