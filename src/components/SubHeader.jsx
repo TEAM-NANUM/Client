@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 // 검색창이 없는 헤더. (로고와 뒤로가기 버튼만 있는.)
 
-const SubHeader = ({page}) => {
+const SubHeader = ({ page }) => {
 
     const navigate = useNavigate();
 
