@@ -1,11 +1,11 @@
 import React from 'react';
 
-const PointPage = () => {
+const ReviewPage = () => {
     return (
         <div>
-            포인트 충전
+            리뷰
         </div>
     );
 };
 
-export default PointPage;
+export default ReviewPage;
