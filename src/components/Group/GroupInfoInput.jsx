@@ -7,8 +7,14 @@ const GroupInfoInput = () => {
     const [openPostCode, setOpenPostCode] = useState(false);
     const [zipCode, setZipCode] = useState("");
     const [address, setAddress] = useState("");
+    const [detailAddress, setDetailAddress] = useState("");
+
     const onChangeNickname = (e) => {
-        setNickname(e.target.value)
+        setNickname(e.target.value);
+    }
+
+    const onChangeDetailAddress = (e) => {
+        setDetailAddress(e.target.value);
     }
 
     const handle = {
@@ -49,7 +55,12 @@ const GroupInfoInput = () => {
                         />}
                 </div>
                 <input className="address_input" placeholder="주소" value={address} disabled></input>
-                <input className="addressDetail_input" placeholder="상세주소"></input>
+                <input
+                    className="addressDetail_input"
+                    placeholder="상세주소"
+                    value={detailAddress}
+                    onChange={onChangeDetailAddress}
+                ></input>
             </div>
             <div className="GroupInfoInput_page_coment">그룹원들은 대표 계정의 머니를 공유합니다.</div>
             <div className="Group_add_button">추가</div>
