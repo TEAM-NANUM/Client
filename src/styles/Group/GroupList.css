@@ -1,0 +1,13 @@
+.GroupList_container {
+    margin: 20px;
+}
+
+.GroupList_container .GroupList_title {
+    display: flex;
+}
+
+.GroupList_container .GroupList_title img {
+    margin-left: 5px;
+    width: 25px;
+    height: auto;
+}
