@@ -1,11 +1,11 @@
 import React from 'react';
 
-const PointPage = () => {
+const AddressPage = () => {
     return (
         <div>
-            포인트 충전
+            배송 주소
         </div>
     );
 };
 
-export default PointPage;
+export default AddressPage;

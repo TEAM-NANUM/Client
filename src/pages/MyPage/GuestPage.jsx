@@ -1,9 +1,10 @@
 import React from 'react';
+import "../../styles/MyPage/GuestPage.css";
 
-const GuestPage = () => {
+const GuestPage = ({userData}) => {
     return (
         <div>
-            
+            Guest
         </div>
     );
 };
