@@ -1,0 +1,98 @@
+.GroupInfoInput_container {
+    margin: 20px;
+}
+
+.GroupInfoInput_container .GroupInfoInput_title {
+    display: flex;
+}
+
+.GroupInfoInput_container .GroupInfoInput_title img {
+    margin-left: 5px;
+    width: 25px;
+    height: auto;
+}
+
+.GroupInfoInput_container .GroupInfo_nickname {
+    margin: 10px 0;
+    padding: 10px;
+    height: 75px;
+    background-color: #F5F5F5;
+}
+
+.GroupInfoInput_container .GroupInfo_address {
+    margin: 10px 0;
+    padding: 10px;
+    height: 150px;
+    background-color: #F5F5F5;
+}
+
+.GroupInfo_nickname_title,
+.GroupInfo_address_title {
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    font-size: 13px;
+    border-bottom: 1.5px solid #FF916F;
+}
+
+.GroupInfo_nickname input {
+    padding: 0 10px;
+    width: 300px;
+    height: 30px;
+    color: gray;
+    background-color: #fde6de;
+    border: none;
+    border-radius: 10px;
+}
+
+.GroupInfoInput_page_coment {
+    margin: 20px 0;
+    display: flex;
+    font-size: 12px;
+    justify-content: center;
+}
+
+.Group_add_button {
+    width: 350px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    background-color: #FF916F;
+    border-radius: 10px;
+}
+
+.Group_add_button:hover {
+    background-color: #fd8560;
+}
+
+.zipCode_input {
+    margin-bottom: 10px;
+    padding: 0 10px;
+    width: 100px;
+    height: 30px;
+    color: gray;
+    background-color: #fde6de;
+    border: none;
+    border-radius: 10px;
+}
+
+.zipCode_input_button {
+    font-size: 12px;
+    margin-left: 10px;
+    width: 100px;
+    height: 30px;
+    border: 1px solid #fd8560;
+    background-color: #ffffff;
+    border-radius: 5px;
+}
+
+.address_input,
+.addressDetail_input {
+    margin-bottom: 10px;
+    padding: 0 10px;
+    width: 300px;
+    height: 30px;
+    color: gray;
+    background-color: #fde6de;
+    border: none;
+    border-radius: 10px;
+}

@@ -6,9 +6,9 @@ const Group = () => {
         try {
             await navigator.clipboard.writeText(text);
 
-            alert("복사 성공!");
+            alert("초대링크 복사 완료!");
         } catch (error) {
-            alert("복사 실패!");
+            alert("초대링크 복사 실패!");
         }
     }
 
