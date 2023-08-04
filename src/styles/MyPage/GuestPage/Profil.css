@@ -1,0 +1,52 @@
+.guest_profil {
+    width: 100%;
+    margin-top: 5%;
+    background-color: #F5F5F5;
+    border-radius: 10px;
+}
+
+.guest_header {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #FF916F;
+}
+
+.guest_header > p {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.guest_content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 5% 0 5% 0;
+}
+
+.guest_profil_info {
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.guest_profil_info  > p {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#guest_name {
+    font-size: 14px;
+    font-weight: 500;
+    color: #aca8a8;
+}
+
+.guest_logout {
+    font-weight: bold;
+    font-size: 12px;
+    color: #DA0000;
+    cursor: pointer;
+}
