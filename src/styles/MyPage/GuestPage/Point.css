@@ -1,0 +1,28 @@
+.guest_point {
+    width: 100%;
+    margin: 5% 0 5% 0;
+    background-color: #F5F5F5;
+    border-radius: 10px;
+}
+
+.guest_point_info {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.guest_point_current {
+    font-size: 16px;
+    width: 50%;
+}
+
+.guest_point_charge {
+    padding: 2%;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: #FF916F;
+    border-radius: 10px;
+    cursor: pointer;
+}

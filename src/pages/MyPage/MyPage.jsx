@@ -7,12 +7,7 @@ import "../../styles/MyPage/MyPage.css"
 const MyPage = () => {
 
     const [userData, setUserData] = useState(
-        {
-            "id" : "사용자 pk",
-            "name" : "홍길동",
-            "is_guest" : "true",
-            "point" : "10000"
-        }
+       
     )
 
     return (
