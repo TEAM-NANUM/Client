@@ -3,12 +3,10 @@ import "../../styles/Account/LoginPage.css"
 import Logo from '../../components/Account/Logo';
 import Kakao from '../../components/Account/Kakao';
 import Code from '../../components/Account/Code';
-import { useLoginStore } from '../../components/Account/Store';
 
-const LoginPage = () => {
+const LoginPage = ({ access_token, token_set }) => {
 
     const [code, setCode] = useState("")
-    const { access_token, token_set } = useLoginStore();
 
     return (
         <div className='login_container'>

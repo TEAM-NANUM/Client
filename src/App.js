@@ -10,13 +10,21 @@ import OrderListPage from "./pages/OrderList/OrderListPage";
 import AddressPage from "./pages/Address/AddressPage";
 import ReviewPage from "./pages/Review/ReviewPage";
 import PointPage from "./pages/Point/PointPage";
+import { useLoginStore } from "./components/Account/Store";
 
 function App() {
+  const { access_token, token_set } = useLoginStore();
+
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<LoginPage />}></Route>
+          <Route
+            path="/"
+            element={
+              <LoginPage access_token={access_token} token_set={token_set} />
+            }
+          ></Route>
           <Route path="/main" element={<MainPage />}></Route>
           <Route path="/category" element={<CategoryPage />}></Route>
           <Route path="/mypage" element={<MyPage />}></Route>
