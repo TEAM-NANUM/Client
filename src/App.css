@@ -6,5 +6,6 @@ body {
   width: 390px !important;
   height: 100vh;
   margin: 0 auto;
+  overflow: hidden;
   background-color: #fff;
 }
