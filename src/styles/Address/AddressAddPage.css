@@ -1,0 +1,20 @@
+.AddressAddPage_container {
+    width: 90%;
+    height: calc(100vh - 150px);
+    overflow: scroll;
+    margin: 5% auto;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+}
+
+.AddressAddPage_header {
+    display: flex;
+    align-items: center;
+}
+
+.AddressAddPage_header > p {
+    margin-right: 3%;
+    font-size: 15px;
+    font-weight: bold;
+}
