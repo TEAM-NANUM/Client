@@ -1,29 +1,29 @@
 .Header_container {
     display: flex;
     width: auto;
-    height: 50px;
+    height: 60px;
     border-bottom: 1px solid #CCCCCC;
     align-items: center;
 }
 
 .Header_container .Header_icon img {
     width: auto;
-    height: 35px;
+    height: 40px;
     margin-left: 15px;
 }
 
 .Header_container .Header_search_icon img {
     width: auto;
-    height: 20px;
+    height: 22px;
     margin-left: 5px;
 }
 
 .searchBar {
-    width: 130px;
-    height: 25px;
+    width: 170px;
+    height: 30px;
     font-size: 12px;
     border-radius: 20px;
-    margin-left: 70px;
+    margin-left: 40px;
     padding-left: 10px;
     padding-right: 10px;
     background-color: #FF916F;
