@@ -8,19 +8,20 @@
 
 .Header_container .Header_icon img {
     width: auto;
-    height: 40px;
+    height: 35px;
     margin-left: 15px;
 }
 
 .Header_container .Header_search_icon img {
     width: auto;
-    height: 25px;
+    height: 20px;
     margin-left: 5px;
 }
 
 .searchBar {
     width: 130px;
     height: 25px;
+    font-size: 12px;
     border-radius: 20px;
     margin-left: 70px;
     padding-left: 10px;
@@ -31,6 +32,5 @@
 }
 
 .searchBar::placeholder {
-    font-size: 10px;
     color: black;
 }

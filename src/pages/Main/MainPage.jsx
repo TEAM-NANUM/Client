@@ -1,5 +1,4 @@
 import React from 'react';
-import "../../styles/Main/MainPage.css"
 import Header from "../../components/Main/Header";
 import Carousel from '../../components/Main/Carousel';
 import PopularItem from '../../components/Main/PopularItem';

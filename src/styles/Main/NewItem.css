@@ -1,5 +1,8 @@
 .NewItem_container {
-    margin: 20px 30px;
+    height: 150px;
+    margin: 0 20px;
+    padding: 0 10px;
+    border-top: 2px solid #FF916F;
 }
 
 .NewItem_container .NewItem_header {
@@ -29,7 +32,7 @@
 }
 
 .NewItem_container .NewItem_list img {
-    width: 85px;
+    width: 95px;
     height: auto;
 }
 
