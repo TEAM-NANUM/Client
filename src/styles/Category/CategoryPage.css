@@ -1,4 +1,6 @@
 .category_container {
+    height: calc(100vh - 60px);
+    overflow: scroll;
     margin-top: 5%;
     background-color: #fff;
 }
