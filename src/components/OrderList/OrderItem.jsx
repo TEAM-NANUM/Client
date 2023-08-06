@@ -3,8 +3,6 @@ import "../../styles/OrderList/OrderItem.css";
 
 const OrderItem = ({orderItem}) => {
 
-    console.log(orderItem)
-
     return (
         <div className='OrderItem_container'>
             <div className='OrderItem_img'><img src='./img/imgs/icon_logo.svg' alt='상품 사진'/></div>
