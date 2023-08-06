@@ -1,0 +1,18 @@
+.ReviewAddList_container {
+    width: 100%;
+    height: calc(100vh - 200px);
+    overflow: scroll;
+    margin: 0 auto;
+}
+
+.ReviewAddList_header {
+    width: 40%;
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ReviewAddList_header > p {
+    font-weight: bold;
+}
