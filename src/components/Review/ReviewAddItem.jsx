@@ -1,9 +1,13 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import "../../styles/Review/ReviewAddItem.css";
 
 const ReviewAddItem = ({item}) => {
 
-    const [reviewForm, setReviewForm] = useState();
+    const [reviewForm, setReviewForm] = useState({
+        'order_id' : item.id,
+        "rating": "",
+        "comment": ""
+    });
     const [reviewRating, setReviewRating] = useState();
     const [reviewComment, setReviewComment] = useState("");
 
@@ -21,11 +25,15 @@ const ReviewAddItem = ({item}) => {
             "rating": reviewRating,
 	        "comment": reviewComment 
         })
+        onReviewAdd();
+    }
 
-        if(reviewForm) {
+    const onReviewAdd = () => {
+        if(reviewForm.rating) {
             // 통신 로직 추가하면 됨
             alert("리뷰 작성 완료 !")
-            window.location.reload();
+        } else {
+            alert("평점을 입력 해주세요.")
         }
     }
 
