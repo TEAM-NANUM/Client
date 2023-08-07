@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import "../../styles/Account/Kakao.css";
 import axios from 'axios';
-import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Kakao = ({ access_token, token_set }) => {
 
@@ -16,9 +16,9 @@ const Kakao = ({ access_token, token_set }) => {
 
     useEffect(() => {
         // Zustand 사용해서 저장하는 코드 => 잘 안 먹혀서 일단 주석 처리함.
-        // token_set(location.search.slice(7));
-        // console.log(access_token)
+        token_set(location.search.slice(7));
         
+        // 엑세스 토큰 로컬 스토리지에 저장
         localStorage.setItem('access_token', location.search.slice(7));
 
         if (localStorage.getItem('access_token')) {
@@ -26,6 +26,8 @@ const Kakao = ({ access_token, token_set }) => {
         }
 
     }, [loginState])
+
+    
 
     return (
         <div className='kakao_container'>

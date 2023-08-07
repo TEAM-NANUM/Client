@@ -4,8 +4,10 @@ import Carousel from '../../components/Main/Carousel';
 import PopularItem from '../../components/Main/PopularItem';
 import NewItem from '../../components/Main/NewItem';
 import Footer from '../../components/Footer/Footer';
+import { useLoginStore } from '../../components/Account/Store';
 
 const MainPage = () => {
+
     return (
         <div>
             <Header></Header>
