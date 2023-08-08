@@ -38,7 +38,10 @@ function App() {
             path="/main"
             element={<MainPage PROXY={PROXY} setUserData={setUserData} />}
           ></Route>
-          <Route path="/category" element={<CategoryPage />}></Route>
+          <Route
+            path="/category"
+            element={<CategoryPage PROXY={PROXY} />}
+          ></Route>
           <Route
             path="/mypage"
             element={<MyPage userData={userData} />}
