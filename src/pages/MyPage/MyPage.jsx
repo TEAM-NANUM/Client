@@ -4,15 +4,10 @@ import UserPage from './UserPage';
 import GuestPage from './GuestPage';
 import "../../styles/MyPage/MyPage.css"
 
-const MyPage = () => {
-
-    const [userData, setUserData] = useState(
-       
-    )
-
+const MyPage = ({userData}) => {
     return (
         <div className='mypage_container'>
-            {userData ? ((userData.is_guest === "true") ? <UserPage userData={userData} /> : <GuestPage userData={userData} />) : <NotLogin />}
+            {userData ? ((userData.is_guest === false) ? <UserPage userData={userData} /> : <GuestPage userData={userData} />) : <NotLogin />}
         </div>
     );
 };
