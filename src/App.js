@@ -12,9 +12,13 @@ import ReviewPage from "./pages/Review/ReviewPage";
 import PointPage from "./pages/Point/PointPage";
 import { useLoginStore } from "./components/Account/Store";
 import AddressAddPage from "./pages/Address/AddressAddPage";
+import { useState } from "react";
 
 function App() {
   const { access_token, token_set } = useLoginStore();
+  const PROXY = process.env.REACT_APP_PROXY;
+
+  const [userData, setUserData] = useState();
 
   return (
     <div className="App">
@@ -23,12 +27,22 @@ function App() {
           <Route
             path="/"
             element={
-              <LoginPage access_token={access_token} token_set={token_set} />
+              <LoginPage
+                access_token={access_token}
+                token_set={token_set}
+                PROXY={PROXY}
+              />
             }
           ></Route>
-          <Route path="/main" element={<MainPage />}></Route>
+          <Route
+            path="/main"
+            element={<MainPage PROXY={PROXY} setUserData={setUserData} />}
+          ></Route>
           <Route path="/category" element={<CategoryPage />}></Route>
-          <Route path="/mypage" element={<MyPage />}></Route>
+          <Route
+            path="/mypage"
+            element={<MyPage userData={userData} />}
+          ></Route>
           <Route path="/group" element={<GroupPage />}></Route>
           <Route path="/group/add" element={<GroupAddPage />}></Route>
           <Route path="/orderlist" element={<OrderListPage />}></Route>

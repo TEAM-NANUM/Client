@@ -3,14 +3,14 @@ import "../../styles/Account/Kakao.css";
 import axios from 'axios';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-const Kakao = ({ access_token, token_set }) => {
+const Kakao = ({ access_token, token_set, PROXY }) => {
 
     const location = useLocation();
     const navigate = useNavigate();
     const [loginState, setLoginState] = useState(false);
 
     const onKaKaoLogin = () => {
-        window.location.href = "http://118.67.128.48:8080/api/login/kakao";
+        window.location.href = `${PROXY}/api/login/kakao`;
         setLoginState(idx=>!idx);
     }
 

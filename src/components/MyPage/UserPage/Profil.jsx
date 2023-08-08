@@ -11,7 +11,7 @@ const Profil = ({userData, onLogout}) => {
             <div className='user_content'>
                 <div className='user_profil_info'>
                     <img src='./img/imgMyPage/profil.svg' alt='프로필 사진'/>
-                    <p>{userData.name}</p>
+                    <div>{userData.name} 님, 안녕하세요.</div>
                 </div>
                 <div className='user_logout' onClick={onLogout}>
                     로그아웃
