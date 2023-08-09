@@ -1,0 +1,12 @@
+.ProductDetailPage_info {
+    overflow: scroll;
+    height: 500px;
+}
+
+.ProductSelectPopUp {
+    height: 412px;
+}
+
+.ProductReviewPopUp {
+    height: 300px;
+}

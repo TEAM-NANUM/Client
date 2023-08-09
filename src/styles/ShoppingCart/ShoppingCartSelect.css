@@ -1,0 +1,28 @@
+.ShoppingCartSelect_container {
+    display: flex;
+    justify-content: space-evenly;
+    height: 60px;
+    background-color: #ffb8a2;
+    border-radius: 10px;
+    align-items: center;
+}
+
+.ShoppingCartSelect_container .select_purchase,
+.ShoppingCartSelect_container .select_delete {
+    width: 120px;
+    height: 35px;
+    background-color: #FF916F;
+    text-align: center;
+    line-height: 35px;
+    border-radius: 15px;
+}
+
+.ShoppingCartSelect_container .select_purchase:hover,
+.ShoppingCartSelect_container .select_delete:hover {
+    background-color: #ff8864;
+}
+
+.ShoppingCartSelect_container img {
+    width: 20px;
+    height: 25px;
+}

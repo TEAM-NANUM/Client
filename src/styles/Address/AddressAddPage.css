@@ -1,7 +1,3 @@
-.AddressAddPage_container::-webkit-scrollbar {
-    display: none;
-}
-
 .AddressAddPage_container {
     width: 90%;
     height: calc(100vh - 150px);

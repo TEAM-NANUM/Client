@@ -1,0 +1,30 @@
+.ProductPage_container .ProductPage_top {
+    display: flex;
+    margin: 10px 30px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ProductPage_container .ProductPage_top img {
+    width: 21px;
+}
+
+.ProductPage_container .ProductPage_top .ProductPaeg_top_left {
+    display: flex;
+}
+
+.ProductPage_container .ProductPage_top .ProductPage_top_right {
+    width: 70px;
+    height: 25px;
+    font-size: 12px;
+    background-color: #FF916F;
+    text-align: center;
+    line-height: 25px;
+    border-radius: 18px;
+}
+
+.Product_list {
+    overflow: scroll;
+    height: calc(100vh - 150px);
+    padding: 0 20px;
+}
