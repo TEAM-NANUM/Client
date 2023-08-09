@@ -1,7 +1,11 @@
+.ReviewList_container::-webkit-scrollbar {
+    display: none;
+}
+
 .ReviewList_container {
     width: 100%;
     height: calc(100vh - 200px);
-    overflow: scroll;
+    overflow-y: scroll;
     margin: 0 auto;
 }
 
