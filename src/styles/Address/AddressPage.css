@@ -1,11 +1,15 @@
 .AddressPage_container {
     width: 100%;
     height: calc(100vh - 150px);
-    overflow: scroll;
+    overflow-y: scroll;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     background-color: #fff;
+}
+
+.AddressPage_container::-webkit-scrollbar {
+    display: none;
 }
 
 .Address_add {

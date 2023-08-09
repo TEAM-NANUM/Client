@@ -1,5 +1,6 @@
 .mypage_container {
     height: calc(100vh - 60px);
-    overflow: scroll;
+    height: 100vh;
+    overflow-y: scroll;
     background-color: #fff;
 }

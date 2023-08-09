@@ -1,7 +1,11 @@
+.OrderList_container::-webkit-scrollbar {
+    display: none;
+}
+
 .OrderList_container {
     width: 90%;
     height: calc(100vh - 200px);
-    overflow: scroll;
+    overflow-y: scroll;
     margin: 0 auto;
 }
 

@@ -1,4 +1,5 @@
 import "./App.css";
+import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoginPage from "./pages/Account/LoginPage";
 import MainPage from "./pages/Main/MainPage";
@@ -19,6 +20,9 @@ import AddressAddPage from "./pages/Address/AddressAddPage";
 
 function App() {
   const { access_token, token_set } = useLoginStore();
+  const PROXY = process.env.REACT_APP_PROXY;
+
+  const [userData, setUserData] = useState();
 
   return (
     <div className="App">
@@ -37,6 +41,25 @@ function App() {
           <Route path="/mypage" element={<MyPage />}></Route>
           <Route path="/shoppingcart" element={<ShoppingCartPage />}></Route>
           <Route path="/purchase" element={<PurchasePage />}></Route>
+              <LoginPage
+                access_token={access_token}
+                token_set={token_set}
+                PROXY={PROXY}
+              />
+            }
+          ></Route>
+          <Route
+            path="/main"
+            element={<MainPage PROXY={PROXY} setUserData={setUserData} />}
+          ></Route>
+          <Route
+            path="/category"
+            element={<CategoryPage PROXY={PROXY} />}
+          ></Route>
+          <Route
+            path="/mypage"
+            element={<MyPage userData={userData} />}
+          ></Route>
           <Route path="/group" element={<GroupPage />}></Route>
           <Route path="/group/add" element={<GroupAddPage />}></Route>
           <Route path="/orderlist" element={<OrderListPage />}></Route>
