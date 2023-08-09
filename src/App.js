@@ -1,14 +1,9 @@
 import "./App.css";
-import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoginPage from "./pages/Account/LoginPage";
 import MainPage from "./pages/Main/MainPage";
 import CategoryPage from "./pages/Category/CategoryPage";
-import ProductPage from "./pages/Product/ProductPage";
-import ProductDetailPage from "./pages/Product/ProductDetailPage";
 import MyPage from "./pages/MyPage/MyPage";
-import ShoppingCartPage from "./pages/ShoppingCart/ShoppingCartPage"
-import PurchasePage from "./pages/Purchase/PurchasePage";
 import GroupPage from "./pages/Group/GroupPage";
 import GroupAddPage from "./pages/Group/GroupAddPage";
 import OrderListPage from "./pages/OrderList/OrderListPage";
@@ -17,6 +12,7 @@ import ReviewPage from "./pages/Review/ReviewPage";
 import PointPage from "./pages/Point/PointPage";
 import { useLoginStore } from "./components/Account/Store";
 import AddressAddPage from "./pages/Address/AddressAddPage";
+import { useState } from "react";
 
 function App() {
   const { access_token, token_set } = useLoginStore();
@@ -31,16 +27,6 @@ function App() {
           <Route
             path="/"
             element={
-              <LoginPage access_token={access_token} token_set={token_set} />
-            }
-          ></Route>
-          <Route path="/main" element={<MainPage />}></Route>
-          <Route path="/category" element={<CategoryPage />}></Route>
-          <Route path="/search" element={<ProductPage />}></Route>
-          <Route path="/product/detail" element={<ProductDetailPage />}></Route>
-          <Route path="/mypage" element={<MyPage />}></Route>
-          <Route path="/shoppingcart" element={<ShoppingCartPage />}></Route>
-          <Route path="/purchase" element={<PurchasePage />}></Route>
               <LoginPage
                 access_token={access_token}
                 token_set={token_set}

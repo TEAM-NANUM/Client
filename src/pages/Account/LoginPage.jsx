@@ -5,6 +5,7 @@ import Kakao from '../../components/Account/Kakao';
 import Code from '../../components/Account/Code';
 
 const LoginPage = ({ access_token, token_set, PROXY }) => {
+
     const [code, setCode] = useState("")
 
     return (

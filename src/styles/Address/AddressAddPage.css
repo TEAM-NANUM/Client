@@ -1,20 +1,25 @@
-.AddressAddPage_container {
-    width: 90%;
+.AddressPage_container {
+    width: 100%;
     height: calc(100vh - 150px);
     overflow-y: scroll;
-    margin: 5% auto;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     background-color: #fff;
 }
 
-.AddressAddPage_header {
-    display: flex;
-    align-items: center;
+.AddressPage_container::-webkit-scrollbar {
+    display: none;
 }
 
-.AddressAddPage_header > p {
-    margin-right: 3%;
-    font-size: 15px;
+.Address_add {
+    width: 82%;
+    margin: 0 auto;
+    padding: 4%;
+    text-align: center;
+    font-size: 21px;
     font-weight: bold;
+    border-radius: 10px;
+    background-color: #FF916F;
+    cursor: pointer;
 }
