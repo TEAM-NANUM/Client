@@ -1,0 +1,16 @@
+.AddressList_container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.AddressList_header {
+    width: 30%;
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.AddressList_header > p {
+    font-weight: bold;
+}

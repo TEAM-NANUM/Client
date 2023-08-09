@@ -4,7 +4,7 @@ import Logo from '../../components/Account/Logo';
 import Kakao from '../../components/Account/Kakao';
 import Code from '../../components/Account/Code';
 
-const LoginPage = () => {
+const LoginPage = ({ access_token, token_set }) => {
 
     const [code, setCode] = useState("")
 
@@ -14,7 +14,7 @@ const LoginPage = () => {
                 <Logo />
             </div>
             <div className='login_form'>
-                <Kakao />
+                <Kakao access_token={access_token} token_set={token_set} />
                 <p>또는</p>
                 <Code code={code} setCode={setCode} />
                 <p>판매자 로그인</p>

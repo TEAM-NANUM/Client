@@ -1,5 +1,5 @@
 .Product_container {
-    margin: 10px 20px;
+    margin: 10px 0;
     padding: 5px;
     height: 150px;
     background-color: #F5F5F5;
@@ -25,6 +25,10 @@
 
 .Product_container .Product_top .Product_top_left img {
     margin-left: 5px;
+}
+
+.Product_container .Product_top .Product_top_right img {
+    width: 15px;
 }
 
 .Product_container .Product_content {
@@ -60,5 +64,5 @@
 }
 
 .Product_container .Product_other_info .Product_delivery {
-    width: 130px;
+    width: 120px;
 }

@@ -4,28 +4,44 @@ import LoginPage from "./pages/Account/LoginPage";
 import MainPage from "./pages/Main/MainPage";
 import CategoryPage from "./pages/Category/CategoryPage";
 import ProductPage from "./pages/Product/ProductPage";
+import ProductDetailPage from "./pages/Product/ProductDetailPage";
 import MyPage from "./pages/MyPage/MyPage";
+import ShoppingCartPage from "./pages/ShoppingCart/ShoppingCartPage"
+import PurchasePage from "./pages/Purchase/PurchasePage";
 import GroupPage from "./pages/Group/GroupPage";
 import GroupAddPage from "./pages/Group/GroupAddPage";
 import OrderListPage from "./pages/OrderList/OrderListPage";
 import AddressPage from "./pages/Address/AddressPage";
 import ReviewPage from "./pages/Review/ReviewPage";
 import PointPage from "./pages/Point/PointPage";
+import { useLoginStore } from "./components/Account/Store";
+import AddressAddPage from "./pages/Address/AddressAddPage";
 
 function App() {
+  const { access_token, token_set } = useLoginStore();
+
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<LoginPage />}></Route>
+          <Route
+            path="/"
+            element={
+              <LoginPage access_token={access_token} token_set={token_set} />
+            }
+          ></Route>
           <Route path="/main" element={<MainPage />}></Route>
           <Route path="/category" element={<CategoryPage />}></Route>
           <Route path="/search" element={<ProductPage />}></Route>
+          <Route path="/product/detail" element={<ProductDetailPage />}></Route>
           <Route path="/mypage" element={<MyPage />}></Route>
+          <Route path="/shoppingcart" element={<ShoppingCartPage />}></Route>
+          <Route path="/purchase" element={<PurchasePage />}></Route>
           <Route path="/group" element={<GroupPage />}></Route>
           <Route path="/group/add" element={<GroupAddPage />}></Route>
           <Route path="/orderlist" element={<OrderListPage />}></Route>
           <Route path="/address" element={<AddressPage />}></Route>
+          <Route path="/addressAdd" element={<AddressAddPage />}></Route>
           <Route path="/review" element={<ReviewPage />}></Route>
           <Route path="/point" element={<PointPage />}></Route>
         </Routes>
@@ -35,3 +51,13 @@ function App() {
 }
 
 export default App;
+
+// 와일드카드 형태로 해도 이미지가 깨지는 것을 방지하지 못함
+// function Address() {
+//   return (
+//     <Routes>
+//       <Route path="" element={<AddressPage />} />
+//       <Route path="add" element={<AddressAddPage />} />
+//     </Routes>
+//   );
+// }

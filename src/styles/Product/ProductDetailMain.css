@@ -1,0 +1,89 @@
+.ProductDetailMain_container {
+    height: 350px;
+    margin: 10px 20px;
+    padding-top: 10px;
+    background-color: #FF916F;
+    border-radius: 10px;
+}
+
+.ProductDetailMain_container .ProductDetailMain_image {
+    margin: 0 35px;
+    height: 230px;
+    background-color: #FFFFFF;
+    text-align: center;
+}
+
+.ProductDetailMain_container .ProductDetailMain_image img {
+    height: 230px;
+}
+
+.ProductDetailMain_container .ProductDetailMain_content {
+    margin: 0 10px;
+    padding: 10px;
+    height: 70px;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+}
+
+.ProductDetailMain_content_top {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #FF916F;
+}
+
+.ProductDetailMain_content_name {
+    font-size: 13px;
+}
+
+.ProductDetailMain_content_top .Product_image img {
+    width: 20px;
+}
+
+.ProductDetailMain_content_info {
+    padding-top: 5px;
+}
+
+.ProductDetailMain_content_info .product_info {
+    font-size: 10px;
+    color: gray;
+}
+
+.ProductDetailMain_content_info .ProductDetail_address {
+    font-size: 12px;
+}
+
+.ProductDetailMain_content_info_bottom {
+    display: flex;
+}
+
+.ProductDetailMain_content_info .ProductDetail_price {
+    font-size: 13px;
+}
+
+.ProductDetailMain_content_info .rating img {
+    width: 90px;
+    margin: 10px 0 0 50px;
+}
+
+.ProductDetailMain_content_info_bottom .grade_info {
+    margin-left: 10px;
+}
+
+.ProductDetailMain_content_info_bottom .grade_info .grade {
+    font-size: 10px;
+    color: gray;
+}
+
+.ProductDetailMain_content_info_bottom .grade_info .my_grade {
+    display: flex;
+}
+
+.my_grade_ {
+    color: blue;
+}
+
+.ProductDetailMain_container .ProductDetailMain_coment {
+    font-size: 13px;
+    text-align: center;
+    margin-top: 5px;
+}

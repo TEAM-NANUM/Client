@@ -22,3 +22,9 @@
     line-height: 25px;
     border-radius: 18px;
 }
+
+.Product_list {
+    overflow: scroll;
+    height: calc(100vh - 150px);
+    padding: 0 20px;
+}
