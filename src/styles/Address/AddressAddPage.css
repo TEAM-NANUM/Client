@@ -1,25 +1,22 @@
-.AddressPage_container {
-    width: 100%;
+.AddressAddPage_container::-webkit-scrollbar {
+    display: none;
+}
+
+.AddressAddPage_container {
+    width: 90%;
     height: calc(100vh - 150px);
     overflow-y: scroll;
-    margin: 0 auto;
+    margin: 5% auto;
     display: flex;
     flex-direction: column;
     background-color: #fff;
 }
-
-.AddressPage_container::-webkit-scrollbar {
-    display: none;
+.AddressAddPage_header {
+    display: flex;
+    align-items: center;
 }
-
-.Address_add {
-    width: 82%;
-    margin: 0 auto;
-    padding: 4%;
-    text-align: center;
-    font-size: 21px;
+.AddressAddPage_header > p {
+    margin-right: 3%;
+    font-size: 15px;
     font-weight: bold;
-    border-radius: 10px;
-    background-color: #FF916F;
-    cursor: pointer;
 }
