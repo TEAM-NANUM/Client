@@ -1,0 +1,42 @@
+.PointForm_container {
+    width: 100%;
+    margin: 5% 0 10% 0;
+}
+
+.PointForm_text {
+    width: 20%;
+    padding: 1.5%;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    background-color: #FF916F;
+    border-radius: 20px;
+}
+
+.PointForm_box {
+    width: 95%;
+    margin: 5% auto;
+    padding: 2%;
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #FF916F;
+    border-radius: 10px;
+}
+
+.PointForm_won {
+    font-size: 24px;
+}
+
+.PointForm_add_box {
+    display: flex;
+    justify-content: space-between;
+}
+
+.PointForm_add {
+    width: 25%;
+    padding: 2%;
+    text-align: center;
+    border: 1px solid #FF916F;
+    border-radius: 10px;
+    cursor: pointer;
+}
