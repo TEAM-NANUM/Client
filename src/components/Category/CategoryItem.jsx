@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import "../../styles/Category/CategoryItem.css"
+import axios from 'axios';
 
-const CategoryItem = ({category_id}) => {
+const CategoryItem = ({category_id, PROXY}) => {
 
     const [categoryItem, setCategoryItem] = useState({    
         "subcategories": [
@@ -20,11 +21,18 @@ const CategoryItem = ({category_id}) => {
       ]
     })
 
+    useEffect(() =>{
+      axios.get(`${PROXY}/api/categories/${category_id}/subcategories`)
+      .then((res) => setCategoryItem(res.data))
+      .catch((err) => console.log(err))
+    }, [])
+    
+
     return (
         <div className='categoryItem_container'>
             {categoryItem.subcategories.map((item, idx) => 
-                <div className='categoryItem'>
-                    <span key={idx}>- {item.name}</span>
+                <div className='categoryItem' key={idx}>
+                    <span>- {item.name}</span>
                 </div>
             )}
         </div>
