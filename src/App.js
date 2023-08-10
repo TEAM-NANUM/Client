@@ -13,12 +13,49 @@ import PointPage from "./pages/Point/PointPage";
 import { useLoginStore } from "./components/Account/Store";
 import AddressAddPage from "./pages/Address/AddressAddPage";
 import { useState } from "react";
+import AddressFixPage from "./pages/Address/AddressFixPage";
 
 function App() {
   const { access_token, token_set } = useLoginStore();
   const PROXY = process.env.REACT_APP_PROXY;
 
   const [userData, setUserData] = useState();
+
+  // 주소지 관련 정보
+  const [addressList, setAddressList] = useState({
+    delivery_address: [
+      {
+        delivery_id: "배송지 pk",
+        nickname: "배송지 별칭",
+        address: {
+          zip_code: "string",
+          default_address: "string",
+          detail_address: "string",
+        },
+        is_default: true, //기본 배송지 여부
+      },
+      {
+        delivery_id: "배송지 pk",
+        nickname: "배송지 별칭",
+        address: {
+          zip_code: "string",
+          default_address: "string",
+          detail_address: "string",
+        },
+        is_default: false, //기본 배송지 여부
+      },
+      {
+        delivery_id: "배송지 pk",
+        nickname: "배송지 별칭",
+        address: {
+          zip_code: "string",
+          default_address: "string",
+          detail_address: "string",
+        },
+        is_default: false, //기본 배송지 여부
+      },
+    ],
+  });
 
   return (
     <div className="App">
@@ -49,8 +86,24 @@ function App() {
           <Route path="/group" element={<GroupPage />}></Route>
           <Route path="/group/add" element={<GroupAddPage />}></Route>
           <Route path="/orderlist" element={<OrderListPage />}></Route>
-          <Route path="/address" element={<AddressPage />}></Route>
-          <Route path="/addressAdd" element={<AddressAddPage />}></Route>
+          <Route
+            path="/address"
+            element={
+              <AddressPage
+                PROXY={PROXY}
+                addressList={addressList}
+                setAddressList={setAddressList}
+              />
+            }
+          ></Route>
+          <Route
+            path="/addressAdd"
+            element={<AddressAddPage PROXY={PROXY} />}
+          ></Route>
+          <Route
+            path="/addressFix"
+            element={<AddressFixPage PROXY={PROXY} addressList={addressList} />}
+          ></Route>
           <Route path="/review" element={<ReviewPage />}></Route>
           <Route path="/point" element={<PointPage />}></Route>
         </Routes>
