@@ -11,7 +11,7 @@ const CategoryPage = ({PROXY}) => {
     "categories": [
       {
         "id": 1,
-        "name": "제철 과일"
+        "name": "제철과일"
       },
       {
         "id": 2,
@@ -23,8 +23,7 @@ const CategoryPage = ({PROXY}) => {
 
   useEffect(() => {
     axios.get(`${PROXY}/api/categories`)
-    .then((res) => console.log(res))
-    // .then((res) => setCategory(res))
+    .then((res) => setCategory(res.data))
     .catch((err) => console.log(err))
   }, []);
 
@@ -32,7 +31,7 @@ const CategoryPage = ({PROXY}) => {
     <>
       <SubHeader page="카테고리" />
       <div className='category_container'>
-        {category.categories.map((list, idx) => <CategoryList list={list} key={idx} />)}
+        {category.categories.map((list, idx) => <CategoryList PROXY={PROXY} list={list} key={idx} />)}
       </div>
       <Footer />
     </>

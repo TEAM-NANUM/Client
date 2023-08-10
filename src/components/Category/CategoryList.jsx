@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import "../../styles/Category/CategoryList.css"
 import CategoryItem from './CategoryItem';
 
-const CategoryList = ({list}) => {
+const CategoryList = ({list, PROXY}) => {
 
     const [currentView, setCurrentView] = useState("");
     const [currentViewState, setCurrentViewState] = useState(true);
@@ -15,6 +15,8 @@ const CategoryList = ({list}) => {
         }
     }
 
+    console.log(list)
+
     return (
         <div className='categoryList_container'>
             <div className='categoryList_title'>
@@ -25,7 +27,7 @@ const CategoryList = ({list}) => {
                 <div id='categoryList_viewBtn'><img id={list.name} src='./img/imgCategory/view.svg' alt='view' onClick={onViewToggle} /></div>
             </div>
             <div className='categoryList_content'>
-                {currentViewState && (currentView === list.name) ? <CategoryItem category_id={list.id} /> : null}
+                {currentViewState && (currentView === list.name) ? <CategoryItem PROXY={PROXY} category_id={list.id} /> : null}
             </div>
         </div>
     );
