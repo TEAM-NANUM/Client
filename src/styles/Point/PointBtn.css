@@ -1,0 +1,11 @@
+.PointBtn_container {
+    width: 92%;
+    margin: 5% auto 0 auto;
+    padding: 4%;
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+    background-color: #FF916F;
+    border-radius: 10px;
+    cursor: pointer;
+}

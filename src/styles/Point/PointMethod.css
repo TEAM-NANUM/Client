@@ -1,0 +1,23 @@
+.PointMethod_container {
+    width: 100%;
+    margin: 0 0 5% 0;
+}
+
+.PointMethod_text {
+    width: 20%;
+    padding: 1.5%;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    background-color: #FF916F;
+    border-radius: 20px;
+}
+
+.PointMethod_method {
+    width: 88%;
+    margin: 5% auto;
+    padding: 5%;
+    text-align: center;
+    border: 1px solid #FF916F;
+    border-radius: 10px;
+}
