@@ -1,45 +1,29 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import SubHeader from '../../components/SubHeader';
 import Footer from '../../components/Footer/Footer';
 import "../../styles/Address/AddressPage.css";
 import AddressList from '../../components/Address/AddressList';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
-const AddressPage = () => {
+const AddressPage = ({PROXY, addressList, setAddressList}) => {
 
     const navigate = useNavigate();
 
-    const [addressList,  setAddressList] = useState({
-        "delivery_address":[
-            {
-                "address_id" : "배송지 pk",
-                "nickname" : "배송지 별칭",
-                "default_address": "주소",
-                "detail_address" : "상세 주소",
-                "isDefault" : "true"//기본 배송지 여부
-            },
-            {
-                "address_id" : "배송지 pk",
-                "nickname" : "배송지 별칭",
-                "default_address": "주소",
-                "detail_address" : "상세 주소",
-                "isDefault" : "true"//기본 배송지 여부
-            },
-            {
-                "address_id" : "배송지 pk",
-                "nickname" : "배송지 별칭",
-                "default_address": "주소",
-                "detail_address" : "상세 주소",
-                "isDefault" : "true"//기본 배송지 여부
-            },
-        ]
-    })
+    useEffect(() => {
+        axios.get(`${PROXY}/api/delivery-address`, {
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem('access_token')}`,
+            }})
+            .then((res) => setAddressList(res.data))
+            .catch((err) => console.log(err))
+    }, [])
 
     return (
         <>
             <SubHeader page={"배송지 관리"} />
             <div className='AddressPage_container'>
-                <AddressList addressList={addressList} />
+                <AddressList addressList={addressList} PROXY={PROXY} />
                 <div className='Address_add' onClick={() => navigate("/addressAdd")}>+ 배송지 추가</div>
             </div>
             <Footer />

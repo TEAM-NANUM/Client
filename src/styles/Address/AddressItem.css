@@ -7,19 +7,28 @@
 
 .AddressItem_Header {
     width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin: 0 auto;
     border-bottom: 1px solid #FF916F;
 }
 
-.AddressItem_Header > div {
-    padding: 3% 3% 3% 0;
+.address_delete {
+    font-size: 14px;
+    color: red;
+    cursor: pointer;
+}
+
+.AddressItem_Header_name{
+    padding: 3% 7% 3% 0;
     font-size: 21px;
     font-weight: bold;
 }
 
 .AddressItem_address {
     width: 90%;
-    margin: 5% auto;
+    margin: 8% auto;
     font-size: 16px;
 }
 
@@ -27,15 +36,21 @@
     width: 90%;
     margin: 5% auto;
     display: flex;
-    justify-content: end;
     text-align: center;
 }
-.AddressItem_bottom > div {
-    width: 40%;
-    padding: 1%;
+
+.AddressItem_bottom_box {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.AddressItem_bottom_box > div {
+    width: 35%;
+    padding: 2%;
     margin-bottom: 5%;
     font-size: 16px;
-    background-color: #FF916F;
     border-radius: 10px;
     cursor: pointer;
+    background-color: #FF916F;
 }
