@@ -3,7 +3,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoginPage from "./pages/Account/LoginPage";
 import MainPage from "./pages/Main/MainPage";
 import CategoryPage from "./pages/Category/CategoryPage";
+import ProductPage from "./pages/Product/ProductPage";
+import ProductDetailPage from "./pages/Product/ProductDetailPage";
 import MyPage from "./pages/MyPage/MyPage";
+import ShoppingCart from "./pages/ShoppingCart/ShoppingCartPage";
 import GroupPage from "./pages/Group/GroupPage";
 import GroupAddPage from "./pages/Group/GroupAddPage";
 import OrderListPage from "./pages/OrderList/OrderListPage";
@@ -82,6 +85,8 @@ function App() {
             path="/category"
             element={<CategoryPage PROXY={PROXY} />}
           ></Route>
+          <Route path="/search" element={<ProductPage />}></Route>
+          <Route path="/product/detail" element={<ProductDetailPage />}></Route>
           <Route
             path="/mypage"
             element={<MyPage userData={userData} />}
@@ -116,6 +121,7 @@ function App() {
           ></Route>
           <Route path="/review" element={<ReviewPage />}></Route>
           <Route path="/point" element={<PointPage />}></Route>
+          <Route path="/shoppingCart" element={<ShoppingCart />}></Route>
         </Routes>
       </BrowserRouter>
     </div>
