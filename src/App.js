@@ -32,7 +32,7 @@ function App() {
           default_address: "string",
           detail_address: "string",
         },
-        is_default: true, //기본 배송지 여부
+        is_default: false, //기본 배송지 여부
       },
       {
         delivery_id: "배송지 pk",
@@ -56,6 +56,9 @@ function App() {
       },
     ],
   });
+
+  // 주소지 수정 관련
+  const [fixNum, setFixNum] = useState(0);
 
   return (
     <div className="App">
@@ -93,6 +96,7 @@ function App() {
                 PROXY={PROXY}
                 addressList={addressList}
                 setAddressList={setAddressList}
+                setFixNum={setFixNum}
               />
             }
           ></Route>
@@ -102,7 +106,13 @@ function App() {
           ></Route>
           <Route
             path="/addressFix"
-            element={<AddressFixPage PROXY={PROXY} addressList={addressList} />}
+            element={
+              <AddressFixPage
+                PROXY={PROXY}
+                addressList={addressList}
+                item={addressList.delivery_address[fixNum]}
+              />
+            }
           ></Route>
           <Route path="/review" element={<ReviewPage />}></Route>
           <Route path="/point" element={<PointPage />}></Route>

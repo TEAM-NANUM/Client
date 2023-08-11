@@ -6,7 +6,7 @@ import AddressList from '../../components/Address/AddressList';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-const AddressPage = ({PROXY, addressList, setAddressList}) => {
+const AddressPage = ({PROXY, addressList, setAddressList, setFixNum}) => {
 
     const navigate = useNavigate();
 
@@ -23,7 +23,7 @@ const AddressPage = ({PROXY, addressList, setAddressList}) => {
         <>
             <SubHeader page={"배송지 관리"} />
             <div className='AddressPage_container'>
-                <AddressList addressList={addressList} PROXY={PROXY} />
+                <AddressList addressList={addressList} PROXY={PROXY} setFixNum={setFixNum} />
                 <div className='Address_add' onClick={() => navigate("/addressAdd")}>+ 배송지 추가</div>
             </div>
             <Footer />
