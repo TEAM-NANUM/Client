@@ -14,10 +14,16 @@
 }
 
 .PointMethod_method {
-    width: 88%;
+    display: flex;
+    justify-content: center;
     margin: 5% auto;
-    padding: 5%;
-    text-align: center;
+}
+
+.method {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border: 1px solid #FF916F;
     border-radius: 10px;
 }

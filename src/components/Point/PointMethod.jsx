@@ -6,7 +6,9 @@ const PointMethod = () => {
         <div className='PointMethod_container'>
             <div className='PointMethod_text'>결제 수단</div>
             <div className='PointMethod_method'>
-                <img src='./img/imgPoint/card.svg' alt='신용카드' />
+                <div className='method'><img src='./img/imgPoint/card.svg' alt='신용카드' /></div>
+                <div className='method'><img src='./img/imgPoint/tosspay.svg' alt='토스페이' /></div>
+                <div className='method'><img src='./img/imgPoint/kakaopay.svg' alt='카카오페이' /></div>
             </div>
         </div>
     );
