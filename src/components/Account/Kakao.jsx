@@ -19,7 +19,7 @@ const Kakao = ({ access_token, token_set, PROXY }) => {
         token_set(location.search.slice(7));
         
         // 엑세스 토큰 로컬 스토리지에 저장
-        localStorage.setItem('access_token', location.search.slice(7));
+        (location.search.slice(7)) ? localStorage.setItem('access_token', location.search.slice(7)) : console.log(".");
 
         if (localStorage.getItem('access_token')) {
             navigate('/main')
