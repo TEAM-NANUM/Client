@@ -19,13 +19,13 @@ const ProductPage = () => {
                 <div className='ProductPage_top_right'>정렬하기</div>
             </div>
             <div className='Product_list'>
-                <div onClick={() => navigate('/product/detail')}>
+                <div onClick={() => navigate('/productDetail')}>
                     <Product></Product>
                 </div>
-                <div onClick={() => navigate('/product/detail')}>
+                <div onClick={() => navigate('/productDetail')}>
                     <Product></Product>
                 </div>
-                <div onClick={() => navigate('/product/detail')}>
+                <div onClick={() => navigate('/productDetail')}>
                     <Product></Product>
                 </div>
             </div>

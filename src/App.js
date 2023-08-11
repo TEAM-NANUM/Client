@@ -86,13 +86,13 @@ function App() {
             element={<CategoryPage PROXY={PROXY} />}
           ></Route>
           <Route path="/search" element={<ProductPage />}></Route>
-          <Route path="/product/detail" element={<ProductDetailPage />}></Route>
+          <Route path="/productDetail" element={<ProductDetailPage />}></Route>
           <Route
             path="/mypage"
             element={<MyPage userData={userData} />}
           ></Route>
           <Route path="/group" element={<GroupPage />}></Route>
-          <Route path="/group/add" element={<GroupAddPage />}></Route>
+          <Route path="/groupAdd" element={<GroupAddPage />}></Route>
           <Route path="/orderlist" element={<OrderListPage />}></Route>
           <Route
             path="/address"
