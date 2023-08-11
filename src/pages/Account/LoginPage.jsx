@@ -16,7 +16,7 @@ const LoginPage = ({ access_token, token_set, PROXY }) => {
             <div className='login_form'>
                 <Kakao access_token={access_token} token_set={token_set} PROXY={PROXY}/>
                 <p>또는</p>
-                <Code code={code} setCode={setCode} />
+                <Code code={code} setCode={setCode} PROXY={PROXY} />
                 <p>판매자 로그인</p>
             </div>
         </div>
