@@ -48,7 +48,7 @@ const AddressAddForm = ({PROXY}) => {
 
     const onDetailAddress = (e) => {
         setDetail_address(e.currentTarget.value)
-        setAddressAddForm({...addressAddForm, "address" : {"detail_address" : e.currentTarget.value}})
+        setAddressAddForm({...addressAddForm, "address" : {"zip_code" : zip_code, "default_address" : default_address, "detail_address" : e.currentTarget.value}})
     }
 
     const handle = {
@@ -58,7 +58,6 @@ const AddressAddForm = ({PROXY}) => {
         selectAddress: (data) => {
             setZip_code(data.zonecode);
             setDefault_address(data.address);
-            setAddressAddForm({...addressAddForm, "address" : {"zip_code" : data.zonecode, "default_address" : data.address}})
             setOpenPostCode(false);
         },
     }

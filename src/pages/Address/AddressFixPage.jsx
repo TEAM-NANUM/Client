@@ -4,7 +4,9 @@ import Footer from '../../components/Footer/Footer';
 import "../../styles/Address/AddressFixPage.css";
 import AddressFixForm from '../../components/Address/AddressFixForm';
 
-const AddressFixPage = ({PROXY, addressList}) => {
+const AddressFixPage = ({PROXY, addressList, item}) => {
+
+
     return (
         <>
             <SubHeader page={"배송지 수정"} />
@@ -13,7 +15,7 @@ const AddressFixPage = ({PROXY, addressList}) => {
                     <p>배송지 정보 수정</p>
                     <img src='./img/imgAddress/AddressAdd.svg' alt='배송지 정보 등록'/>
                 </div>
-                <AddressFixForm />
+                <AddressFixForm PROXY={PROXY} item={item} />
             </div>
             <Footer />
         </>
