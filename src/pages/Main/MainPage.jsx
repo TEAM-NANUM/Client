@@ -7,7 +7,7 @@ import Footer from '../../components/Footer/Footer';
 import { useLoginStore } from '../../components/Account/Store';
 import axios from 'axios';
 
-const MainPage = ({PROXY, setUserData}) => {
+const MainPage = ({PROXY, userData, setUserData}) => {
 
     useEffect(() => {
         axios.get(`${PROXY}/api/user`, {
@@ -17,6 +17,8 @@ const MainPage = ({PROXY, setUserData}) => {
             .then((res) => setUserData(res.data))
             .catch((err) => console.log(err));
     }, [])
+
+    console.log(userData)
 
     return (
         <div>

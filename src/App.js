@@ -74,12 +74,19 @@ function App() {
                 access_token={access_token}
                 token_set={token_set}
                 PROXY={PROXY}
+                setUserData={setUserData}
               />
             }
           ></Route>
           <Route
             path="/main"
-            element={<MainPage PROXY={PROXY} setUserData={setUserData} />}
+            element={
+              <MainPage
+                PROXY={PROXY}
+                userData={userData}
+                setUserData={setUserData}
+              />
+            }
           ></Route>
           <Route
             path="/category"

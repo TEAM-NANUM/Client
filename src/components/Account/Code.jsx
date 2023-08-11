@@ -3,7 +3,7 @@ import "../../styles/Account/Code.css";
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-const Code = ({code, setCode, PROXY}) => {
+const Code = ({code, setCode, PROXY, setUserData}) => {
 
     const navigate = useNavigate();
 
@@ -15,14 +15,15 @@ const Code = ({code, setCode, PROXY}) => {
         if (e.key === 'Enter') {
             axios.post(`${PROXY}/api/login/guest`, {
                 invite_code : code})
-            .then((res) => console.log(res))
+            .then((res) => localStorage.setItem('access_token', res.data.token))
+            .then((res) => navigate("/main"))
             .catch((err) => console.log(err))
         }
     }
     
     return (
         <div className='code_container'>
-            <input type='text' value={code} placeholder='코드 입력' onChange={onCode} onKeyPress={onEnter} />
+            <input type='text' value={code} placeholder='코드 입력 후 엔터' onChange={onCode} onKeyPress={onEnter} />
         </div>
     );
 };
