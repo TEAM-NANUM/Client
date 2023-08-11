@@ -1,0 +1,26 @@
+.categoryList_title {
+    width: 95%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 1px solid #FF916F;
+}
+
+.categoryList_name_icon {
+    width: 70%;
+    display: flex;
+}
+
+#categoryList_name {
+    font-weight: bold;
+}
+
+#categoryList_viewBtn > img {
+    cursor: pointer;
+}
+
+.categoryList_content {
+    width: 95%;
+    margin: 0 auto;
+}

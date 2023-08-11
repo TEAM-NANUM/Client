@@ -1,0 +1,53 @@
+.guest_profil {
+    width: 100%;
+    margin-top: 5%;
+    background-color: #F5F5F5;
+    border-radius: 10px;
+}
+
+.guest_header {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #FF916F;
+}
+
+.guest_header > p {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.guest_content {
+    width: 90%;
+    margin: 5% auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.guest_profil_info {
+    width: 85%;
+    display: flex;
+    align-items: center;
+}
+
+.guest_name_box {
+    margin: 0 3% 0 3%;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#guest_name {
+    font-size: 10px;
+    font-weight: 500;
+    color: #aca8a8;
+}
+
+.guest_logout {
+    font-weight: bold;
+    font-size: 12px;
+    color: #DA0000;
+    cursor: pointer;
+}

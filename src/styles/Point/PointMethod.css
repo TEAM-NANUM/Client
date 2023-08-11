@@ -1,0 +1,44 @@
+.PointMethod_container {
+    width: 100%;
+    margin: 0 0 5% 0;
+}
+
+.PointMethod_text {
+    width: 20%;
+    padding: 1.5%;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    background-color: #FF916F;
+    border-radius: 20px;
+}
+
+.PointMethod_method {
+    display: flex;
+    justify-content: space-between;
+    margin: 5% auto;
+}
+
+.method {
+    width: 30%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #FF916F;
+    border-radius: 10px;
+}
+
+.method_active {
+    width: 30%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #FF916F;
+    border-radius: 10px;
+    background-color: #f67953;
+}
+
+.method > img, .method_active > img {
+    width: 50%;
+    margin: 0 auto;
+}

@@ -1,0 +1,17 @@
+.NotLogin_container::-webkit-scrollbar {
+    display: none;
+}
+
+.NotLogin_container{
+    width: 90%;
+    overflow-y: scroll;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.NotLogin_container > img {
+    width: 100%;
+}

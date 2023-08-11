@@ -4,7 +4,7 @@ import "../../styles/Account/Logo.css";
 const Logo = () => {
     return (
         <div className='Logo_container'>
-            <img src='./img/imgAccount/logo.png' alt='로고' />
+            <img src='./img/imgAccount/logo.svg' alt='로고' />
         </div>
     );
 };

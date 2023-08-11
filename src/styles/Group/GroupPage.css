@@ -1,0 +1,21 @@
+.add_group {
+    margin: 0 20px;
+    margin-bottom: 20px;
+    width: 350px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    background-color: #FF916F;
+    border-radius: 10px;
+}
+
+.add_group:hover {
+    background-color: #fd8560;
+}
+
+.group_page_coment {
+    font-size: 12px;
+    color: gray;
+    display: flex;
+    justify-content: center;
+}

@@ -1,0 +1,36 @@
+.Header_container {
+    display: flex;
+    width: auto;
+    height: 60px;
+    border-bottom: 1px solid #CCCCCC;
+    align-items: center;
+}
+
+.Header_container .Header_icon img {
+    width: auto;
+    height: 40px;
+    margin-left: 15px;
+}
+
+.Header_container .Header_search_icon img {
+    width: auto;
+    height: 22px;
+    margin-left: 5px;
+}
+
+.searchBar {
+    width: 170px;
+    height: 30px;
+    font-size: 12px;
+    border-radius: 20px;
+    margin-left: 40px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: #FF916F;
+    opacity: 45%;
+    border: none;
+}
+
+.searchBar::placeholder {
+    color: black;
+}

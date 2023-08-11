@@ -1,0 +1,24 @@
+.PurchaseInfo_container {
+    overflow: scroll;
+    padding: 20px;
+    height: 510px;
+}
+
+.PurchaseInfo_container .contour {
+    margin: 10px 0 0 160px;
+}
+
+.Purchase_buttom {
+    margin: 20px 0 0 8px;
+    width: 320px;
+    height: 40px;
+    font-weight: bold;
+    background-color: #FF916F;
+    border-radius: 10px;
+    text-align: center;
+    line-height: 40px;
+}
+
+.Purchase_buttom:hover {
+    background-color: #ff825c;
+}
