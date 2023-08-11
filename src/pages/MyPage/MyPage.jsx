@@ -5,6 +5,9 @@ import GuestPage from './GuestPage';
 import "../../styles/MyPage/MyPage.css"
 
 const MyPage = ({userData}) => {
+
+    console.log(userData)
+
     return (
         <div className='mypage_container'>
             {userData ? ((userData.is_guest === false) ? <UserPage userData={userData} /> : <GuestPage userData={userData} />) : <NotLogin />}

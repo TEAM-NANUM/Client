@@ -7,18 +7,19 @@ import PointResult from '../../components/Point/PointResult';
 import "../../styles/Point/PointPage.css";
 import PointBtn from '../../components/Point/PointBtn';
 
-const PointPage = () => {
+const PointPage = ({PROXY}) => {
 
     const [point, setPoint] = useState(0)
+    const [paymentMethod, setPaymentMethod] = useState();
 
     return (
         <>
             <SubHeader page={"포인트 충전"} />
             <div className='PointPage_container'>
                 <PointForm point={point} setPoint={setPoint} />
-                <PointMethod />
+                <PointMethod paymentMethod={paymentMethod} setPaymentMethod={setPaymentMethod}/>
                 <PointResult point={point} />
-                <PointBtn point={point} />
+                <PointBtn PROXY={PROXY} point={point} paymentMethod={paymentMethod} />
             </div>
             <Footer />
         </>

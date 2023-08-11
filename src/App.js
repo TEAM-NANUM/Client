@@ -15,8 +15,9 @@ import ReviewPage from "./pages/Review/ReviewPage";
 import PointPage from "./pages/Point/PointPage";
 import { useLoginStore } from "./components/Account/Store";
 import AddressAddPage from "./pages/Address/AddressAddPage";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import AddressFixPage from "./pages/Address/AddressFixPage";
+import axios from "axios";
 
 function App() {
   const { access_token, token_set } = useLoginStore();
@@ -62,6 +63,17 @@ function App() {
 
   // 주소지 수정 관련
   const [fixNum, setFixNum] = useState(0);
+
+  useEffect(() => {
+    axios
+      .get(`${PROXY}/api/user`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("access_token")}`,
+        },
+      })
+      .then((res) => setUserData(res.data))
+      .catch((err) => console.log(err));
+  }, []);
 
   return (
     <div className="App">
@@ -127,7 +139,7 @@ function App() {
             }
           ></Route>
           <Route path="/review" element={<ReviewPage />}></Route>
-          <Route path="/point" element={<PointPage />}></Route>
+          <Route path="/point" element={<PointPage PROXY={PROXY} />}></Route>
           <Route path="/shoppingCart" element={<ShoppingCart />}></Route>
         </Routes>
       </BrowserRouter>

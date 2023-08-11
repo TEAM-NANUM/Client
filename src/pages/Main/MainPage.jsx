@@ -9,17 +9,6 @@ import axios from 'axios';
 
 const MainPage = ({PROXY, userData, setUserData}) => {
 
-    useEffect(() => {
-        axios.get(`${PROXY}/api/user`, {
-            headers: {
-                'Authorization': `Bearer ${localStorage.getItem('access_token')}`,
-            }})
-            .then((res) => setUserData(res.data))
-            .catch((err) => console.log(err));
-    }, [])
-
-    console.log(userData)
-
     return (
         <div>
             <Header></Header>
