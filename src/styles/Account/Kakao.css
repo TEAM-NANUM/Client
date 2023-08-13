@@ -1,8 +1,9 @@
 .kakao_container {
-    width: 50%;
-    margin: 0 auto;
+  cursor: pointer;
+  width: 85%;
+  margin: 0 auto;
 }
 
-.kakao_container>img {
-    width: 100%;
+.kakao_container > img {
+  width: 100%;
 }
