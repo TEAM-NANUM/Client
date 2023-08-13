@@ -2,7 +2,8 @@ import react from "react";
 import "../../styles/Group/GroupList.css"
 import Group from "../Group/Group";
 
-const GroupList = () => {
+const GroupList = ({ group }) => {
+
     return (
         <div className="GroupList_container">
             <div className="GroupList_title">
@@ -10,7 +11,7 @@ const GroupList = () => {
                 <img src="./img/imgGroup/groupList.png" alt="그룹원 목록"></img>
             </div>
             <div className="GroupList_content">
-                <Group></Group>
+                {group.member.map((group, idx) => <Group group={group} key={idx} />)}
             </div>
         </div>
     )

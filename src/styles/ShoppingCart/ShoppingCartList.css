@@ -36,6 +36,10 @@
     border-radius: 50%;
 }
 
+.ShoppingCartList_top_left .select {
+    background-color: #ff8864;
+}
+
 .ShoppingCartList_content {
     display: flex;
     margin: 5px 10px;
@@ -53,18 +57,25 @@
     font-size: 15px
 }
 
+.Product_detail_info .Product_quantity {
+    width: 30px;
+}
+
 .Product_detail_info .quantity {
-    font-size: 11px;
+    font-size: 10px;
     color: gray;
+    margin-left: 5px;
 }
 
 .Product_detail_info .quantity_info {
     display: flex;
+    font-size: 14px;
+    margin-left: 5px;
 }
 
 .Product_detail_info .quantity_update_bar {
     display: flex;
-    margin-left: 10px;
+    margin-left: 30px;
 }
 
 .plus_bar,
@@ -74,7 +85,7 @@
     height: 20px;
     border: 1px solid black;
     text-align: center;
-    line-height: 20px;
+    line-height: 17px;
     background-color: #FFFFFF;
 }
 
@@ -92,6 +103,7 @@
     border-radius: 10px;
     text-align: center;
     line-height: 20px;
+    cursor: pointer;
 }
 
 .update_button:hover {

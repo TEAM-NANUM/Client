@@ -3,11 +3,11 @@ import SubHeader from '../../components/SubHeader';
 import GroupInfoInput from "../../components/Group/GroupInfoInput";
 import Footer from "../../components/Footer/Footer";
 
-const GroupAddPage = () => {
+const GroupAddPage = ({ PROXY }) => {
     return (
         <div>
             <SubHeader page={"그룹원 추가"}></SubHeader>
-            <GroupInfoInput></GroupInfoInput>
+            <GroupInfoInput PROXY={PROXY}></GroupInfoInput>
             <Footer></Footer>
         </div>
     );

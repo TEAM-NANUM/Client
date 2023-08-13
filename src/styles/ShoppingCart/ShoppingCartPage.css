@@ -21,6 +21,10 @@
     border-radius: 50%;
 }
 
+.ShoppingCartPage_top_right .select {
+    background-color: #FF916F;
+}
+
 .ShoppingCartList {
     overflow: scroll;
     height: calc(100vh - 220px);

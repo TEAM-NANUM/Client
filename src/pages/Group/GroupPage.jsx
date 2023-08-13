@@ -1,19 +1,42 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
+import axios from 'axios';
 import "../../styles/Group/GroupPage.css";
 import SubHeader from '../../components/SubHeader';
 import MyInfo from '../../components/Group/MyInfo';
 import GroupList from "../../components/Group/GroupList";
 import Footer from "../../components/Footer/Footer";
 
-const GroupPage = () => {
+const GroupPage = ({ PROXY }) => {
     const navigate = useNavigate();
+
+    const [group, setGroup] = useState({
+        "host": [
+            {
+                "username": "",
+                "point": 1
+            }
+        ],
+        "member": [
+            {
+                "default_address": "",
+                "invite_code": "",
+                "nickname": ""
+            }
+        ]
+    })
+
+    useEffect(() => {
+        axios.get(`${PROXY}/api/groups`)
+            .then((res) => setGroup(res.data))
+            .catch((err) => console.log(err))
+    }, []);
 
     return (
         <div className='GroupPage_container'>
             <SubHeader page="그룹관리" />
-            <MyInfo></MyInfo>
-            <GroupList></GroupList>
+            <MyInfo group={group}></MyInfo>
+            <GroupList group={group}></GroupList>
             <div
                 className='add_group'
                 onClick={() => { navigate('/groupAdd') }}

@@ -1,7 +1,7 @@
-import react from "react";
+import React from "react";
 import "../../styles/Product/Product.css"
 
-const Product = () => {
+const Product = ({ list }) => {
     return (
         <div className="Product_container">
             <div className="Product_top">
@@ -15,25 +15,27 @@ const Product = () => {
             </div>
             <div className="Product_content">
                 <div className="Product_image">
-                    <img src="./img/imgProduct/product.png" alt="상품이미지"></img>
+                    <img src={list.imgUrl} alt="상품이미지"></img>
                 </div>
                 <div className="Product_detail_info">
                     <div className="Product_name">
                         <div className="Product_type">제품명</div>
-                        <div className="Product_info">못난이 사과</div>
+                        <div className="Product_info">{list.name}</div>
                     </div>
                     <div className="Product_location">
                         <div className="Product_type">지역</div>
-                        <div className="Product_info">경북 구미시 홍길동</div>
+                        <div className="Product_info">{list.seller}</div>
                     </div>
                     <div className="Product_other_info">
                         <div className="Product_delivery">
                             <div className="Product_type">배달 방법</div>
-                            <div className="Product_info">직거래, 택배배송</div>
+                            <div className="Product_info">
+                                {list.deliveryType === 'PACKAGE' ? '택배 배송' : '직접 배송'}
+                            </div>
                         </div>
                         <div className="Product_price">
                             <div className="Product_type">가격</div>
-                            <div className="Product_info">18,000원</div>
+                            <div className="Product_info">{list.price}원</div>
                         </div>
                     </div>
                 </div>
@@ -43,3 +45,6 @@ const Product = () => {
 }
 
 export default Product;
+
+
+

@@ -50,6 +50,11 @@
     margin-bottom: 10px;
 }
 
+.Product_location,
+.Product_other_info {
+    margin-left: 5px;
+}
+
 .Product_container .Product_content .Product_type {
     font-size: 10px;
     color: gray;
