@@ -6,14 +6,25 @@ const Shopping = ({navigate}) => {
     return (
         <div className='user_shopping'>
             <div className='user_header'>
-                <p>나의 쇼핑 정보</p>
-                <img src='./img/imgMyPage/shoppinginfo.svg' alt='나의 쇼핑 정보'/>
+                <p style={{padding: "0 0 0 16px", fontSize: "16px"}}>나의 쇼핑 정보</p>
             </div>
             <div className='user_shopping_info'>
-                <span onClick={() => navigate('/orderlist')}>주문내역</span>
-                <span onClick={() => navigate('/address')}>배송지 관리</span>
-                <span onClick={() => navigate('/group')}>그룹 관리</span>
-                <span onClick={() => navigate('/review')}>리뷰 작성</span>
+                <div onClick={() => navigate('/orderlist')}>
+                    <p style={{margin: "0", lineHeight: "1.5"}}>주문내역</p>
+                    <img style={{marginLeft: "auto"}} src='./img/imgMyPage/rightArrow.svg' alt='화살표' />
+                </div>
+                <div onClick={() => navigate('/address')}>
+                    <p style={{margin: "0", lineHeight: "1.5"}}>배송지 관리</p>
+                    <img style={{marginLeft: "auto"}} src='./img/imgMyPage/rightArrow.svg' alt='화살표' />
+                </div>
+                <div onClick={() => navigate('/group')}>
+                    <p style={{margin: "0", lineHeight: "1.5"}}>그룹 관리</p>
+                    <img style={{marginLeft: "auto"}} src='./img/imgMyPage/rightArrow.svg' alt='화살표' />
+                </div>
+                <div onClick={() => navigate('/review')}>
+                    <p style={{margin: "0", lineHeight: "1.5"}}>리뷰 작성</p>
+                    <img style={{marginLeft: "auto"}} src='./img/imgMyPage/rightArrow.svg' alt='화살표' />
+                </div>
             </div>
         </div>
     );

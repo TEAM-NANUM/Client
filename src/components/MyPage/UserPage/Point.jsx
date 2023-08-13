@@ -2,15 +2,15 @@ import React from 'react';
 import "../../../styles/MyPage/UserPage.css";
 
 const Point = ({userData, navigate}) => {
+    const formattedPoint = userData.point.toLocaleString();
 
     return (
         <div className='user_point'>
             <div className='user_header'>
-                <p>포인트 충전</p>
-                <img src='./img/imgMyPage/point.svg' alt='포인트 충전'/>
+                <p style={{padding: "0 0 0 16px", fontSize: "16px"}} >공유 지갑</p>
             </div>
             <div className='user_point_info'>
-                <p className='user_point_current'>머니 : {userData.point} 포인트</p>
+                <p className='user_point_current'>잔액 {formattedPoint}원</p>
                 <div className='user_point_charge' onClick={() => navigate('/point')}>충전하기</div>
             </div>
         </div>
