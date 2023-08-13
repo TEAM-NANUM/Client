@@ -8,16 +8,8 @@ const CategoryItem = ({category_id, PROXY}) => {
         "subcategories": [
         {
           "id": 11,
-          "name": "2차 카테고리 A-1"
+          "name": "로딩중.."
         },
-        {
-          "id": 12,
-          "name": "2차 카테고리 A-2"
-        },
-        {
-          "id": 13,
-          "name": "2차 카테고리 A-3"
-        }
       ]
     })
 

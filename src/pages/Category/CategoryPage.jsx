@@ -8,17 +8,7 @@ import axios from 'axios';
 const CategoryPage = ({PROXY}) => {
 
   const [category, setCategory] = useState({
-    "categories": [
-      {
-        "id": 1,
-        "name": "제철과일"
-      },
-      {
-        "id": 2,
-        "name": "농산물"
-      },
-      // .... 추가적인 1차 카테고리 정보 ....
-    ]
+    "categories": []
   })
 
   useEffect(() => {
