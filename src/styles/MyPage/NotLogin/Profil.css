@@ -1,59 +1,31 @@
-.notlogin_profil {
+.not_login_wrapper {
     width: 100%;
-    margin: 5% 0 5% 0;
-    background-color: #F5F5F5;
-    border-radius: 10px;
-}
-
-.notlogin_header {
-    width: 90%;
-    margin: 0 auto;
+    margin-top: 60px;
+    padding: 24px 16px;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #FF916F;
-}
-
-.notlogin_header > p {
-    font-size: 15px;
-    font-weight: bold;
-}
-
-.notlogin_content {
-    width: 90%;
-    margin: 5% auto 5% auto;
-    display: flex;
-    justify-content: space-around;
+    flex-direction: column;
     align-items: center;
 }
 
-.notlogin_profil_info {
-    width: 100%;
-    display: flex;
-    align-items: center;
+.not_login_wrapper > p {
+    margin: 2px;
+    font-size: 17px;
+    font-weight: 600;
+    color: #444444;
 }
 
-.notlogin_profil_info  > p {
-    font-size: 20px;
-    font-weight: bold;
-    margin-left: 10%;
-    transition: 0.5s;
-}
-
-.notlogin_profil_info  > p:hover {
-    color: #FF916F;
-    cursor: pointer;
-}
-
-#notlogin_name {
-    font-size: 14px;
-    font-weight: 500;
-    color: #aca8a8;
-}
-
-.notlogin_logout {
-    font-weight: bold;
-    font-size: 12px;
-    color: #DA0000;
-    cursor: pointer;
+.redirect_loginpage {
+  width: 100%;
+  display: flex;
+  margin: 0 auto;
+  margin-top: 20px;
+  font-size: 16px;
+  height: 52px;
+  border-radius: 11px;
+  background-color: #FF7A51;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
 }

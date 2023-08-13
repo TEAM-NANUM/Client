@@ -15,3 +15,9 @@
 .NotLogin_container > img {
     width: 100%;
 }
+
+.divider {
+    width: 100%;
+    height: 8px;
+    background-color: rgb(243, 243, 246);
+}

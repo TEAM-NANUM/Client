@@ -3,17 +3,13 @@ import "../../../styles/MyPage/NotLogin/Profil.css";
 
 const Profil = ({onLogin}) => {
     return (
-        <div className='notlogin_profil'>
-            <div className='notlogin_header'>
-                <p>내 정보</p>
-                <img src='./img/imgMyPage/myinfo.svg' alt='내 정보'/>
+        <div className='not_login_wrapper'>
+            <img src='./img/imgAccount/logo.svg' alt='로고' />
+            <div className='not_login_wrapper' style={{marginTop: "0"}}>
+                <p>농수산물 직거래 장터, 한채</p>
+                <p>우리집 냉장고를 든든하게 채워봐요!</p>
             </div>
-            <div className='notlogin_content'>
-                <div className='notlogin_profil_info'>
-                    <img src='./img/imgMyPage/profil.svg' alt='프로필 사진'/>
-                    <p onClick={onLogin}>로그인을 해주세요.</p>
-                </div>
-            </div>
+            <div className='redirect_loginpage' onClick={onLogin}>지금 바로 로그인하기</div>
         </div>
     );
 };

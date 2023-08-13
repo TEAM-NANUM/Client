@@ -1,7 +1,5 @@
 import React from 'react';
 import "../../styles/MyPage/UserPage.css";
-import SubHeader from '../../components/SubHeader';
-import Footer from '../../components/Footer/Footer.jsx';
 import { useNavigate } from 'react-router-dom';
 import Profil from '../../components/MyPage/UserPage/Profil';
 import Shopping from '../../components/MyPage/UserPage/Shopping';
@@ -18,13 +16,11 @@ const UserPage = ({userData}) => {
 
     return (
         <>
-            <SubHeader page={"마이페이지"}/>
-            <div className='userpage_container'>
-                <Profil userData ={userData} onLogout={onLogout} />
-                <Shopping navigate = {navigate} />
-                <Point userData={userData} navigate = {navigate} />
-            </div>
-            <Footer />
+            <Profil userData ={userData} onLogout={onLogout} />
+            <div className='divider' />
+            <Shopping navigate = {navigate} />
+            <div className='divider' />
+            <Point userData={userData} navigate = {navigate} />
         </>
     );
 };
