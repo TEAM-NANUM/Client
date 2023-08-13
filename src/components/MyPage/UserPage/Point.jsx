@@ -10,7 +10,7 @@ const Point = ({userData, navigate}) => {
                 <img src='./img/imgMyPage/point.svg' alt='포인트 충전'/>
             </div>
             <div className='user_point_info'>
-                <p className='user_point_current'>머니 : {userData.point}원</p>
+                <p className='user_point_current'>머니 : {userData.point} 포인트</p>
                 <div className='user_point_charge' onClick={() => navigate('/point')}>충전하기</div>
             </div>
         </div>

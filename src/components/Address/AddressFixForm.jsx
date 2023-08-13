@@ -13,9 +13,9 @@ const AddressAddForm = ({PROXY, item}) => {
 
     const [openPostCode, setOpenPostCode] = useState(false);
     
-    const [receiver, setReceiver] = useState("");
+    const [receiver, setReceiver] = useState(item.receiver);
     const [nickname, setNickname] = useState(item.nickname);
-    const [phone_number, setPhone_number] = useState("");
+    const [phone_number, setPhone_number] = useState(item.phone_number);
     const [zip_code, setZip_code] = useState(item.address.zipCode);
     const [default_address, setDefault_address] = useState(item.address.defaultAddress);
     const [detail_address, setDetail_address] = useState(item.address.detailAddress);

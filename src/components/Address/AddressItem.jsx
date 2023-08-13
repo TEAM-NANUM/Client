@@ -36,6 +36,8 @@ const AddressItem = ({PROXY, addressList, item, setFixNum}) => {
     navigate('/addressFix')
    }
 
+   console.log(item)
+
   return (
         <div className='AddressItem_container'>
           <div className='AddressItem_Header'>

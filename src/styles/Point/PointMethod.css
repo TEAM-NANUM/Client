@@ -14,10 +14,31 @@
 }
 
 .PointMethod_method {
-    width: 88%;
+    display: flex;
+    justify-content: space-between;
     margin: 5% auto;
-    padding: 5%;
-    text-align: center;
+}
+
+.method {
+    width: 30%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     border: 1px solid #FF916F;
     border-radius: 10px;
+}
+
+.method_active {
+    width: 30%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #FF916F;
+    border-radius: 10px;
+    background-color: #f67953;
+}
+
+.method > img, .method_active > img {
+    width: 50%;
+    margin: 0 auto;
 }
