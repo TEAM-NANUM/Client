@@ -1,21 +1,67 @@
 .code_container {
-    width: 70%;
-    margin: 0 auto;
+  width: 85%;
+  display: flex;
+  margin: 0 auto;
 }
 
-.code_container  > input {
-    width: 100%;
-    height: 56.41px;
-    font-size: 16px;
-    font-weight: bold;
-    text-align: center;
-    background-color: #FF916F;
-    border: 1px solid #FF916F;
-    border-radius: 20px;
+.code_container > input {
+  width: 100%;
+  font-size: 16px;
+  height: 46px;
+  font-weight: 500;
+  color: #151515ff;
+  text-align: center;
+  border: 0;
+  background-color: #ebebeb;
+  border-radius: 11px;
 }
 
-.code_container  > input::placeholder {
-    color: black;
-    font-size: 16px;
-    font-weight: bold;
+.code_container > input::placeholder {
+  color: rgb(198, 198, 198);
+  font-size: 16px;
+}
+
+.code_container > input:focus {
+  width: 100%;
+  font-size: 16px;
+  height: 43px;
+  font-weight: 500;
+  color: #151515ff;
+  text-align: center;
+  border: 1.5px solid #ff916f;
+  background-color: #ffffff;
+  border-radius: 11px;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  outline: none;
+}
+
+.login-button {
+  background-color: #ff916f;
+  color: white;
+  border: none;
+  font-weight: 600;
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: 7px;
+  width: 25%;
+  margin-left: 5px;
+  transition: background-color 0.3s ease;
+  opacity: 0;
+  animation: fadeIn 0.1s ease-in-out forwards;
+}
+
+.login-button:hover {
+  background-color: #ff8863;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0.7;
+    transform: translateX(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
