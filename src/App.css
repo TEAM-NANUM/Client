@@ -6,6 +6,15 @@ body {
   width: 390px !important;
   height: 100vh;
   margin: 0 auto;
-  overflow: hidden;
+  padding-bottom: 70px;
+  overflow-y: scroll;
   background-color: #fff;
+  scrollbar-width: none; /* Firefox */
 }
+
+.App::-webkit-scrollbar {
+  display: none;
+}
+
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
+* { font-family: 'Spoqa Han Sans Neo', 'sans-serif'; }

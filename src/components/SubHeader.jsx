@@ -15,8 +15,8 @@ const SubHeader = ({ page }) => {
     return (
         <div className='subHeader_container'>
             <div id='subHeader_back'><img src='./img/imgs/back.svg' alt='Back' onClick={onBack} /></div>
-            <div id='subHeader_iconlogo'><img src='./img/imgs/icon_logo.svg' alt='logo' /></div>
             <div id='subHeader_pageName'><span>{page}</span></div>
+            <div id='subHeader_back' />
         </div>
     );
 };

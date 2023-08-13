@@ -1,10 +1,9 @@
 .category_container::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 .category_container {
-    height: calc(100vh - 150px);
-    overflow-y: scroll;
-    margin-top: 5%;
-    background-color: #fff;
+  overflow-y: scroll;
+  margin-top: 60px;
+  background-color: #fff;
 }
