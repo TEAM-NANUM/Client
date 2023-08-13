@@ -1,7 +1,19 @@
-import react from "react";
+import react, { useState } from "react";
 import "../../styles/Product/ProductSelectPopUp.css"
 
-const ProductSelectPopUp = ({ onDeleteClick }) => {
+const ProductSelectPopUp = ({ product, onDeleteClick }) => {
+    const [quantity, setQuantity] = useState(1);
+
+    const handlePlusClick = () => {
+        setQuantity(quantity + 1);
+    };
+
+    const handleMinusClick = () => {
+        if (quantity > 1) {
+            setQuantity(quantity - 1);
+        }
+    };
+
     return (
         <div className="ProductSelectPopUp_container">
             <div className="ProductSelectPopUp_top">
@@ -13,11 +25,11 @@ const ProductSelectPopUp = ({ onDeleteClick }) => {
                 </div>
                 <div className="ProductSelectPopUp_top_content">
                     <div className="ProductSelectPopUp_type">제품명</div>
-                    <div className="Product_name">못난이 감자 1Kg</div>
+                    <div className="Product_name">{product.name}</div>
                     <div className="ProductSelectPopUp_type">수량</div>
-                    <div className="Quantity_plus_bar">+</div>
-                    <div className="Quantity_bar">10</div>
-                    <div className="Quantity_minus_bar">-</div>
+                    <div className="Quantity_plus_bar" onClick={handlePlusClick}>+</div>
+                    <div className="Quantity_bar">{quantity}</div>
+                    <div className="Quantity_minus_bar" onClick={handleMinusClick}>-</div>
                 </div>
             </div>
             <div className="ProductSelectPopUp_bottom">

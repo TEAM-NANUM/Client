@@ -1,7 +1,7 @@
 import react from "react";
 import "../../styles/Group/Group.css"
 
-const Group = () => {
+const Group = ({ group }) => {
     const handleCopy = async (text) => {
         try {
             await navigator.clipboard.writeText(text);
@@ -16,14 +16,14 @@ const Group = () => {
         <div className="Group_container">
             <div className="Group_content">
                 <img src="./img/imgGroup/myInfo_Icon.png" alt="아이콘"></img>
-                <div className="name">김순자</div>
-                <div className="address">OO도 OO시 OO군 ~</div>
+                <div className="name">{group.nickname}</div>
+                <div className="address">{group.default_address}</div>
             </div>
             <div className="invitation_code">
-                <div className="invitation_code_text">SR4D234F234</div>
+                <div className="invitation_code_text">{group.invite_code}</div>
                 <button
                     className="invitation_code_button"
-                    onClick={() => handleCopy('SR4D234F234')}>
+                    onClick={() => handleCopy(`{group/invite_code}`)}>
                     초대링크복사
                 </button>
             </div>

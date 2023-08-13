@@ -1,8 +1,9 @@
-import react, { useState } from "react";
+import react, { useState, useCallback } from "react";
+import axios from "axios";
 import DaumPostcode from 'react-daum-postcode';
 import "../../styles/Group/GroupInfoInput.css"
 
-const GroupInfoInput = () => {
+const GroupInfoInput = ({ PROXY }) => {
     const [nickname, setNickname] = useState("");
     const [openPostCode, setOpenPostCode] = useState(false);
     const [zipCode, setZipCode] = useState("");
@@ -27,6 +28,25 @@ const GroupInfoInput = () => {
             setOpenPostCode(false);
         },
     }
+
+    const handleSubmit = useCallback(async () => {
+        try {
+            const requestData = {
+                nickname: nickname,
+                address: {
+                    zip_code: zipCode,
+                    default_address: address,
+                    detail_address: detailAddress
+                }
+            };
+
+            await axios.post(`${PROXY}/api/signup/guest`, requestData);
+
+            window.alert("등록되었습니다.");
+        } catch (error) {
+            console.log(error);
+        }
+    }, []);
 
     return (
         <div className="GroupInfoInput_container">

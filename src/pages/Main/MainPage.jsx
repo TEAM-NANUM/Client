@@ -7,12 +7,22 @@ import Footer from '../../components/Footer/Footer';
 import { useLoginStore } from '../../components/Account/Store';
 import axios from 'axios';
 
-const MainPage = ({PROXY, userData, setUserData}) => {
+const MainPage = ({ PROXY, userData, setUserData }) => {
+
+    useEffect(() => {
+        axios.get(`${PROXY}/api/user`, {
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem('access_token')}`,
+            }
+        })
+            .then((res) => setUserData(res.data))
+            .catch((err) => console.log(err));
+    }, [])
 
     return (
         <div>
             <Header></Header>
-            <Carousel></Carousel>
+            <Carousel PROXY={PROXY}></Carousel>
             <PopularItem></PopularItem>
             <NewItem></NewItem>
             <Footer></Footer>

@@ -104,14 +104,14 @@ function App() {
             path="/category"
             element={<CategoryPage PROXY={PROXY} />}
           ></Route>
-          <Route path="/search" element={<ProductPage />}></Route>
-          <Route path="/product/detail" element={<ProductDetailPage />}></Route>
+          <Route path="/search" element={<ProductPage PROXY={PROXY} />}></Route>
+          <Route path="/productDetail:id" element={<ProductDetailPage PROXY={PROXY} />}></Route>
           <Route
             path="/mypage"
             element={<MyPage userData={userData} />}
           ></Route>
-          <Route path="/group" element={<GroupPage />}></Route>
-          <Route path="/group/add" element={<GroupAddPage />}></Route>
+          <Route path="/group" element={<GroupPage PROXY={PROXY} />}></Route>
+          <Route path="/groupAdd" element={<GroupAddPage PROXY={PROXY} />}></Route>
           <Route path="/orderlist" element={<OrderListPage />}></Route>
           <Route
             path="/address"
@@ -139,8 +139,8 @@ function App() {
             }
           ></Route>
           <Route path="/review" element={<ReviewPage />}></Route>
+          <Route path="/shoppingCart" element={<ShoppingCart PROXY={PROXY} />}></Route>
           <Route path="/point" element={<PointPage PROXY={PROXY} />}></Route>
-          <Route path="/shoppingCart" element={<ShoppingCart />}></Route>
         </Routes>
       </BrowserRouter>
     </div>
