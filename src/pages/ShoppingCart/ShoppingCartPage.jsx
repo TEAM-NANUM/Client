@@ -10,6 +10,7 @@ const ShoppingCartPage = ({ PROXY }) => {
 
     const [shoppingCart, setShoppingCart] = useState([]);
     const [selectAll, setSelectAll] = useState(false);
+    const [selectedItems, setSelectedItems] = useState([]);
 
     useEffect(() => {
         axios.get(`${PROXY}/api/cart`, {
@@ -25,6 +26,14 @@ const ShoppingCartPage = ({ PROXY }) => {
             })
             .catch((err) => console.log(err));
     }, []);
+
+    const handleToggleSelect = (itemId) => {
+        const updatedSelectedItems = selectedItems.includes(itemId)
+            ? selectedItems.filter(id => id !== itemId)
+            : [...selectedItems, itemId];
+
+        setSelectedItems(updatedSelectedItems);
+    };
 
     return (
         <div className="ShoppingCartPage_container">
@@ -49,10 +58,16 @@ const ShoppingCartPage = ({ PROXY }) => {
                         PROXY={PROXY}
                         shoppingCart={item}
                         selectAll={selectAll}
+                        isSelected={selectedItems.includes(item.id)}
+                        handleToggleSelect={() => handleToggleSelect(item.id)}
                     ></ShoppingCartList>
                 ))}
             </div>
-            <ShoppingCartSelect PROXY={PROXY} shoppingCartList={shoppingCart.items} />
+            <ShoppingCartSelect
+                PROXY={PROXY}
+                selectedItems={selectedItems}
+                shoppingCartList={shoppingCart.items}
+            />
             <Footer></Footer>
         </div>
     )

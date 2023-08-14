@@ -3,24 +3,21 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "../../styles/ShoppingCart/ShoppingCartSelect.css";
 
-const ShoppingCartSelect = ({ PROXY, shoppingCartList }) => {
+const ShoppingCartSelect = ({ PROXY, shoppingCartList, selectedItems }) => {
     const navigate = useNavigate;
     const handleSelectDelete = async () => {
-        if (shoppingCartList && shoppingCartList.length > 0) {
-            const selectedItems = shoppingCartList.filter(item => item.isSelected);
-
-            for (const selectedItem of selectedItems) {
-                try {
-                    await axios({
-                        method: 'post',
-                        url: `${PROXY}/api/cart/delete`,
-                        data: {
-                            id: selectedItem.id
-                        }
-                    });
-                } catch (error) {
-                    console.log(error);
-                }
+        if (selectedItems && selectedItems.length > 0) {
+            try {
+                await axios({
+                    method: 'post',
+                    url: `${PROXY}/api/cart/delete`,
+                    data: {
+                        item_ids: selectedItems
+                    }
+                });
+                window.location.reload();
+            } catch (error) {
+                console.log(error);
             }
         }
     };

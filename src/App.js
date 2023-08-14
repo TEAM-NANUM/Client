@@ -105,7 +105,7 @@ function App() {
             element={<CategoryPage PROXY={PROXY} />}
           ></Route>
           <Route path="/search" element={<ProductPage PROXY={PROXY} />}></Route>
-          <Route path="/productDetail:id" element={<ProductDetailPage PROXY={PROXY} />}></Route>
+          <Route path="/productDetail/:id" element={<ProductDetailPage PROXY={PROXY} />}></Route>
           <Route
             path="/mypage"
             element={<MyPage userData={userData} />}

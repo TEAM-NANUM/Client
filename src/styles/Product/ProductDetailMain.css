@@ -62,7 +62,7 @@
 
 .ProductDetailMain_content_info .rating img {
     width: 90px;
-    margin: 10px 0 0 50px;
+    margin: 10px 0 0 15px;
 }
 
 .ProductDetailMain_content_info_bottom .grade_info {
@@ -86,4 +86,8 @@
     font-size: 13px;
     text-align: center;
     margin-top: 5px;
+}
+
+.ProductDetail_address {
+    width: 140px;
 }
