@@ -26,5 +26,6 @@
 }
 
 .ShoppingCartList {
+    overflow: scroll;
     height: calc(100vh - 220px);
 }

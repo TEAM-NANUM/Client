@@ -1,6 +1,6 @@
-import react, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
-import "../../styles/ShoppingCart/ShoppingCartList.css"
+import "../../styles/ShoppingCart/ShoppingCartList.css";
 
 const ShoppingCartList = ({ PROXY, shoppingCart, selectAll, isSelected, handleToggleSelect }) => {
     const [quantity, setQuantity] = useState(shoppingCart.quantity);
@@ -16,49 +16,50 @@ const ShoppingCartList = ({ PROXY, shoppingCart, selectAll, isSelected, handleTo
     };
 
     const handleUpdate = useCallback(async () => {
-
-        axios.patch(`${PROXY}/api/cart`, {
-            id: shoppingCart.id,
-            quantity: quantity,
-        }, {
-            headers: {
-                Authorization: `Bearer ${localStorage.getItem('access_token')}`,
-            }
-        }).then((res) => window.location.reload()).catch((err) => console.log(err))
-    }, [quantity, shoppingCart.id, PROXY])
+        axios
+            .patch(
+                `${PROXY}/api/cart`,
+                {
+                    id: shoppingCart.id,
+                    quantity: quantity,
+                },
+                {
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem("access_token")}`,
+                    },
+                }
+            )
+            .then((res) => window.location.reload())
+            .catch((err) => console.log(err));
+    }, [quantity, shoppingCart.id, PROXY]);
 
     const handleDelete = useCallback(async () => {
         try {
-            const token = localStorage.getItem('access_token');
+            const token = localStorage.getItem("access_token");
 
             await axios({
-                method: 'post',
+                method: "post",
                 url: `${PROXY}/api/cart/delete`,
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
                 data: {
-                    item_ids: [shoppingCart.id]
-                }
-            })
-            window.location.reload()
+                    item_ids: [shoppingCart.id],
+                },
+            });
         } catch (error) {
             console.log(error);
         }
-    }, [])
+    }, [shoppingCart.id, PROXY]);
 
     return (
         <div className={`ShoppingCartList_container ${isSelected ? "select" : ""}`}>
             <div className="ShoppingCartList_top">
                 <div className="ShoppingCartList_top_left">
                     <div
-                        className={`ShoppingCartList_select_circle ${isSelected ? "select" : ""} ${selectAll ? "select" : ""}`}
-                        onClick={() => {
-                            handleToggleSelect(); // Use the function passed from the parent
-                            if (selectAll) {
-                                handleToggleSelect(); // Use the function passed from the parent
-                            }
-                        }}
+                        className={`ShoppingCartList_select_circle ${isSelected ? "select" : ""
+                            } ${selectAll ? "select" : ""}`}
+                        onClick={handleToggleSelect(shoppingCart.id)}
                     ></div>
                     <div className="Product_info">상품정보</div>
                     <img src="./img/imgShoppingCart/ProductInfo_icon.png" alt="상품정보 아이콘"></img>
