@@ -3,36 +3,34 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "../../styles/ShoppingCart/ShoppingCartSelect.css";
 
-const ShoppingCartSelect = ({ PROXY, selectedItems }) => {
+const ShoppingCartSelect = ({ PROXY, selectedItems, shoppingCart  }) => {
     const navigate = useNavigate();
 
-    const handleSelectDelete = async () => {
-        try {
-            const token = localStorage.getItem("access_token");
-
-            await axios({
-                method: "post",
-                url: `${PROXY}/api/cart/delete`,
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                },
-                data: {
-                    item_ids: selectedItems,
-                },
-            });
-        } catch (error) {
-            console.log(error);
-        }
+    const calculateTotalPrice = () => {
+        return shoppingCart.reduce((total, item) => {
+          if (selectedItems.includes(item.id)) {
+            return total + item.totalPrice;
+          }
+          return total;
+        }, 0).toLocaleString();
     };
 
     return (
         <div className="ShoppingCartSelect_container">
-            <div className="select_purchase" onClick={() => navigate("/purchase")}>
-                선택 구매
-            </div>
-            <img src="./img/imgShoppingCart/product.png" alt="상품아이콘"></img>
-            <div className="select_delete" onClick={handleSelectDelete}>
-                선택 삭제
+            <div className={selectedItems.length === 0 ? "purchase_disable" : "select_purchase"}  onClick={() => navigate("/purchase")}>
+                <> 
+                    {
+                        selectedItems.length === 0 ? "상품을 선택하세요" : 
+                        <>
+                            <p style={{lineHeight: "1.5",fontSize: "16px", margin: "0 0 0 8px", fontWeight: "500", color: "#ffffffbc"}}>총{" "}
+                            <span style={{fontSize: "16px", margin: 0, fontWeight: "500"}}>{ selectedItems.length }</span>
+                            개
+                            </p>
+                            <p style={{color: "#ffffffbc"}}>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</p>
+                            <p>{calculateTotalPrice()}원 결제하기</p>
+                        </>
+                    }
+                </>
             </div>
         </div>
     );
