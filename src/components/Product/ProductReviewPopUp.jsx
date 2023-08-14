@@ -1,7 +1,7 @@
 import react from "react";
 import "../../styles/Product/ProductReviewPopUp.css"
 import ProductReview from "./ProductReview";
-const ProductReviewPopUp = ({ onDeleteClcik, PROXY, review }) => {
+const ProductReviewPopUp = ({ onDeleteClcik, PROXY, product, review }) => {
     return (
         <div className="ProductReviewPopUp_container">
             <div className="ProductReviewPopUp_top">
@@ -12,7 +12,7 @@ const ProductReviewPopUp = ({ onDeleteClcik, PROXY, review }) => {
                     </div>
                 </div>
                 <div className="ProductReveiwPopUp_top_content">
-                    {review.reviews.map((list, idx) => <ProductReview PROXY={PROXY} list={list} key={idx} />)}
+                    {review.reviews.map((list, idx) => <ProductReview PROXY={PROXY} product={product} list={list} key={idx} />)}
                 </div>
             </div>
             <div className="ProductReviewPopUp_bottom">

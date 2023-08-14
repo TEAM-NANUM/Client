@@ -2,13 +2,8 @@ import react, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import "../../styles/ShoppingCart/ShoppingCartList.css"
 
-const ShoppingCartList = ({ PROXY, shoppingCart, selectAll }) => {
+const ShoppingCartList = ({ PROXY, shoppingCart, selectAll, isSelected, handleToggleSelect }) => {
     const [quantity, setQuantity] = useState(shoppingCart.quantity);
-    const [isSelected, setIsSelected] = useState(false); // Added isSelected state
-
-    const toggleSelect = () => {
-        setIsSelected(!isSelected);
-    };
 
     const handlePlusClick = () => {
         setQuantity(quantity + 1);
@@ -21,25 +16,16 @@ const ShoppingCartList = ({ PROXY, shoppingCart, selectAll }) => {
     };
 
     const handleUpdate = useCallback(async () => {
-        try {
-            const token = localStorage.getItem('access_token');
 
-            await axios({
-                method: 'patch',
-                url: `${PROXY}/api/cart`,
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                },
-                data: {
-                    id: shoppingCart.id, // Update this to the correct ID
-                    quantity: quantity,
-                },
-            });
-            window.alert("수정되었습니다.");
-        } catch (error) {
-            console.log(error);
-        }
-    }, [])
+        axios.patch(`${PROXY}/api/cart`, {
+            id: shoppingCart.id,
+            quantity: quantity,
+        }, {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('access_token')}`,
+            }
+        }).then((res) => window.location.reload()).catch((err) => console.log(err))
+    }, [quantity, shoppingCart.id, PROXY])
 
     const handleDelete = useCallback(async () => {
         try {
@@ -52,9 +38,10 @@ const ShoppingCartList = ({ PROXY, shoppingCart, selectAll }) => {
                     Authorization: `Bearer ${token}`,
                 },
                 data: {
-                    id: shoppingCart.id
+                    item_ids: [shoppingCart.id]
                 }
             })
+            window.location.reload()
         } catch (error) {
             console.log(error);
         }
@@ -67,9 +54,9 @@ const ShoppingCartList = ({ PROXY, shoppingCart, selectAll }) => {
                     <div
                         className={`ShoppingCartList_select_circle ${isSelected ? "select" : ""} ${selectAll ? "select" : ""}`}
                         onClick={() => {
-                            toggleSelect();
+                            handleToggleSelect(); // Use the function passed from the parent
                             if (selectAll) {
-                                toggleSelect();
+                                handleToggleSelect(); // Use the function passed from the parent
                             }
                         }}
                     ></div>
@@ -81,7 +68,7 @@ const ShoppingCartList = ({ PROXY, shoppingCart, selectAll }) => {
                 </div>
             </div>
             <div className="ShoppingCartList_content">
-                <img src={shoppingCart.img_url} alt="상품이미지"></img>
+                <img src={shoppingCart.imgUrl} alt="상품이미지"></img>
                 <div className="Product_detail_info">
                     <div className="Product_name">{shoppingCart.name}</div>
                     <div className="quantity">수량</div>
