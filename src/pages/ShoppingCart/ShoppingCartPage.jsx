@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "../../styles/ShoppingCart/ShoppingCartPage.css"
+import "../../styles/ShoppingCart/ShoppingCartPage.css";
 import SubHeader from "../../components/SubHeader";
-import ShoppingCartList from "../../components/ShoppingCart/ShoppingCartList"
+import ShoppingCartList from "../../components/ShoppingCart/ShoppingCartList";
 import ShoppingCartSelect from "../../components/ShoppingCart/ShoppingCartSelect";
 import Footer from "../../components/Footer/Footer";
 
 const ShoppingCartPage = ({ PROXY }) => {
-
     const [shoppingCart, setShoppingCart] = useState([]);
     const [selectAll, setSelectAll] = useState(false);
     const [selectedItems, setSelectedItems] = useState([]);
@@ -15,24 +14,20 @@ const ShoppingCartPage = ({ PROXY }) => {
     useEffect(() => {
         axios.get(`${PROXY}/api/cart`, {
             headers: {
-                'Authorization': `Bearer ${localStorage.getItem('access_token')}`,
-            }
+                Authorization: `Bearer ${localStorage.getItem("access_token")}`,
+            },
         })
             .then((res) => {
                 setShoppingCart({
-                    items: res.data.items
+                    items: res.data.items,
                 });
                 console.log(res.data);
             })
             .catch((err) => console.log(err));
     }, []);
 
-    const handleToggleSelect = (itemId) => {
-        const updatedSelectedItems = selectedItems.includes(itemId)
-            ? selectedItems.filter(id => id !== itemId)
-            : [...selectedItems, itemId];
-
-        setSelectedItems(updatedSelectedItems);
+    const handleToggleSelect = (id) => {
+        setSelectedItems([...selectedItems, id]);
     };
 
     return (
@@ -52,22 +47,19 @@ const ShoppingCartPage = ({ PROXY }) => {
                 </div>
             </div>
             <div className="ShoppingCartList">
-                {shoppingCart.items && shoppingCart.items.map((item, index) => (
-                    <ShoppingCartList
-                        key={index}
-                        PROXY={PROXY}
-                        shoppingCart={item}
-                        selectAll={selectAll}
-                        isSelected={selectedItems.includes(item.id)}
-                        handleToggleSelect={() => handleToggleSelect(item.id)}
-                    ></ShoppingCartList>
-                ))}
+                {shoppingCart.items &&
+                    shoppingCart.items.map((item, index) => (
+                        <ShoppingCartList
+                            key={index}
+                            PROXY={PROXY}
+                            shoppingCart={item}
+                            selectAll={selectAll}
+                            isSelected={selectedItems.includes(item.id)}
+                            handleToggleSelect={handleToggleSelect}
+                        ></ShoppingCartList>
+                    ))}
             </div>
-            <ShoppingCartSelect
-                PROXY={PROXY}
-                selectedItems={selectedItems}
-                shoppingCartList={shoppingCart.items}
-            />
+            <ShoppingCartSelect PROXY={PROXY} selectedItems={selectedItems} />
             <Footer></Footer>
         </div>
     )

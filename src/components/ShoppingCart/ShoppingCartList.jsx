@@ -53,12 +53,7 @@ const ShoppingCartList = ({ PROXY, shoppingCart, selectAll, isSelected, handleTo
                 <div className="ShoppingCartList_top_left">
                     <div
                         className={`ShoppingCartList_select_circle ${isSelected ? "select" : ""} ${selectAll ? "select" : ""}`}
-                        onClick={() => {
-                            handleToggleSelect(); // Use the function passed from the parent
-                            if (selectAll) {
-                                handleToggleSelect(); // Use the function passed from the parent
-                            }
-                        }}
+                        onClick={() => handleToggleSelect(shoppingCart.id)}
                     ></div>
                     <div className="Product_info">상품정보</div>
                     <img src="./img/imgShoppingCart/ProductInfo_icon.png" alt="상품정보 아이콘"></img>
