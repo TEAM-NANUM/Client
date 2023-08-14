@@ -1,86 +1,55 @@
 import react, { useState, useEffect, useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "../../styles/ShoppingCart/ShoppingCartList.css"
 
-const ShoppingCartList = ({ PROXY, shoppingCart, selectAll, isSelected, handleToggleSelect }) => {
-    const [quantity, setQuantity] = useState(shoppingCart.quantity);
+const ShoppingCartList = ({ PROXY, shoppingCart, setShoppingCart, isSelected, handleToggleSelect, setSelectedItems }) => {
 
-    const handlePlusClick = () => {
-        setQuantity(quantity + 1);
-    };
+    const navigate = useNavigate();
 
-    const handleMinusClick = () => {
-        if (quantity > 1) {
-            setQuantity(quantity - 1);
-        }
-    };
-
-    const handleUpdate = useCallback(async () => {
-
+    const handleUpdate = useCallback(async (count) => {
+        if (shoppingCart.quantity + count <= 0 ) {return;}
+        
         axios.patch(`${PROXY}/api/cart`, {
             id: shoppingCart.id,
-            quantity: quantity,
+            quantity: shoppingCart.quantity + count,
         }, {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('access_token')}`,
             }
-        }).then((res) => window.location.reload()).catch((err) => console.log(err))
-    }, [quantity, shoppingCart.id, PROXY])
+        }).then((res) => setShoppingCart(res.data.items)).catch((err) => console.log(err))    
+    }, [shoppingCart.quantity, shoppingCart.id, PROXY])
 
     const handleDelete = useCallback(async () => {
-        try {
-            const token = localStorage.getItem('access_token');
-
-            await axios({
-                method: 'post',
-                url: `${PROXY}/api/cart/delete`,
+            axios.post(`${PROXY}/api/cart/delete`, {
+                item_ids: [shoppingCart.id]
+            }, {
                 headers: {
-                    Authorization: `Bearer ${token}`,
-                },
-                data: {
-                    item_ids: [shoppingCart.id]
+                    Authorization: `Bearer ${localStorage.getItem('access_token')}`,
                 }
-            })
-            window.location.reload()
-        } catch (error) {
-            console.log(error);
-        }
-    }, [])
+            }).then((res) => {
+                setShoppingCart(res.data.items)
+                setSelectedItems([])
+            }).catch((err) => console.log(err)) 
+    }, [setShoppingCart, shoppingCart.quantity, shoppingCart.id, PROXY])
 
     return (
-        <div className={`ShoppingCartList_container ${isSelected ? "select" : ""}`}>
-            <div className="ShoppingCartList_top">
-                <div className="ShoppingCartList_top_left">
-                    <div
-                        className={`ShoppingCartList_select_circle ${isSelected ? "select" : ""} ${selectAll ? "select" : ""}`}
-                        onClick={() => handleToggleSelect(shoppingCart.id)}
-                    ></div>
-                    <div className="Product_info">상품정보</div>
-                    <img src="./img/imgShoppingCart/ProductInfo_icon.png" alt="상품정보 아이콘"></img>
-                </div>
-                <div className="ShoppingCartList_delete" onClick={handleDelete}>
-                    <img src="../img/imgShoppingCart/close.png" alt="닫기"></img>
+        <div className="ShoppingCartList_content">
+            <div className="opt_btn_wrapper">
+                <img style={{marginLeft: "15px", cursor:"pointer"}} src={`./img/imgs/cartSelect${ isSelected ?"On":"Off"}Icon.svg`} onClick={() => handleToggleSelect(shoppingCart.id)} alt='select'/>
+            </div>
+            <img className="cart_product_img" src={shoppingCart.imgUrl} alt="상품이미지" onClick={()=>{navigate(`/productDetail/${shoppingCart.productId}`)}}></img>
+            <div className="Product_detail_info">
+                <div className="Product_name" onClick={()=>{navigate(`/productDetail/${shoppingCart.productId}`)}} >{shoppingCart.name}</div>
+                <div className="Product_price">{shoppingCart.totalPrice.toLocaleString()}원</div>
+                <div className="quantity_update_bar">
+                    <img src="../img/imgShoppingCart/minus.svg" alt="-"  onClick={()=>handleUpdate(1)} />
+                    <div className="quantity_bar">{shoppingCart.quantity}</div>
+                    <img src="../img/imgShoppingCart/plus.svg" alt="+"  onClick={()=>handleUpdate(1)} />
                 </div>
             </div>
-            <div className="ShoppingCartList_content">
-                <img src={shoppingCart.imgUrl} alt="상품이미지"></img>
-                <div className="Product_detail_info">
-                    <div className="Product_name">{shoppingCart.name}</div>
-                    <div className="quantity">수량</div>
-                    <div className="quantity_info">
-                        <div className="Product_quantity">{quantity}개</div>
-                        <div className="quantity_update_bar">
-                            <div className="plus_bar" onClick={handlePlusClick}>+</div>
-                            <div className="quantity_bar">{quantity}</div>
-                            <div className="minus_bar" onClick={handleMinusClick}>-</div>
-                        </div>
-                        <div className="update_button" onClick={handleUpdate}>수정</div>
-                    </div>
-                    <div className="price_info">
-                        <div className="price">가격</div>
-                        <div className="Product_price">{shoppingCart.totalPrice * quantity}원</div>
-                    </div>
-                </div>
+            <div className="opt_btn_wrapper" style={{marginTop: "10px", marginLeft: "auto", marginRight: "12px"}} onClick={handleDelete}>
+                <img src="../img/imgShoppingCart/remove.svg" alt="닫기"></img>
             </div>
         </div>
     )

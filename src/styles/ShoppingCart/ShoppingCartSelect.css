@@ -1,25 +1,41 @@
 .ShoppingCartSelect_container {
-    display: flex;
-    justify-content: space-evenly;
-    height: 60px;
-    background-color: #ffb8a2;
-    border-radius: 10px;
-    align-items: center;
+  display: flex;
+  width: 390px;
+  height: 63px;
+  justify-content: space-around;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  border: 0.5px solid #e0e0e0;
+  background-color: #ffffff;
 }
 
 .ShoppingCartSelect_container .select_purchase,
 .ShoppingCartSelect_container .select_delete {
-    width: 120px;
-    height: 35px;
-    background-color: #FF916F;
-    text-align: center;
-    line-height: 35px;
-    border-radius: 10px;
+    display: flex;
+    width: 92%;
+    font-size: 14px;
+    height: 49px;
+    border-radius: 11px;
+    background-color: #FF7A51;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
 }
 
-.ShoppingCartSelect_container .select_purchase:hover,
-.ShoppingCartSelect_container .select_delete:hover {
-    background-color: #ff8864;
+.purchase_disable {
+    display: flex;
+    width: 92%;
+    font-size: 14px;
+    height: 49px;
+    border-radius: 11px;
+    background-color: #d8d8d8;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
 }
 
 .ShoppingCartSelect_container img {
