@@ -1,7 +1,29 @@
-import react from "react";
+import react, { useState, useEffect } from "react";
+import axios from "axios";
 import "../../styles/Main/PopularItem.css"
 
-const PopularItem = () => {
+const PopularItem = ({ PROXY }) => {
+
+    const [product, setProduct] = useState();
+
+    useEffect(() => {
+        axios.get(`${PROXY}/api/products`, {
+            params: {
+                sort: "popular",
+                limit: 6,
+            }
+        })
+            .then(res => {
+                setProduct(res.data.products)
+                console.log(res.data)
+            })
+            .catch(err => {
+                console.log(err)
+            });
+
+    }, [])
+
+
     return (
         <div className="PopularItem_container">
             <div className="PopularItem_header">
@@ -12,15 +34,11 @@ const PopularItem = () => {
                 </div>
             </div>
             <div className="PopularItem_list">
-                <div className="PopularItem">
-                    <img src='./img/imgMain/potato.png' alt='감자'></img>
-                </div>
-                <div className="PopularItem">
-                    <img src='./img/imgMain/potato.png' alt='감자'></img>
-                </div>
-                <div className="PopularItem">
-                    <img src='./img/imgMain/potato.png' alt='감자'></img>
-                </div>
+                {product.map((product, index) => (
+                    <div className="PopularItem" key={index}>
+                        <img src={product.imgUrl} alt={product.name} />
+                    </div>
+                ))}
             </div>
         </div>
     )

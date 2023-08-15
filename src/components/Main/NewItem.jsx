@@ -1,7 +1,28 @@
-import react from "react";
+import react, { useState, useEffect } from "react";
+import axios from "axios";
 import "../../styles/Main/NewItem.css"
 
-const NewItem = () => {
+const NewItem = ({ PROXY }) => {
+
+    const [product, setProduct] = useState();
+
+    useEffect(() => {
+        axios.get(`${PROXY}/api/products`, {
+            params: {
+                sort: "recent",
+                limit: 6,
+            }
+        })
+            .then(res => {
+                setProduct(res.data.products)
+                console.log(res.data)
+            })
+            .catch(err => {
+                console.log(err)
+            });
+
+    }, [])
+
     return (
         <div className="NewItem_container">
             <div className="NewItem_header">
@@ -13,15 +34,11 @@ const NewItem = () => {
                 </div>
             </div>
             <div className="NewItem_list">
-                <div className="NewItem">
-                    <img src='./img/imgMain/potato.png' alt='감자'></img>
-                </div>
-                <div className="NewItem">
-                    <img src='./img/imgMain/potato.png' alt='감자'></img>
-                </div>
-                <div className="NewItem">
-                    <img src='./img/imgMain/potato.png' alt='감자'></img>
-                </div>
+                {product.map((product, index) => (
+                    <div className="NewItem" key={index}>
+                        <img src={product.imgUrl} alt={product.name} />
+                    </div>
+                ))}
             </div>
         </div>
     )
