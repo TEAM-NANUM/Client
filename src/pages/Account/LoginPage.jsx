@@ -3,9 +3,11 @@ import "../../styles/Account/LoginPage.css"
 import Logo from '../../components/Account/Logo';
 import Kakao from '../../components/Account/Kakao';
 import Code from '../../components/Account/Code';
+import { useNavigate } from 'react-router-dom';
 
 const LoginPage = ({ access_token, token_set, PROXY, setUserData }) => {
 
+    const navigate = useNavigate()
     const [code, setCode] = useState("")
 
     return (
@@ -17,7 +19,7 @@ const LoginPage = ({ access_token, token_set, PROXY, setUserData }) => {
                 <Kakao access_token={access_token} token_set={token_set} PROXY={PROXY}/>
                 <p>또는</p>
                 <Code code={code} setCode={setCode} PROXY={PROXY} setUserData={setUserData} />
-                <p>판매자 로그인</p>
+                <p onClick={()=>navigate("/sellerlogin")}>판매자 로그인</p>
             </div>
         </div>
     );
