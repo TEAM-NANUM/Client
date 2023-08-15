@@ -10,7 +10,7 @@ const ProductPopUp = ({ PROXY, id, onPurchaseClick, onReviewClick }) => {
                 method: 'post',
                 url: `${PROXY}/api/cart`,
                 data: {
-                    id: id,
+                    product_id: id,
                     quantity: 1
                 },
                 headers: {

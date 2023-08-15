@@ -5,7 +5,7 @@ const ProductDetailMain = ({ product }) => {
     return (
         <div className="ProductDetailMain_container">
             <div className="ProductDetailMain_image">
-                <img src={product.img_url} alt="상품이미지"></img>
+                <img src={product.imgUrl} alt="상품이미지"></img>
             </div>
             <div className="ProductDetailMain_content">
                 <div className="ProductDetailMain_content_top">

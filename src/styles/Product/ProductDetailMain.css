@@ -1,5 +1,5 @@
 .ProductDetailMain_container {
-    height: 350px;
+    height: 360px;
     margin: 0 20px;
     padding-top: 10px;
     background-color: #FF916F;
@@ -15,13 +15,14 @@
 }
 
 .ProductDetailMain_container .ProductDetailMain_image img {
+    width: 230px;
     height: 230px;
 }
 
 .ProductDetailMain_container .ProductDetailMain_content {
     margin: 0 10px;
     padding: 10px;
-    height: 70px;
+    height: 80px;
     background-color: #FFFFFF;
     border-radius: 10px;
 }

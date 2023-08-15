@@ -38,6 +38,7 @@
 
 .Product_container .Product_content .Product_image img {
     width: 110px;
+    height: 110px;
 }
 
 .Product_container .Product_content .Product_detail_info {

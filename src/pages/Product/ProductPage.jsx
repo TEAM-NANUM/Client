@@ -15,7 +15,7 @@ const ProductPage = ({ PROXY }) => {
             <SearchBar PROXY={PROXY} setProduct={setProduct}></SearchBar>
             <div className='ProductPage_top'>
                 <div className='ProductPaeg_top_left'>
-                    <div>제철과일</div>
+                    <div></div>
                     <img src='./img/imgProduct/item_icon.png' alt='상품아이콘'></img>
                 </div>
                 <div className='ProductPage_top_right'>정렬하기</div>
