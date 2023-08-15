@@ -8,10 +8,12 @@ import ShoppingCartSelect from "../../components/ShoppingCart/ShoppingCartSelect
 
 const ShoppingCartPage = ({ PROXY }) => {
     const [shoppingCart, setShoppingCart] = useState([]);
+    const [isCartLoading, setIsCartLoading] = useState(true);
     const [selectedItems, setSelectedItems] = useState([]);
     const navigate = useNavigate();
 
     useEffect(() => {
+        setIsCartLoading(true);
         axios.get(`${PROXY}/api/cart`, {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem("access_token")}`,
@@ -19,9 +21,9 @@ const ShoppingCartPage = ({ PROXY }) => {
         })
             .then((res) => {
                 setShoppingCart(res.data.items);
-                console.log(res.data);
+                setIsCartLoading(false);
             })
-            .catch((err) => console.log(err));
+            .catch((err) => {console.log(err); setIsCartLoading(false)});
     }, []); 
 
     const handleSelectDelete = async () => {
@@ -48,7 +50,7 @@ const ShoppingCartPage = ({ PROXY }) => {
         <>
             <SubHeader page={'장바구니'}></SubHeader>
             {
-                shoppingCart.length !== 0 ? <div className='ShoppingCartPage_top'>
+                !isCartLoading && (shoppingCart.length !== 0 ? <div className='ShoppingCartPage_top'>
                         <div className='ShoppingCartPage_top_right'>
                             <img style={{marginLeft: "13px", cursor:"pointer"}} src={`./img/imgs/cartSelect${ selectedItems.length === shoppingCart.length ?"On":"Off"}Icon.svg`} alt='select' 
                                 onClick={() => {
@@ -77,7 +79,7 @@ const ShoppingCartPage = ({ PROXY }) => {
                     <p style={{marginTop: "15px"}}>장바구니에</p>
                     <p>담긴 상품이 없어요.</p>
                     <div className="redirect_to_home" onClick={()=>navigate("/")}>쇼핑하러 가기</div>
-                </div>
+                </div>)
             }
             <div className="ShoppingCartList">
                 {shoppingCart &&
