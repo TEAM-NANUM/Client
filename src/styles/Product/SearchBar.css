@@ -1,25 +1,45 @@
 .SearchBar_container {
+    width: 390px;
+    padding-top: 6px;
+    height: 52px;
     display: flex;
-    height: 60px;
-    border-bottom: 1px solid #CCCCCC;
     align-items: center;
-    top: 0;
     position: fixed;
-    background-color: #FFFFFF;
+    background-color: #fff;
 }
-
-.SearchBar_container img {
-    margin-left: 20px;
-    width: 30px;
+#subHeader_back {
+    display: flex;
+    align-items: center;
+    width: 11%;
+    margin-left: 5px;
+    cursor: pointer;
 }
 
 .SearchBar_container input {
-    width: 270px;
-    height: 30px;
-    margin-left: 20px;
-    background-color: #FF916F;
+    width: 260px;
+    height: 32px;
+    background-color: #ffffff;
     opacity: 45%;
     border: none;
-    border-radius: 20px;
+    border: 0.6px solid rgb(143, 143, 143);
+    border-radius: 9px;
     padding-left: 20px;
+}
+
+.search_cancel_btn {
+    display: flex;
+    color: rgb(73, 73, 73);
+    margin-left: 15px;
+}
+
+.product_sort_btn {
+    font-size: 14px;
+    margin-right: 10px;
+    cursor: pointer;
+    display: flex;
+    margin-left: auto;
+}
+
+.drop_inner {
+    margin: 5px;   
 }

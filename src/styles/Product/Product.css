@@ -1,9 +1,7 @@
 .Product_container {
     margin: 10px 0;
     padding: 5px;
-    height: 150px;
-    background-color: #F5F5F5;
-    border-radius: 10px;
+    height: 140px;
 }
 
 .Product_container .Product_top {
@@ -33,16 +31,15 @@
 
 .Product_container .Product_content {
     display: flex;
+    width: 100%;
     padding: 10px;
-}
-
-.Product_container .Product_content .Product_image img {
-    width: 110px;
-    height: 110px;
+    align-items: center;
 }
 
 .Product_container .Product_content .Product_detail_info {
     margin: 0 10px;
+    display: flex;
+    flex-direction: column;
 }
 
 .Product_name,
@@ -71,4 +68,72 @@
 
 .Product_container .Product_other_info .Product_delivery {
     width: 100px;
+}
+
+.search_prod_container {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.Product_image{
+    display: flex;
+    align-items: center;
+}
+
+.Product_container {
+    display: flex;
+    align-items: center;
+}
+
+.prod_list_divider {
+    width: 100%;
+    height: 4px;
+    background-color: rgb(243, 243, 246);
+}
+
+.search_seller {
+    font-size: 12px;
+    font-weight: 500;
+    color: rgb(63, 63, 63);
+    white-space: pre-wrap;
+    box-sizing: border-box;
+    margin: 0 0 5px 0;
+    padding: 0;
+    border: 0;
+}
+
+.search_prod_name {
+    font-weight: 600;
+    font-size: 16px;
+    color: rgb(58, 58, 58);
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.search_list_detail {
+    width: 230px;
+    padding: 10px 10px 10px 10px;
+}
+
+.search_prod_price {
+    font-weight: 500;
+    font-size: 16px;
+    padding-top: 2px;
+    color: rgb(58, 58, 58);
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.search_prod_pack {
+    font-size: 11px;
+    box-sizing: border-box;
+    margin: 4px 0 0 0;
+    border-radius: 4px;
+    padding: 2px 4px;
+    width: fit-content;
+    border: 1px solid rgb(234, 234, 239);
 }
