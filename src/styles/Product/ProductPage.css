@@ -26,6 +26,7 @@
 }
 
 .prod_category_select_btn {
+    cursor: pointer;
     font-size: 14px;
     font-weight: 500;
     border: 1px solid #e4e4e4;

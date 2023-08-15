@@ -7,7 +7,7 @@ const SearchBar = ({ inputValue, handleInputChange}) => {
     const navigate = useNavigate();
     
     const onBack = () => {
-        navigate(-1);
+        navigate('/main');
     }
     return (
         <div className="SearchBar_container">

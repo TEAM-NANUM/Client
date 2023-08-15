@@ -80,6 +80,7 @@
 .Product_image{
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 
 .Product_container {
@@ -115,6 +116,7 @@
 }
 
 .search_list_detail {
+    cursor: pointer;
     width: 230px;
     padding: 10px 10px 10px 10px;
 }
