@@ -15,8 +15,6 @@ const CategoryList = ({list, PROXY}) => {
         }
     }
 
-    console.log(list)
-
     return (
         <div className='categoryList_container'>
             <div className='categoryList_title' id={list.name} onClick={onViewToggle}>
