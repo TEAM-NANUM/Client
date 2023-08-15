@@ -7,6 +7,7 @@ import ProductPage from "./pages/Product/ProductPage";
 import ProductDetailPage from "./pages/Product/ProductDetailPage";
 import MyPage from "./pages/MyPage/MyPage";
 import ShoppingCart from "./pages/ShoppingCart/ShoppingCartPage";
+import PurchasePage from "./pages/Purchase/PurchasePage"
 import GroupPage from "./pages/Group/GroupPage";
 import GroupAddPage from "./pages/Group/GroupAddPage";
 import OrderListPage from "./pages/OrderList/OrderListPage";
@@ -139,7 +140,8 @@ function App() {
             }
           ></Route>
           <Route path="/review" element={<ReviewPage />}></Route>
-          <Route path="/shoppingCart" element={<ShoppingCart PROXY={PROXY} />}></Route>
+          <Route path="/shoppingCart" element={<ShoppingCart PROXY={PROXY} />}></Route>\
+          <Route path="/purchase" element={<PurchasePage />}></Route>
           <Route path="/point" element={<PointPage PROXY={PROXY} />}></Route>
         </Routes>
       </BrowserRouter>

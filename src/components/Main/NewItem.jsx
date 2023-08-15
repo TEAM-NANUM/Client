@@ -34,11 +34,7 @@ const NewItem = ({ PROXY }) => {
                 </div>
             </div>
             <div className="NewItem_list">
-                {product.map((product, index) => (
-                    <div className="NewItem" key={index}>
-                        <img src={product.imgUrl} alt={product.name} />
-                    </div>
-                ))}
+
             </div>
         </div>
     )
