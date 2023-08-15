@@ -27,6 +27,7 @@
 }
 
 .search_cancel_btn {
+    cursor: pointer;
     display: flex;
     color: rgb(73, 73, 73);
     margin-left: 15px;
