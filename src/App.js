@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import LoginPage from "./pages/Account/LoginPage";
 import MainPage from "./pages/Main/MainPage";
 import CategoryPage from "./pages/Category/CategoryPage";
@@ -16,15 +16,17 @@ import ReviewPage from "./pages/Review/ReviewPage";
 import PointPage from "./pages/Point/PointPage";
 import { useLoginStore } from "./components/Account/Store";
 import AddressAddPage from "./pages/Address/AddressAddPage";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import AddressFixPage from "./pages/Address/AddressFixPage";
 import axios from "axios";
 import SellerLogin from "./pages/SellerAccount/SellerLogin";
 import SellerJoin from "./pages/SellerAccount/SellerJoin";
+import ScrollTop from "./ScrollTop"
 
 function App() {
   const { access_token, token_set } = useLoginStore();
   const PROXY = process.env.REACT_APP_PROXY;
+  const appRef = useRef(null);
 
   const [userData, setUserData] = useState();
 
@@ -78,9 +80,11 @@ function App() {
       .catch((err) => console.log(err));
   }, []);
 
+
   return (
-    <div className="App">
+    <div className="App" ref={appRef}>
       <BrowserRouter>
+      <ScrollTop appRef={appRef}/>
         <Routes>
           <Route
             path="/"
@@ -107,7 +111,7 @@ function App() {
             path="/category"
             element={<CategoryPage PROXY={PROXY} />}
           ></Route>
-          <Route path="/search" element={<ProductPage PROXY={PROXY} />}></Route>
+          <Route path="/search" element={<ProductPage PROXY={PROXY} appRef={appRef}/>}></Route>
           <Route
             path="/productDetail/:id"
             element={<ProductDetailPage PROXY={PROXY} />}
