@@ -43,4 +43,42 @@
     border-radius: 10px;
     font-size: 18px;
     font-weight: bold;
+    cursor: pointer;
+}
+
+.seller_anotherPath {
+    width: 80%;
+    margin: 5% auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.seller_join, .go_user {
+    margin: 5% 0 5% 0;
+    color: #9D9D9D;
+    font-size: 14px;
+    text-align: center;
+    cursor: default;
+}
+
+.another_path {
+    width: 80%;
+    margin: 0 auto;
+    color: rgb(255, 145, 111, 0.8);
+    margin-top: 5%;
+    cursor: pointer;
+    text-transform:uppercase;
+}
+
+.another_path::after {
+    margin-top: 3%;
+    display:block;
+    content: '';
+    border-bottom: solid 3px #ff916f;  
+    transform: scaleX(0);  
+    transition: transform 250ms ease-in-out;
+}
+
+.another_path:hover::after {
+    transform: scaleX(1)
 }

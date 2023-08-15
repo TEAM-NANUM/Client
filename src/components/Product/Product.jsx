@@ -2,7 +2,6 @@ import React from "react";
 import "../../styles/Product/Product.css"
 
 const Product = ({ list }) => {
-
     const getFormattedRating = (rating) => {
         if (rating >= 1 && rating < 1.5) {
             return 1;
@@ -58,6 +57,3 @@ const Product = ({ list }) => {
 }
 
 export default Product;
-
-
-

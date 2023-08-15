@@ -27,7 +27,11 @@ const GroupPage = ({ PROXY }) => {
     })
 
     useEffect(() => {
-        axios.get(`${PROXY}/api/groups`)
+        axios.get(`${PROXY}/api/groups`, {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('access_token')}`,
+            }
+        })
             .then((res) => setGroup(res.data))
             .catch((err) => console.log(err))
     }, []);
@@ -35,8 +39,8 @@ const GroupPage = ({ PROXY }) => {
     return (
         <div className='GroupPage_container'>
             <SubHeader page="그룹관리" />
-            <MyInfo group={group}></MyInfo>
-            <GroupList group={group}></GroupList>
+            <MyInfo group={group.host}></MyInfo>
+            <GroupList group={group.members}></GroupList>
             <div
                 className='add_group'
                 onClick={() => { navigate('/groupAdd') }}

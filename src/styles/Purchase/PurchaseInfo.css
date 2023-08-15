@@ -1,7 +1,7 @@
 .PurchaseInfo_container {
-    overflow: scroll;
     padding: 20px;
     height: 510px;
+    margin-top: 40px;
 }
 
 .PurchaseInfo_container .contour {
@@ -21,4 +21,24 @@
 
 .Purchase_buttom:hover {
     background-color: #ff825c;
+}
+
+.ProductInfo2 {
+    display: flex;
+    background-color: #F5F5F5;
+    font-size: 13px;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.PurchaseInfo_container .quantity {
+    height: 10px;
+    line-height: 10px;
+    margin-left: 200px;
+}
+
+.total_price {
+    font-size: 13px;
+    line-height: 10px;
+    margin-left: 10px;
 }

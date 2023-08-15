@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import "../../styles/SellerAccount/SellerLogin.css";
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const SellerLogin = ({PROXY}) => {
+
+    const navigate = useNavigate();
 
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
@@ -40,7 +43,16 @@ const SellerLogin = ({PROXY}) => {
                     <input type='password' value={password} placeholder='비밀번호를 입력하세요' onChange={onPassword} />
                 </div>
                 <div className='seller_loginBtn' onClick={onSellerLogin}>로그인</div>
-                <div className='seller_another'></div>
+                <div className='seller_anotherPath'>
+                    <div className='seller_join'>
+                        <div>회원이 아니세요?</div>
+                        <div className='another_path' onClick={()=>navigate("/sellerjoin")}>▶︎ 판매자 회원가입으로 바로가기 ◀︎</div>
+                    </div>
+                    <div className='go_user'>
+                        <div>상품을 구입하러 오셨나요?</div>
+                        <div className='another_path' onClick={()=>navigate("/")}>▶︎ 구매자 로그인 화면으로 바로가기 ◀︎</div>
+                    </div>
+                </div>
             </div>
         </div>
     );

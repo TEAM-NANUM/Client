@@ -31,6 +31,7 @@ const GroupInfoInput = ({ PROXY }) => {
 
     const handleSubmit = useCallback(async () => {
         try {
+            const accessToken = localStorage.getItem('access_token');
             const requestData = {
                 nickname: nickname,
                 address: {
@@ -40,13 +41,26 @@ const GroupInfoInput = ({ PROXY }) => {
                 }
             };
 
-            await axios.post(`${PROXY}/api/signup/guest`, requestData);
+            if (accessToken) {
+                await axios.post(`${PROXY}/api/signup/guest`, requestData, {
+                    headers: {
+                        Authorization: `Bearer ${accessToken}`,
+                    },
+                });
 
-            window.alert("등록되었습니다.");
+                window.alert("등록되었습니다.");
+                setNickname("");
+                setOpenPostCode("");
+                setZipCode("");
+                setAddress("");
+                setDetailAddress("");
+            } else {
+                console.log("Access token이 없습니다.");
+            }
         } catch (error) {
             console.log(error);
         }
-    }, []);
+    }, [nickname, zipCode, address, detailAddress]);
 
     return (
         <div className="GroupInfoInput_container">
@@ -83,7 +97,7 @@ const GroupInfoInput = ({ PROXY }) => {
                 ></input>
             </div>
             <div className="GroupInfoInput_page_coment">그룹원들은 대표 계정의 머니를 공유합니다.</div>
-            <div className="Group_add_button">추가</div>
+            <div className="Group_add_button" onClick={handleSubmit}>추가</div>
         </div>
     )
 }

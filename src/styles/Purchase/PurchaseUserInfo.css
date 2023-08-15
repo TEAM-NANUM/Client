@@ -1,5 +1,5 @@
 .PurchaseUserInfo_container {
-    height: 150px;
+    height: 160px;
     background-color: #F5F5F5;
     border-radius: 10px;
 }
@@ -41,7 +41,11 @@
     background-color: #ff7f58;
 }
 
-.address,
+.address {
+    display: flex;
+    margin: 10px;
+}
+
 .name,
 .phone_num {
     display: flex;
@@ -67,4 +71,13 @@
     line-height: 20px;
     background-color: #ffd6ca;
     border: 1px solid #FFD6CA;
+}
+
+.address .PurchaseUserInfo_type,
+.address .PurchaseUserInfo {
+    height: 40px;
+}
+
+.address .PurchaseUserInfo_type {
+    line-height: 40px;
 }

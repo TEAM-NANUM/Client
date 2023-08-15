@@ -1,9 +1,17 @@
+.ProductSelectPopUp_container {
+    width: 390px;
+    position: fixed;
+    margin-bottom: 55px;
+    bottom: 0;
+}
+
 .ProductSelectPopUp_top {
     height: 66px;
     padding: 10px;
     background-color: #FFFFFF;
     border: 1px solid #FF916F;
     border-radius: 10px;
+    margin-top: 68px;
 }
 
 .ProductSelectPopUp_top .ProductSelectPopUp_top_delete {
@@ -29,7 +37,7 @@
 .ProductSelectPopUp_type {
     font-size: 13px;
     color: gray;
-    margin-left: 20px;
+    margin-left: 55px;
 }
 
 .Product_name {
@@ -95,5 +103,5 @@
     line-height: 35px;
     border-radius: 10px;
     font-size: 13px;
-    margin-left: 94px;
+    margin-left: 98px;
 }

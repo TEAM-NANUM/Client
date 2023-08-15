@@ -7,6 +7,7 @@ import ProductPage from "./pages/Product/ProductPage";
 import ProductDetailPage from "./pages/Product/ProductDetailPage";
 import MyPage from "./pages/MyPage/MyPage";
 import ShoppingCart from "./pages/ShoppingCart/ShoppingCartPage";
+import PurchasePage from "./pages/Purchase/PurchasePage"
 import GroupPage from "./pages/Group/GroupPage";
 import GroupAddPage from "./pages/Group/GroupAddPage";
 import OrderListPage from "./pages/OrderList/OrderListPage";
@@ -19,6 +20,7 @@ import { useEffect, useState } from "react";
 import AddressFixPage from "./pages/Address/AddressFixPage";
 import axios from "axios";
 import SellerLogin from "./pages/SellerAccount/SellerLogin";
+import SellerJoin from "./pages/SellerAccount/SellerJoin";
 
 function App() {
   const { access_token, token_set } = useLoginStore();
@@ -146,15 +148,16 @@ function App() {
             }
           ></Route>
           <Route path="/review" element={<ReviewPage />}></Route>
-          <Route
-            path="/shoppingCart"
-            element={<ShoppingCart PROXY={PROXY} />}
-          ></Route>
+          <Route path="/shoppingCart" element={<ShoppingCart PROXY={PROXY} />}></Route>\
+          <Route path="/purchase/:id" element={<PurchasePage PROXY={PROXY} userData={userData} />}></Route>
           <Route path="/point" element={<PointPage PROXY={PROXY} />}></Route>
-
           <Route
             path="/sellerlogin"
             element={<SellerLogin PROXY={PROXY} />}
+          ></Route>
+          <Route
+            path="/sellerjoin"
+            element={<SellerJoin PROXY={PROXY} />}
           ></Route>
         </Routes>
       </BrowserRouter>
