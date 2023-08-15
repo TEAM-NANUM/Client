@@ -15,8 +15,6 @@ const CategoryList = ({list, PROXY}) => {
         }
     }
 
-    console.log(list)
-
     return (
         <div className='categoryList_container'>
             <div className='categoryList_title' id={list.name} onClick={onViewToggle}>
@@ -26,10 +24,10 @@ const CategoryList = ({list, PROXY}) => {
                     </div>
                     <p id='categoryList_name'>{list.name}</p>
                 </div>
-                <div id='categoryList_viewBtn'><img  src={`./img/imgCategory/${currentViewState && (currentView === list.name) ? "viewOpen" : "viewClose"}.svg`} alt='view' /></div>
+                <div className='categoryList_viewBtn'><img  src={`./img/imgCategory/${currentViewState && (currentView === list.name) ? "viewOpen" : "viewClose"}.svg`} alt='view' /></div>
             </div>
             <div className='categoryList_content'>
-                {currentViewState && (currentView === list.name) ? <CategoryItem PROXY={PROXY} category_id={list.id} /> : null}
+                {currentViewState && (currentView === list.name) ? <CategoryItem PROXY={PROXY} category_name={list.name} category_id={list.id} /> : null}
             </div>
         </div>
     );
