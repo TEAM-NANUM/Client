@@ -1,27 +1,36 @@
 import react, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "../../styles/Main/NewItem.css"
 
 const NewItem = ({ PROXY }) => {
 
-    const [product, setProduct] = useState();
+    const navigate = useNavigate();
+    const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        axios.get(`${PROXY}/api/products`, {
-            params: {
-                sort: "recent",
-                limit: 6,
-            }
-        })
-            .then(res => {
-                setProduct(res.data.products)
-                console.log(res.data)
+        axios
+            .get(`${PROXY}/api/products`, {
+                params: {
+                    sort: "recent",
+                    limit: 6,
+                },
             })
-            .catch(err => {
-                console.log(err)
+            .then((res) => {
+                setProducts(res.data.products);
+            })
+            .catch((err) => {
+                console.error("Error fetching products:", err);
             });
+    }, [PROXY]);
 
-    }, [])
+    function chunkArray(arr, chunkSize) {
+        const result = [];
+        for (let i = 0; i < arr.length; i += chunkSize) {
+            result.push(arr.slice(i, i + chunkSize));
+        }
+        return result;
+    }
 
     return (
         <div className="NewItem_container">
@@ -34,7 +43,13 @@ const NewItem = ({ PROXY }) => {
                 </div>
             </div>
             <div className="NewItem_list">
-
+                {chunkArray(products, 3).map((chunk, index) => (
+                    <div key={index} className="NewItem_list">
+                        {chunk.map(product => (
+                            <img key={product.id} src={product.imgUrl} alt={product.name} onClick={() => { navigate(`/productDetail/${product.id}`) }} />
+                        ))}
+                    </div>
+                ))}
             </div>
         </div>
     )

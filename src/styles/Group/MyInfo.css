@@ -30,6 +30,7 @@
 
 .MyInfo_content .account_title {
     font-size: 10px;
+    margin-top: 5px;
 }
 
 .MyInfo_content .name {
@@ -38,6 +39,7 @@
 
 .MyInfo_content .MyInfo_money {
     display: flex;
+    font-size: 14px;
 }
 
 .MyInfo_content .MyInfo_money .money {

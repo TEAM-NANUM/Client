@@ -3,6 +3,9 @@
     height: 60px;
     border-bottom: 1px solid #CCCCCC;
     align-items: center;
+    top: 0;
+    position: fixed;
+    background-color: #FFFFFF;
 }
 
 .SearchBar_container img {

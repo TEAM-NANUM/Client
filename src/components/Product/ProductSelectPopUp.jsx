@@ -1,7 +1,10 @@
 import react, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../../styles/Product/ProductSelectPopUp.css"
 
-const ProductSelectPopUp = ({ product, onDeleteClick }) => {
+const ProductSelectPopUp = ({ id, product, onDeleteClick }) => {
+
+    const navigate = useNavigate();
     const [quantity, setQuantity] = useState(1);
 
     const handlePlusClick = () => {
@@ -12,6 +15,10 @@ const ProductSelectPopUp = ({ product, onDeleteClick }) => {
         if (quantity > 1) {
             setQuantity(quantity - 1);
         }
+    };
+
+    const handlePurchaseClick = () => {
+        navigate(`/purchase/${id}`, { state: { quantity: quantity } });
     };
 
     return (
@@ -36,7 +43,9 @@ const ProductSelectPopUp = ({ product, onDeleteClick }) => {
                 <div className="ProductSelectPopUp_bottom_inner">
                     <div className="ProductSelectPopUp_bottom_coment">본 상품은 택배 배송입니다.</div>
                     <img src="../img/imgProduct/localShopping_icon.png" alt="택배아이콘"></img>
-                    <div className="ProductSelectPopUp_bottom_purchase_buttom">구매하기</div>
+                    <div className="ProductSelectPopUp_bottom_purchase_buttom" onClick={handlePurchaseClick}>
+                        구매하기
+                    </div>
                 </div>
             </div>
         </div>

@@ -1,5 +1,5 @@
 .NewItem_container {
-    height: 150px;
+    height: 260px;
     margin: 0 20px;
     padding: 0 10px;
     border-top: 2px solid #FF916F;
@@ -27,13 +27,13 @@
 }
 
 .NewItem_container .NewItem_list {
-    display: flex;
     justify-content: space-between;
 }
 
 .NewItem_container .NewItem_list img {
     width: 95px;
-    height: auto;
+    height: 95px;
+    margin: 1px 7px;
 }
 
 .NewItem_header img {

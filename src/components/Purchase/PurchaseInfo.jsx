@@ -1,15 +1,25 @@
-import react from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import "../../styles/Purchase/PurchaseInfo.css"
 import PurchaseUserInfo from "./PurchaseUserInfo";
 import Product from "../Product/Product";
 import PurchaseCheck from "./PurchaseCheck";
-const PurchaseInfo = () => {
+
+const PurchaseInfo = ({ PROXY, id, userData }) => {
+    const [product, setProduct] = useState();
+
+    useEffect(() => {
+        axios.get(`${PROXY}/api/products/${id}`)
+            .then((res) => console.log(res.data))
+            .catch((err) => console.log(err))
+    }, []);
+
     return (
         <div className="PurchaseInfo_container">
-            <PurchaseUserInfo></PurchaseUserInfo>
+            <PurchaseUserInfo userData={userData}></PurchaseUserInfo>
             <img className={'contour'} src="./img/imgPurchase/contour.png" alt="구분선"></img>
             <div className="ProductInfo">
-                <Product></Product>
+
             </div>
             <img className={'contour'} src="./img/imgPurchase/contour.png" alt="구분선"></img>
             <PurchaseCheck></PurchaseCheck>

@@ -1,6 +1,6 @@
 .ProductPage_container .ProductPage_top {
     display: flex;
-    margin: 10px 30px;
+    margin: 70px 30px 10px 30px;
     justify-content: space-between;
     align-items: center;
 }
@@ -21,10 +21,4 @@
     text-align: center;
     line-height: 25px;
     border-radius: 18px;
-}
-
-.Product_list {
-    overflow: scroll;
-    height: calc(100vh - 135px);
-    padding: 0 20px;
 }

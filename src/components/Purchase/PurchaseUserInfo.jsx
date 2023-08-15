@@ -2,7 +2,7 @@ import react from "react";
 import { useNavigate } from "react-router-dom";
 import "../../styles/Purchase/PurchaseUserInfo.css"
 
-const PurchaseUserInfo = () => {
+const PurchaseUserInfo = ({ userData }) => {
 
     const navigate = useNavigate();
 
@@ -24,7 +24,7 @@ const PurchaseUserInfo = () => {
                 </div>
                 <div className="name">
                     <div className="PurchaseUserInfo_type">주문자 명</div>
-                    <div className="PurchaseUserInfo">홍길동</div>
+                    <div className="PurchaseUserInfo">{userData.name}</div>
                 </div>
                 <div className="phone_num">
                     <div className="PurchaseUserInfo_type">전화번호</div>

@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "../../styles/Main/PopularItem.css";
 
 const PopularItem = ({ PROXY }) => {
+
+    const navigate = useNavigate();
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
@@ -19,7 +22,15 @@ const PopularItem = ({ PROXY }) => {
             .catch((err) => {
                 console.log(err);
             });
-    }, [PROXY]);
+    }, [PROXY])
+
+    function chunkArray(arr, chunkSize) {
+        const result = [];
+        for (let i = 0; i < arr.length; i += chunkSize) {
+            result.push(arr.slice(i, i + chunkSize));
+        }
+        return result;
+    }
 
     return (
         <div className="PopularItem_container">
@@ -31,11 +42,13 @@ const PopularItem = ({ PROXY }) => {
                 </div>
             </div>
             <div className="PopularItem_list">
-                <div className="PopularItem_list">
-                    {products.map(product => (
-                        <img src={product.imgUrl}></img>
-                    ))}
-                </div>
+                {chunkArray(products, 3).map((chunk, index) => (
+                    <div key={index} className="PopularItem_list">
+                        {chunk.map(product => (
+                            <img key={product.id} src={product.imgUrl} alt={product.name} onClick={() => { navigate(`/productDetail/${product.id}`) }} />
+                        ))}
+                    </div>
+                ))}
             </div>
         </div>
     );

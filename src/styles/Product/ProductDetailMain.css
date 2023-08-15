@@ -1,9 +1,10 @@
 .ProductDetailMain_container {
     height: 350px;
-    margin: 10px 20px;
+    margin: 0 20px;
     padding-top: 10px;
     background-color: #FF916F;
     border-radius: 10px;
+    margin-top: 60px;
 }
 
 .ProductDetailMain_container .ProductDetailMain_image {

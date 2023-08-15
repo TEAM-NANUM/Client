@@ -24,7 +24,7 @@ const MainPage = ({ PROXY, userData, setUserData }) => {
             <Header></Header>
             <Carousel PROXY={PROXY}></Carousel>
             <PopularItem PROXY={PROXY}></PopularItem>
-            <NewItem></NewItem>
+            <NewItem PROXY={PROXY}></NewItem>
             <Footer></Footer>
         </div>
     );
