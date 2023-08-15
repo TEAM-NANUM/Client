@@ -19,6 +19,7 @@ import { useEffect, useState } from "react";
 import AddressFixPage from "./pages/Address/AddressFixPage";
 import axios from "axios";
 import SellerLogin from "./pages/SellerAccount/SellerLogin";
+import SellerJoin from "./pages/SellerAccount/SellerJoin";
 
 function App() {
   const { access_token, token_set } = useLoginStore();
@@ -155,6 +156,10 @@ function App() {
           <Route
             path="/sellerlogin"
             element={<SellerLogin PROXY={PROXY} />}
+          ></Route>
+          <Route
+            path="/sellerjoin"
+            element={<SellerJoin PROXY={PROXY} />}
           ></Route>
         </Routes>
       </BrowserRouter>
