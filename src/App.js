@@ -29,6 +29,7 @@ function App() {
   const appRef = useRef(null);
 
   const [userData, setUserData] = useState();
+  const [isUserLoading, setIsUserLoading] = useState(true);
 
   // 주소지 관련 정보
   const [addressList, setAddressList] = useState({
@@ -70,14 +71,15 @@ function App() {
   const [fixNum, setFixNum] = useState(0);
 
   useEffect(() => {
+    setIsUserLoading(true);
     axios
       .get(`${PROXY}/api/user`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("access_token")}`,
         },
       })
-      .then((res) => setUserData(res.data))
-      .catch((err) => console.log(err));
+      .then((res) => {setUserData(res.data); setIsUserLoading(false)})
+      .catch((err) => {setIsUserLoading(false)});
   }, []);
 
 
@@ -118,7 +120,7 @@ function App() {
           ></Route>
           <Route
             path="/mypage"
-            element={<MyPage userData={userData} />}
+            element={<MyPage userData={userData} isUserLoading={isUserLoading} />}
           ></Route>
           <Route path="/group" element={<GroupPage PROXY={PROXY} />}></Route>
           <Route
