@@ -7,7 +7,7 @@ import SearchBar from "../../components/Product/SearchBar";
 import Product from "../../components/Product/Product";
 import Footer from "../../components/Footer/Footer";
 
-const ProductPage = ({ PROXY }) => {
+const ProductPage = ({ PROXY, appRef }) => {
     const navigate = useNavigate();
     const [product, setProduct] = useState([]);
     const [showSortPopup, setShowSortPopup] = useState(false); // 정렬 옵션 팝업 표시 여부
@@ -53,8 +53,8 @@ const ProductPage = ({ PROXY }) => {
             + `${searchParams.get("subcategory") !== null ? ("subcategory="+searchParams.get('subcategory')+"&") : ""}`
             + `${inputValue !== "" ? ("q="+inputValue+"&") : ""}`)
                 .then(res => {
-                    console.log(res.data)
                     setIsLoading(false);
+                    appRef.current.scrollIntoView();
                     setProduct(res.data.products)
                 })
                 .catch(err => {
