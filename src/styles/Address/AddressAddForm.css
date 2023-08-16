@@ -40,6 +40,7 @@
     border: 1px solid #FF916F;
     border-radius: 4px;
     margin-left: 5%;
+    cursor: pointer;
 }
 
 .address_zip_code {
