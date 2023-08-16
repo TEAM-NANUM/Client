@@ -25,7 +25,7 @@ const AllReview = ({ PROXY }) => {
     }, [PROXY]);
 
     return (
-        <>
+        <div style={{marginBottom: "50px"}}>
             <div className="pop_header">
                     <div className="pop_header_txt">
                         <span className="pop_span">
@@ -51,7 +51,7 @@ const AllReview = ({ PROXY }) => {
                 </>
             ))}
 
-        </>
+        </div>
     )
 }
 

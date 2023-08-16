@@ -26,7 +26,7 @@ const PointForm = ({point, setPoint, userData}) => {
                 value={point}
                 onChange={handleInputChange}
             ></input>
-            <div style={{marign: 0, padding: 0,  position: "relative", top: "-31px", left:"330px", fontWeight: 500}}>
+            <div style={{display: "flex", flexDirection:"column", alignItems: "flex-end", marign: 0, padding: "0 10px 0 0",  position: "relative", top: "-31px", left:"0px", fontWeight: 500}}>
                 원
             </div>
             <div className='PointForm_add_box'>

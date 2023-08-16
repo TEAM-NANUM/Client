@@ -1,98 +1,42 @@
-.GroupInfoInput_container {
-    margin: 20px;
+.group_add_conatiner {
+    padding: 70px 0px;
 }
 
-.GroupInfoInput_container .GroupInfoInput_title {
+.group_add_info {
+    font-size: 12px;
+    font-weight: 500;
+    margin: 8px 16px;
+}
+
+.group_add_input {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 400;
+    color: #353535;
+    width: 338px;
+    height: 32px;
+    font-size: 12px;
+    border-radius: 6px;
+    margin: 0 16px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color:rgb(255, 255, 255);
+    border: 0.5px solid rgb(177, 177, 177);
+}
+
+.zipCode{
     display: flex;
 }
 
-.GroupInfoInput_container .GroupInfoInput_title img {
-    margin-left: 5px;
-    width: 25px;
-    height: auto;
-}
-
-.GroupInfoInput_container .GroupInfo_nickname {
-    margin: 10px 0;
-    padding: 10px;
-    height: 75px;
-    background-color: #F5F5F5;
-}
-
-.GroupInfoInput_container .GroupInfo_address {
-    margin: 10px 0;
-    padding: 10px;
-    height: 150px;
-    background-color: #F5F5F5;
-}
-
-.GroupInfo_nickname_title,
-.GroupInfo_address_title {
-    margin-bottom: 15px;
-    padding-bottom: 5px;
-    font-size: 13px;
-    border-bottom: 1.5px solid #FF916F;
-}
-
-.GroupInfo_nickname input {
-    padding: 0 10px;
-    width: 300px;
-    height: 30px;
-    color: gray;
-    background-color: #fde6de;
-    border: none;
-    border-radius: 10px;
-}
-
-.GroupInfoInput_page_coment {
-    margin: 20px 0;
-    display: flex;
-    font-size: 12px;
-    justify-content: center;
-}
-
-.Group_add_button {
-    width: 350px;
-    height: 40px;
-    text-align: center;
-    line-height: 40px;
-    background-color: #FF916F;
-    border-radius: 10px;
-}
-
-.Group_add_button:hover {
-    background-color: #fd8560;
-}
-
-.zipCode_input {
-    margin-bottom: 10px;
-    padding: 0 10px;
-    width: 100px;
-    height: 30px;
-    color: gray;
-    background-color: #fde6de;
-    border: none;
-    border-radius: 10px;
-}
-
-.zipCode_input_button {
-    font-size: 12px;
-    margin-left: 10px;
-    width: 100px;
-    height: 30px;
-    border: 1px solid #fd8560;
-    background-color: #ffffff;
-    border-radius: 5px;
-}
-
-.address_input,
-.addressDetail_input {
-    margin-bottom: 10px;
-    padding: 0 10px;
-    width: 300px;
-    height: 30px;
-    color: gray;
-    background-color: #fde6de;
-    border: none;
-    border-radius: 10px;
+.zip_btn {
+    font-weight: 500;
+    color: #353535;
+    width: 90px;
+    font-size: 10px;
+    border-radius: 4px;
+    margin: 0 16px 0 0;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: 0;
 }
