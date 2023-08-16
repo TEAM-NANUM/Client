@@ -2,6 +2,7 @@ import "./App.css";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import LoginPage from "./pages/Account/LoginPage";
 import MainPage from "./pages/Main/MainPage";
+import RedirectGuestLogin from "./pages/RedirectGuestLogin"
 import CategoryPage from "./pages/Category/CategoryPage";
 import ProductPage from "./pages/Product/ProductPage";
 import ProductDetailPage from "./pages/Product/ProductDetailPage";
@@ -144,6 +145,12 @@ function App() {
             path="/sellerMyPage"
             element={<SellerMyPage PROXY={PROXY} />}
           ></Route>
+
+          <Route 
+            path="/group/login"
+            element={<RedirectGuestLogin PROXY={PROXY} />}  
+          >
+          </Route>
         </Routes>
       </BrowserRouter>
     </div>

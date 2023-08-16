@@ -40,7 +40,7 @@ const Group = ({ group }) => {
                 <button
                     className="invitation_code_button"
                     onClick={() => {
-                        handleCopy(`https://hanche.store/group/q=${group.invite_code}`);
+                        handleCopy(`https://hanche.store/group/login?code=${group.invite_code}`);
                     }}
                 >
                     링크 복사
