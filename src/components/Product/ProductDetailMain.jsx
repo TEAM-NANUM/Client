@@ -5,7 +5,7 @@ const ProductDetailMain = ({ product }) => {
     return (
         <div className="ProductDetailMain_container">
             <div className="ProductDetailMain_image">
-                <img src={product.img_url} alt="상품이미지"></img>
+                <img src={product.imgUrl} alt="상품이미지"></img>
             </div>
             <div className="ProductDetailMain_content">
                 <div className="ProductDetailMain_content_top">
@@ -22,7 +22,7 @@ const ProductDetailMain = ({ product }) => {
                             <div className="ProductDetail_price">{product.price}원</div>
                         </div>
                         <div className="rating">
-                            <img src="../img/imgProduct/rating_img.png"></img>
+                            <img src={`../img/imgProduct/rating${product.rating}.png`}></img>
                         </div>
                         <div className="grade_info">
                             <div className="grade">

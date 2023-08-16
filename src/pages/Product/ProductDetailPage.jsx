@@ -17,16 +17,7 @@ const ProductDetailPage = ({ PROXY }) => {
     const [isPurchaseClicked, setPurchaseClicked] = useState(false);
     const [isReviewClicked, setIsReveiwClicked] = useState(false);
 
-    const [review, setReview] = useState({
-        "reviews": [
-            {
-                "id": 0,
-                "username": "string",
-                "rating": 0,
-                "comment": "string"
-            }
-        ]
-    })
+    const [review, setReview] = useState({ reviews: [] })
 
     const [product, setProduct] = useState({ product: [] });
 
@@ -66,9 +57,9 @@ const ProductDetailPage = ({ PROXY }) => {
                 <ProductDetailInfo product={product}></ProductDetailInfo>
             </div>
             {isPurchaseClicked ? (
-                <ProductSelectPopUp product={product} onDeleteClick={handlePurchaseCloseClick}></ProductSelectPopUp>
+                <ProductSelectPopUp id={id} product={product} onDeleteClick={handlePurchaseCloseClick}></ProductSelectPopUp>
             ) : isReviewClicked ? (
-                <ProductReviewPopUp onDeleteClcik={handleReviewCloseClick} PROXY={PROXY} product={product} review={review}></ProductReviewPopUp>
+                <ProductReviewPopUp onDeleteClcik={handleReviewCloseClick} product={product} review={review}></ProductReviewPopUp>
             ) : (
                 <ProductPopUp PROXY={PROXY} id={id} onPurchaseClick={handlePurchaseClick} onReviewClick={handleReviewClick}></ProductPopUp>
             )}

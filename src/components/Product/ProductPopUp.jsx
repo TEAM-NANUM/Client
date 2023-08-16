@@ -8,18 +8,20 @@ const ProductPopUp = ({ PROXY, id, onPurchaseClick, onReviewClick }) => {
         try {
             await axios({
                 method: 'post',
-                url: `${PROXY}/api/cart`
-                ,
+                url: `${PROXY}/api/cart`,
                 data: {
-                    id: id,
+                    product_id: id,
                     quantity: 1
-                }
-            })
-            window.alert("장바구니에 추가되었습니다..");
+                },
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem('access_token')}`,
+                },
+            });
+            window.alert("장바구니에 추가되었습니다.");
         } catch (error) {
             console.log(error);
         }
-    }, [])
+    }, []);
 
     return (
         <div className="ProductPopUp_container">

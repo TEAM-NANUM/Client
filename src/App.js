@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import LoginPage from "./pages/Account/LoginPage";
 import MainPage from "./pages/Main/MainPage";
 import CategoryPage from "./pages/Category/CategoryPage";
@@ -7,6 +7,7 @@ import ProductPage from "./pages/Product/ProductPage";
 import ProductDetailPage from "./pages/Product/ProductDetailPage";
 import MyPage from "./pages/MyPage/MyPage";
 import ShoppingCart from "./pages/ShoppingCart/ShoppingCartPage";
+import PurchasePage from "./pages/Purchase/PurchasePage"
 import GroupPage from "./pages/Group/GroupPage";
 import GroupAddPage from "./pages/Group/GroupAddPage";
 import OrderListPage from "./pages/OrderList/OrderListPage";
@@ -15,18 +16,21 @@ import ReviewPage from "./pages/Review/ReviewPage";
 import PointPage from "./pages/Point/PointPage";
 import { useLoginStore } from "./components/Account/Store";
 import AddressAddPage from "./pages/Address/AddressAddPage";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import AddressFixPage from "./pages/Address/AddressFixPage";
 import axios from "axios";
 import SellerLogin from "./pages/SellerAccount/SellerLogin";
 import SellerJoin from "./pages/SellerAccount/SellerJoin";
 import SellerMyPage from "./pages/SellerMyPage/SellerMyPage";
+import ScrollTop from "./ScrollTop"
 
 function App() {
   const { access_token, token_set } = useLoginStore();
   const PROXY = process.env.REACT_APP_PROXY;
+  const appRef = useRef(null);
 
   const [userData, setUserData] = useState();
+  const [isUserLoading, setIsUserLoading] = useState(true);
 
   // 주소지 관련 정보
   const [addressList, setAddressList] = useState({
@@ -68,19 +72,22 @@ function App() {
   const [fixNum, setFixNum] = useState(0);
 
   useEffect(() => {
+    setIsUserLoading(true);
     axios
       .get(`${PROXY}/api/user`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("access_token")}`,
         },
       })
-      .then((res) => setUserData(res.data))
-      .catch((err) => console.log(err));
+      .then((res) => {setUserData(res.data); setIsUserLoading(false)})
+      .catch((err) => {setIsUserLoading(false)});
   }, []);
 
+
   return (
-    <div className="App">
+    <div className="App" ref={appRef}>
       <BrowserRouter>
+      <ScrollTop appRef={appRef}/>
         <Routes>
           <Route
             path="/"
@@ -107,14 +114,14 @@ function App() {
             path="/category"
             element={<CategoryPage PROXY={PROXY} />}
           ></Route>
-          <Route path="/search" element={<ProductPage PROXY={PROXY} />}></Route>
+          <Route path="/search" element={<ProductPage PROXY={PROXY} appRef={appRef}/>}></Route>
           <Route
             path="/productDetail/:id"
             element={<ProductDetailPage PROXY={PROXY} />}
           ></Route>
           <Route
             path="/mypage"
-            element={<MyPage userData={userData} />}
+            element={<MyPage userData={userData} isUserLoading={isUserLoading} />}
           ></Route>
           <Route path="/group" element={<GroupPage PROXY={PROXY} />}></Route>
           <Route
@@ -148,12 +155,9 @@ function App() {
             }
           ></Route>
           <Route path="/review" element={<ReviewPage />}></Route>
-          <Route
-            path="/shoppingCart"
-            element={<ShoppingCart PROXY={PROXY} />}
-          ></Route>
+          <Route path="/shoppingCart" element={<ShoppingCart PROXY={PROXY} />}></Route>\
+          <Route path="/purchase/:id" element={<PurchasePage PROXY={PROXY} userData={userData} />}></Route>
           <Route path="/point" element={<PointPage PROXY={PROXY} />}></Route>
-
           <Route
             path="/sellerlogin"
             element={<SellerLogin PROXY={PROXY} />}

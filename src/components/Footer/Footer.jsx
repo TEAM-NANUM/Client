@@ -23,7 +23,9 @@ const Footer = () => {
       <div
         className="Footer_icon"
         onClick={() => {
-          navigate(`/search`);
+          if (location.pathname !== "/search") {
+            navigate(`/search`);
+          }
         }}
       >
         {location.pathname === "/search" ? (

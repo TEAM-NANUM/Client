@@ -1,5 +1,5 @@
 .PopularItem_container {
-    height: 150px;
+    height: 260px;
     margin: 40px 20px 0px;
     padding: 0 10px;
     border-top: 2px solid #FF916F;
@@ -21,13 +21,13 @@
 }
 
 .PopularItem_container .PopularItem_list {
-    display: flex;
     justify-content: space-between;
 }
 
 .PopularItem_container .PopularItem_list img {
     width: 95px;
-    height: auto;
+    height: 95px;
+    margin: 1px 7px;
 }
 
 .PopularItem_header img {
