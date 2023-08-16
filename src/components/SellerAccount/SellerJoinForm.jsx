@@ -74,8 +74,8 @@ const SellerJoinForm = ({PROXY}) => {
         if (password === confirm_password) {
             axios.post(`${PROXY}/api/signup/seller`, sellerJoinForm)
             .then((res) => alert("회원가입에 성공했습니다!"))
-            .then((res) => alert("전화번호 형식을 맞춰 주세요. (010-0000-0000)"))
-            .catch((err) => console.log(err))
+            .then((res) => navigate("/sellerlogin"))
+            .catch((err) => alert("전화번호 형식을 맞춰 주세요. (010-0000-0000)"))
         } else {
             alert("비밀번호가 일치하지 않습니다.")
         }
