@@ -57,7 +57,7 @@ const ProductDetailPage = ({ PROXY }) => {
                 <ProductDetailInfo product={product}></ProductDetailInfo>
             </div>
             {isPurchaseClicked ? (
-                <ProductSelectPopUp id={id} product={product} onDeleteClick={handlePurchaseCloseClick}></ProductSelectPopUp>
+                <ProductSelectPopUp PROXY={PROXY} id={id} product={product} onDeleteClick={handlePurchaseCloseClick}></ProductSelectPopUp>
             ) : isReviewClicked ? (
                 <ProductReviewPopUp onDeleteClcik={handleReviewCloseClick} product={product} review={review}></ProductReviewPopUp>
             ) : (
