@@ -12,7 +12,7 @@ const Point = ({userData, navigate}) => {
             <div className='user_point_info'>
                 <p className='user_point_current'>잔액 {formattedPoint}원</p>
                 <div className='user_point_charge' onClick={() => navigate('/point')}>충전하기</div>
-            </div>
+            </div>  
         </div>
     );
 };
