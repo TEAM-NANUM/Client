@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import "../../styles/Main/Header.css";
 
 const Header = () => {
@@ -7,19 +8,16 @@ const Header = () => {
         setSearch(e.target.value)
     }
 
+    const navigate = useNavigate();
+
     return (
         <div className='Header_container'>
             <div className='Header_icon'>
-                <img src='./img/imgMain/main_icon.png' alt='메인아이콘1'></img>
+                <img src='./img/imgMain/logo.svg' alt='한채'></img>
             </div>
-            <div className='Header_icon'>
-                <img src='./img/imgMain/main_icon2.png' alt='메인아이콘2'></img>
-            </div>
-            <div className='search'>
-                <input className='searchBar' type='text' value={search} onChange={onChange} placeholder='검색해보세요.'></input>
-            </div>
-            <div className='Header_search_icon'>
-                <img src='./img/imgMain/search.png' alt='검색'></img>
+            <div className='searchBar' type='text' value={search} onChange={onChange} onClick={()=>navigate("/search")}>
+                <img style={{objectFit: "cover", weight: "15px", height: "15px", marginRight: "7px"}} src="./img/imgMain/searchIcon.svg" alt="검색"/>
+                한채에서 검색하세요!
             </div>
         </div>
     )

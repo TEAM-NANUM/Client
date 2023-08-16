@@ -156,7 +156,7 @@ function App() {
           <Route path="/review" element={<ReviewPage />}></Route>
           <Route path="/shoppingCart" element={<ShoppingCart PROXY={PROXY} />}></Route>\
           <Route path="/purchase/:id" element={<PurchasePage PROXY={PROXY} userData={userData} />}></Route>
-          <Route path="/point" element={<PointPage PROXY={PROXY} />}></Route>
+          <Route path="/point" element={<PointPage PROXY={PROXY} userData={userData}/>}></Route>
           <Route
             path="/sellerlogin"
             element={<SellerLogin PROXY={PROXY} />}
