@@ -1,17 +1,16 @@
 import React, { useState, useEffect } from "react";
-import { useParams, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import axios from "axios";
 import "../../styles/Purchase/Purchase.css";
 import SubHeader from "../../components/SubHeader";
-import PurchaseInfo from "../../components/Purchase/PurchaseInfo";
+import PurchaseInfo2 from "../../components/Purchase/PurchaseInfo2";
 import Footer from "../../components/Footer/Footer";
 
-const PurchasePage = ({ PROXY, userData }) => {
+const PurchasePage2 = ({ PROXY, userData }) => {
     const [userInfo, setUserInfo] = useState(null);
-    const { id } = useParams();
     const location = useLocation();
     const state = location.state;
-    const quantity = state.quantity;
+    const shoppingCart = state.shoppingCart;
 
     useEffect(() => {
         axios.get(`${PROXY}/api/orders/user`, {
@@ -28,10 +27,10 @@ const PurchasePage = ({ PROXY, userData }) => {
     return (
         <div className="PurchasePage_container">
             <SubHeader page={'주문하기'}></SubHeader>
-            <PurchaseInfo PROXY={PROXY} userInfo={userInfo} id={id} quantity={quantity}></PurchaseInfo>
+            <PurchaseInfo2 PROXY={PROXY} userInfo={userInfo} shoppingCart={shoppingCart}></PurchaseInfo2>
             <Footer></Footer>
         </div>
     );
 };
 
-export default PurchasePage;
+export default PurchasePage2;

@@ -26,7 +26,8 @@ const SellerLogin = ({PROXY}) => {
 
     const onSellerLogin = () => {
         axios.post(`${PROXY}/api/login/seller`, sellerLoginForm)
-        .then((res) => console.log(res))
+        .then((res) => localStorage.setItem("access_token", res.data.token))
+        .then((res) => navigate("/sellerMyPage"))
         .catch((err) => console.log(err))
     }
 

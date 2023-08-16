@@ -1,11 +1,25 @@
-import react, { useState } from "react";
+import react, { useState, useEffect } from "react";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "../../styles/Product/ProductSelectPopUp.css"
 
-const ProductSelectPopUp = ({ id, product, onDeleteClick }) => {
+const ProductSelectPopUp = ({ PROXY, id, product, onDeleteClick }) => {
 
     const navigate = useNavigate();
     const [quantity, setQuantity] = useState(1);
+    const [userInfo, setUserInfo] = useState(null);
+
+    useEffect(() => {
+        axios.get(`${PROXY}/api/orders/user`, {
+            headers: { Authorization: `Bearer ${localStorage.getItem('access_token')}` }
+        })
+            .then((res) => {
+                setUserInfo(res.data);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    }, []);
 
     const handlePlusClick = () => {
         setQuantity(quantity + 1);
@@ -18,7 +32,11 @@ const ProductSelectPopUp = ({ id, product, onDeleteClick }) => {
     };
 
     const handlePurchaseClick = () => {
-        navigate(`/purchase/${id}`, { state: { quantity: quantity } });
+        if (userInfo === null) {
+            navigate('/address');
+        } else {
+            navigate(`/purchase/${id}`, { state: { quantity: quantity } });
+        }
     };
 
     return (

@@ -1,0 +1,54 @@
+.SellerJoinForm_container {
+    width: 100%;
+}
+
+.SellerJoinForm_container > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 5% auto;
+    background-color: #F5F5F5;
+}
+
+.SellerJoinForm_header {
+    width: 90%;
+    padding: 2%;
+    margin: 5% auto;
+    border-bottom: 1px solid #FF916F;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.SellerJoinForm_data {
+    width: 90%;
+    padding: 2%;
+    margin-bottom: 5%;
+    background-color: rgb(255, 145, 111, 0.1);
+    border: 1px solid rgb(255, 145, 111, 0.1);
+    border-radius: 4px;
+}
+
+.SellerJoinForm_address_form {
+    width: 95%;
+}
+
+.SellerJoinForm_address_form > button {
+    width: 30%;
+    padding: 2%;
+    background-color: #fff;
+    border: 1px solid #FF916F;
+    border-radius: 4px;
+    margin-left: 5%;
+    cursor: pointer;
+}
+
+.SellerJoinForm_joinBtn {
+    height: 55px;
+    border-radius: 20px;
+    background-color: #FF916F !important;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
