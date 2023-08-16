@@ -22,11 +22,12 @@ const AddressPage = ({PROXY, addressList, setAddressList, setFixNum}) => {
     return (
         <>
             <SubHeader page={"배송지 관리"} />
-            <div className='AddressPage_container'>
-                <AddressList addressList={addressList} PROXY={PROXY} setFixNum={setFixNum} />
-                <div className='Address_add' onClick={() => navigate("/addressAdd")}>+ 배송지 추가</div>
+            {addressList.delivery_address.length!==0?<AddressList addressList={addressList} PROXY={PROXY} setFixNum={setFixNum} />:<img src='./img/imgAddress/noAddress.svg' style={{marginTop: "90px"}} alt="배송지 비어있음"></img>}
+            <div className="ShoppingCartSelect_container" style={{flexDirection: "column"}}>        
+                <div className={false ? "purchase_disable" : "select_purchase"}  onClick={()=>navigate("/addressAdd")}>
+                    <p>주소 추가</p>
+                </div>
             </div>
-            <Footer />
         </>
     );
 };

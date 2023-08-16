@@ -12,8 +12,7 @@ const AddressItem = ({PROXY, addressList, item, setFixNum}) => {
       headers: {
           'Authorization': `Bearer ${localStorage.getItem('access_token')}`,
       }})
-      .then((res) => alert(`배송지를 삭제하시겠습니까?`))
-      .then((res) => alert(`선택한 배송지가 삭제됐습니다.`))
+      .then((res) => alert(`선택한 배송지가 삭제되었습니다.`))
       .then((res) => window.location.reload())
       .catch((err) => console.log(err))
    }
@@ -25,8 +24,7 @@ const AddressItem = ({PROXY, addressList, item, setFixNum}) => {
       }
     })
     .then((res) => console.log(res))
-    .then((res) => alert(`선택한 배송지를 기본 배송지로 설정하시겠습니까?`))
-    .then((res) => alert(`선택한 배송지가 기본 배송지로 설정됐습니다.`))
+    .then((res) => alert(`선택한 배송지가 기본 배송지로 설정되었습니다.`))
     .then((res) => window.location.reload())
     .catch((err) => console.log(err))
    }
@@ -36,25 +34,20 @@ const AddressItem = ({PROXY, addressList, item, setFixNum}) => {
     navigate('/addressFix')
    }
 
-   console.log(item)
-
   return (
-        <div className='AddressItem_container'>
-          <div className='AddressItem_Header'>
-            <div className='AddressItem_Header_left'>
-              <div className='AddressItem_Header_name'>{item.nickname}</div>
-              {(item.is_default) && <div className='address_default' onClick={onDelete}>기본 배송지</div>}
-            </div>
-            <div className='address_delete' onClick={onDelete}>배송지 삭제</div>
-          </div>
-          <div className='AddressItem_address'>{item.address.detailAddress}</div>
-          <div className='AddressItem_bottom'>
-            <div className='AddressItem_bottom_box'>
-              <div onClick={onFixForm}>정보 수정</div>
-              {(item.is_default === false) && <div onClick={onDefault}>기본 배송지로</div>}
-            </div>
-          </div>
-        </div>
+    <div className='address_man_item_wrapper'>
+      <div className='address_man_item_name'>
+        <div>{`${item.receiver} (${item.nickname})`}</div>
+        {(item.is_default) && <div className='address_man_item_default'>기본배송지</div>}
+      </div>
+      <div className='address_man_item_phone'>{item.phone_number}</div>
+      <div className='address_man_item_address'>{`(${item.address.zipCode}) ${item.address.defaultAddress} ${item.address.detailAddress}`}</div>
+      <div className='address_man_item_btn_container'>
+        <div className='address_man_item_btn' onClick={onFixForm}>수정</div>
+        <div className='address_man_item_btn' onClick={onDelete}>삭제</div>
+        {(item.is_default === false) && <div className='address_man_item_btn' onClick={onDefault}>기본 배송지로</div>}
+      </div>
+    </div>
     );
 };
 

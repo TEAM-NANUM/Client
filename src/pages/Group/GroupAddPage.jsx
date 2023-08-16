@@ -7,7 +7,7 @@ const GroupAddPage = ({ PROXY }) => {
 
     return (
         <div>
-            <SubHeader page={"그룹원 추가"}></SubHeader>
+            <SubHeader page={"그룹원 추가"} useX></SubHeader>
             <GroupInfoInput PROXY={PROXY}></GroupInfoInput>
         </div>
     );

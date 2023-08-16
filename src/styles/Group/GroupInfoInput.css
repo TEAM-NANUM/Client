@@ -30,6 +30,7 @@
 }
 
 .zip_btn {
+    cursor: pointer;
     font-weight: 500;
     color: #353535;
     width: 90px;
