@@ -8,6 +8,7 @@ import ProductDetailPage from "./pages/Product/ProductDetailPage";
 import MyPage from "./pages/MyPage/MyPage";
 import ShoppingCart from "./pages/ShoppingCart/ShoppingCartPage";
 import PurchasePage from "./pages/Purchase/PurchasePage"
+import PurchasePage2 from "./pages/Purchase/PurchasePage2"
 import GroupPage from "./pages/Group/GroupPage";
 import GroupAddPage from "./pages/Group/GroupAddPage";
 import OrderListPage from "./pages/OrderList/OrderListPage";
@@ -79,15 +80,15 @@ function App() {
           Authorization: `Bearer ${localStorage.getItem("access_token")}`,
         },
       })
-      .then((res) => {setUserData(res.data); setIsUserLoading(false)})
-      .catch((err) => {setIsUserLoading(false)});
+      .then((res) => { setUserData(res.data); setIsUserLoading(false) })
+      .catch((err) => { setIsUserLoading(false) });
   }, []);
 
 
   return (
     <div className="App" ref={appRef}>
       <BrowserRouter>
-      <ScrollTop appRef={appRef}/>
+        <ScrollTop appRef={appRef} />
         <Routes>
           <Route
             path="/"
@@ -114,7 +115,7 @@ function App() {
             path="/category"
             element={<CategoryPage PROXY={PROXY} />}
           ></Route>
-          <Route path="/search" element={<ProductPage PROXY={PROXY} appRef={appRef}/>}></Route>
+          <Route path="/search" element={<ProductPage PROXY={PROXY} appRef={appRef} />}></Route>
           <Route
             path="/productDetail/:id"
             element={<ProductDetailPage PROXY={PROXY} />}
@@ -157,6 +158,7 @@ function App() {
           <Route path="/review" element={<ReviewPage />}></Route>
           <Route path="/shoppingCart" element={<ShoppingCart PROXY={PROXY} />}></Route>\
           <Route path="/purchase/:id" element={<PurchasePage PROXY={PROXY} userData={userData} />}></Route>
+          <Route path="/purchase" element={<PurchasePage2 PROXY={PROXY} userData={userData} />}></Route>
           <Route path="/point" element={<PointPage PROXY={PROXY} />}></Route>
           <Route
             path="/sellerlogin"

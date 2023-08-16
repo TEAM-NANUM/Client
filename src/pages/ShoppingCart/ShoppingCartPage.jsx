@@ -23,8 +23,8 @@ const ShoppingCartPage = ({ PROXY }) => {
                 setShoppingCart(res.data.items);
                 setIsCartLoading(false);
             })
-            .catch((err) => {console.log(err); setIsCartLoading(false)});
-    }, []); 
+            .catch((err) => { console.log(err); setIsCartLoading(false) });
+    }, []);
 
     const handleSelectDelete = async () => {
 
@@ -34,8 +34,8 @@ const ShoppingCartPage = ({ PROXY }) => {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('access_token')}`,
             }
-        }).then((res) => {setShoppingCart(res.data.items); setSelectedItems([])})
-        .catch((err) => console.log(err))    
+        }).then((res) => { setShoppingCart(res.data.items); setSelectedItems([]) })
+            .catch((err) => console.log(err))
     };
 
     const handleToggleSelect = (id) => {
@@ -51,41 +51,41 @@ const ShoppingCartPage = ({ PROXY }) => {
             <SubHeader page={'장바구니'}></SubHeader>
             {
                 !isCartLoading && (shoppingCart.length !== 0 ? <div className='ShoppingCartPage_top'>
-                        <div className='ShoppingCartPage_top_right'>
-                            <img style={{marginLeft: "13px", cursor:"pointer"}} src={`./img/imgs/cartSelect${ selectedItems.length === shoppingCart.length ?"On":"Off"}Icon.svg`} alt='select' 
-                                onClick={() => {
-                                    if (selectedItems.length === shoppingCart.length) {
-                                        setSelectedItems([]);
-                                    } else {
-                                        setSelectedItems(shoppingCart.map(item => item.id));
-                                    }
-                                    }} />
-                            <p style={{lineHeight: "1.5",fontSize: "15px", margin: "0 0 0 8px", fontWeight: "400", color: "#363636"}}>전체{" "}
-                                <span style={{fontSize: "15px", margin: 0, fontWeight: "500"}}>{ shoppingCart === null ? 0 : shoppingCart.length}</span>
-                                개
-                            </p>
-                        </div>
-                        <div className='ShoppingCartPage_top_right'>
-                            {
-                                selectedItems.length !== 0 ? 
-                                <p style={{cursor:"pointer", lineHeight: "1.5",fontSize: "13px", margin: "0 13px 0 0", fontWeight: "500", color: "#181818"}}  onClick={handleSelectDelete}>
+                    <div className='ShoppingCartPage_top_right'>
+                        <img style={{ marginLeft: "13px", cursor: "pointer" }} src={`./img/imgs/cartSelect${selectedItems.length === shoppingCart.length ? "On" : "Off"}Icon.svg`} alt='select'
+                            onClick={() => {
+                                if (selectedItems.length === shoppingCart.length) {
+                                    setSelectedItems([]);
+                                } else {
+                                    setSelectedItems(shoppingCart.map(item => item.id));
+                                }
+                            }} />
+                        <p style={{ lineHeight: "1.5", fontSize: "15px", margin: "0 0 0 8px", fontWeight: "400", color: "#363636" }}>전체{" "}
+                            <span style={{ fontSize: "15px", margin: 0, fontWeight: "500" }}>{shoppingCart === null ? 0 : shoppingCart.length}</span>
+                            개
+                        </p>
+                    </div>
+                    <div className='ShoppingCartPage_top_right'>
+                        {
+                            selectedItems.length !== 0 ?
+                                <p style={{ cursor: "pointer", lineHeight: "1.5", fontSize: "13px", margin: "0 13px 0 0", fontWeight: "500", color: "#181818" }} onClick={handleSelectDelete}>
                                     선택 삭제
                                 </p> : ""
-                            }
-                        </div>
-                </div> : 
-                <div className="cart_no_item">
-                    <img src="./img/imgShoppingCart/noCart.svg" alt='no-cart' />
-                    <p style={{marginTop: "15px"}}>장바구니에</p>
-                    <p>담긴 상품이 없어요.</p>
-                    <div className="redirect_to_home" onClick={()=>navigate("/")}>쇼핑하러 가기</div>
-                </div>)
+                        }
+                    </div>
+                </div> :
+                    <div className="cart_no_item">
+                        <img src="./img/imgShoppingCart/noCart.svg" alt='no-cart' />
+                        <p style={{ marginTop: "15px" }}>장바구니에</p>
+                        <p>담긴 상품이 없어요.</p>
+                        <div className="redirect_to_home" onClick={() => navigate("/")}>쇼핑하러 가기</div>
+                    </div>)
             }
             <div className="ShoppingCartList">
                 {shoppingCart &&
                     shoppingCart.map((item, index) => (
                         <>
-                            <div className="divider"/>
+                            <div className="divider" />
                             <ShoppingCartList
                                 key={item.id}
                                 PROXY={PROXY}
@@ -100,9 +100,9 @@ const ShoppingCartPage = ({ PROXY }) => {
                     ))}
             </div>
             {
-                shoppingCart.length !== 0 ? 
-                    <ShoppingCartSelect PROXY={PROXY} selectedItems={selectedItems} shoppingCart={shoppingCart}/>
-                    : ""    
+                shoppingCart.length !== 0 ?
+                    <ShoppingCartSelect PROXY={PROXY} selectedItems={selectedItems} shoppingCart={shoppingCart} />
+                    : ""
             }
         </>
     )
