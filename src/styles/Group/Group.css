@@ -1,24 +1,25 @@
 .Group_container {
     margin: 5px 0;
-    padding: 10px;
-    width: auto;
-    height: 90px;
-    background-color: #F5F5F5;
-    border-radius: 10px;
     align-items: center;
+
+    padding: 0 16px;
 }
 
 .Group_container .Group_content {
+    padding: 0 8px;
     display: flex;
     align-items: center;
 }
 
 .Group_container .Group_content .name {
-    margin: 0 10px;
-    font-size: 20px;
+    margin: 0;
+    font-weight: 500;
+    font-size: 18px;
+    margin-bottom: 5px;
 }
 
 .Group_container .Group_content .address {
+    margin: 0;
     font-size: 12px;
 }
 
@@ -29,29 +30,34 @@
 
 .invitation_code {
     display: flex;
+    padding-bottom: 10px;
 }
 
 .invitation_code_text {
-    margin: 10px 0 10px 50px;
+    margin: 10px 0 10px 69px;
     width: 120px;
-    height: 30px;
+    height: 28px;
     font-size: 12px;
-    text-align: center;
+    padding: 0 10px;
     line-height: 30px;
-    border-radius: 10px;
+    border-radius: 6px;
     background-color: #FFFFFF;
+    border: 0.5px solid rgb(173, 173, 173);
 }
 
 .invitation_code_button {
-    margin: 10px;
-    width: 100px;
+    font-weight: 500;
+    margin: 10px 0;
+    padding: 4px 10px;
     height: 30px;
     font-size: 12px;
-    border-radius: 10px;
+    border-radius: 8px;
     border: none;
-    background-color: #FF916F;
+    color: white;
+    background-color: #FF7A51;
+    cursor: pointer;
 }
 
 .invitation_code_button:hover {
-    background-color: #fd8560;
+    background-color: #ff7045;
 }

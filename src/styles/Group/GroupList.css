@@ -1,5 +1,5 @@
 .GroupList_container {
-    margin: 20px;
+    margin: 12px 0 50px 0;
 }
 
 .GroupList_container .GroupList_title {
@@ -10,4 +10,15 @@
     margin-left: 5px;
     width: 25px;
     height: auto;
+}
+
+.group_add_btn {
+    padding: 7px 10px;
+    font-size: 10px;
+    font-weight: 500;
+    color: rgb(65, 65, 65);
+    border: 0.5px solid lightgray;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-right: 16px;
 }

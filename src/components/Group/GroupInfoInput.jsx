@@ -9,23 +9,28 @@ const GroupInfoInput = ({ PROXY }) => {
     const [zipCode, setZipCode] = useState("");
     const [address, setAddress] = useState("");
     const [detailAddress, setDetailAddress] = useState("");
+    const [addErr, setAddErr] = useState(false);
 
     const onChangeNickname = (e) => {
         setNickname(e.target.value);
+        setAddErr(false);
     }
 
     const onChangeDetailAddress = (e) => {
         setDetailAddress(e.target.value);
+        setAddErr(false);
     }
 
     const handle = {
         clickButton: () => {
             setOpenPostCode(current => !current);
+            setAddErr(false);
         },
         selectAddress: (data) => {
             setZipCode(data.zonecode);
             setAddress(data.address);
             setOpenPostCode(false);
+            setAddErr(false);
         },
     }
 
@@ -47,8 +52,7 @@ const GroupInfoInput = ({ PROXY }) => {
                         Authorization: `Bearer ${accessToken}`,
                     },
                 });
-
-                window.alert("등록되었습니다.");
+                window.location.replace("/group")
                 setNickname("");
                 setOpenPostCode("");
                 setZipCode("");
@@ -58,47 +62,54 @@ const GroupInfoInput = ({ PROXY }) => {
                 console.log("Access token이 없습니다.");
             }
         } catch (error) {
-            console.log(error);
+            setAddErr(true)
         }
     }, [nickname, zipCode, address, detailAddress]);
 
     return (
-        <div className="GroupInfoInput_container">
-            <div className="GroupInfoInput_title">
-                <div>그룹원 정보 입력</div>
-                <img src="../img/imgGroup/groupAdd_Icon.png" alt="그룹추가아이콘"></img>
-            </div>
-            <div className="GroupInfo_nickname">
-                <div className="GroupInfo_nickname_title">1. 별칭</div>
-                <input
-                    className="GroupInfo_nickname_Input"
-                    placeholder="별명이나 이름"
-                    value={nickname}
-                    onChange={onChangeNickname}
-                ></input>
-            </div>
-            <div className="GroupInfo_address">
-                <div className="GroupInfo_address_title">2. 주소지 등록</div>
-                <div className="zipCode">
-                    <input className="zipCode_input" placeholder="우편번호" value={zipCode} disabled></input>
-                    <button className="zipCode_input_button" onClick={handle.clickButton}>우편번호 찾기</button>
+        <>
+            <div className="group_add_conatiner">
+                <div className="GroupInfo_address">
+                    <div className="group_add_info">이름</div>
+                    <input
+                        style={{
+                            marginBottom: "15px"
+                        }}
+                        className="group_add_input"
+                        placeholder="별명이나 이름"
+                        value={nickname}
+                        onChange={onChangeNickname}
+                    ></input>
+                    
+                    <div className="group_add_info">주소</div>
+                    <div className="zipCode">
+                        <input className="group_add_input" placeholder="우편번호" value={zipCode} disabled></input>
+                        <button className="zip_btn" onClick={handle.clickButton}>주소 찾기</button>
+                    </div>
+                    
                     {openPostCode &&
-                        <DaumPostcode
-                            onComplete={handle.selectAddress}
-                            autoClose={false}
-                        />}
+                        <div style={{margin: "8px 16px", border: "1px solid darkgray"}}>
+                            <DaumPostcode
+                                onComplete={handle.selectAddress}
+                                autoClose={false}/></div>
+                    }
+                    <input className="group_add_input" style={{marginTop: "6px"}} placeholder="주소" value={address} disabled></input>
+                    <input
+                        style={{marginTop: "6px"}}
+                        className="group_add_input"
+                        placeholder="상세주소"
+                        value={detailAddress}
+                        onChange={onChangeDetailAddress}
+                    ></input>
                 </div>
-                <input className="address_input" placeholder="주소" value={address} disabled></input>
-                <input
-                    className="addressDetail_input"
-                    placeholder="상세주소"
-                    value={detailAddress}
-                    onChange={onChangeDetailAddress}
-                ></input>
             </div>
-            <div className="GroupInfoInput_page_coment">그룹원들은 대표 계정의 머니를 공유합니다.</div>
-            <div className="Group_add_button" onClick={handleSubmit}>추가</div>
-        </div>
+            <div className="ShoppingCartSelect_container" style={{flexDirection: "column", height: addErr ? "92px":""}}>        
+                {addErr && <p style={{margin  : "5px 0 0 0", padding: 0, fontWeight: "400", fontSize: "14px", color:"rgb(247, 0, 0)"}}>정보를 모두 입력해주세요</p>}
+                <div className={false ? "purchase_disable" : "select_purchase"}  onClick={handleSubmit}>
+                    <p>그룹원 추가하기</p>
+                </div>
+            </div>
+        </>
     )
 }
 

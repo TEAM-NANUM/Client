@@ -72,7 +72,7 @@ const PopularItem = ({ PROXY }) => {
                     alignItems: "center",
                     justifyContent: "center",
                     color: "#565656",
-                    fontWeight: "600",
+                    fontWeight: "500",
                     cursor: "pointer",
                     margin: "12px auto auto auto"
                 }}
