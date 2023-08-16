@@ -20,6 +20,7 @@ import AddressFixPage from "./pages/Address/AddressFixPage";
 import axios from "axios";
 import SellerLogin from "./pages/SellerAccount/SellerLogin";
 import SellerJoin from "./pages/SellerAccount/SellerJoin";
+import SellerMyPage from "./pages/SellerMyPage/SellerMyPage";
 
 function App() {
   const { access_token, token_set } = useLoginStore();
@@ -160,6 +161,10 @@ function App() {
           <Route
             path="/sellerjoin"
             element={<SellerJoin PROXY={PROXY} />}
+          ></Route>
+          <Route
+            path="/sellerMyPage"
+            element={<SellerMyPage PROXY={PROXY} />}
           ></Route>
         </Routes>
       </BrowserRouter>
