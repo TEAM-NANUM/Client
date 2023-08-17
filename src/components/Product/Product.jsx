@@ -26,7 +26,7 @@ const Product = ({ list }) => {
         }
     };
 
-    const formattedRating = getFormattedRating(list.ratingAvg); // 평점 변환
+    const formattedRating = getFormattedRating(list.ratingAvg === undefined ? list.rating : list.ratingAvg); // 평점 변환
 
     return (
         <div className="Product_container">
@@ -43,8 +43,7 @@ const Product = ({ list }) => {
                     </div>
                     <div className="search_prod_price">{list.price.toLocaleString()}원</div>
                     <div>
-                        
-                    <img style={{objectFit: "cover", width: "70px"}} src={`./img/imgProduct/${formattedRating}.svg`} alt='star' />
+                        <img style={{ objectFit: "cover", width: "70px" }} src={`../img/imgProduct/${formattedRating}.svg`} alt='star' />
 
                     </div>
                     <div className="search_prod_pack">

@@ -2,12 +2,14 @@ import "./App.css";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import LoginPage from "./pages/Account/LoginPage";
 import MainPage from "./pages/Main/MainPage";
+import RedirectGuestLogin from "./pages/RedirectGuestLogin"
 import CategoryPage from "./pages/Category/CategoryPage";
 import ProductPage from "./pages/Product/ProductPage";
 import ProductDetailPage from "./pages/Product/ProductDetailPage";
 import MyPage from "./pages/MyPage/MyPage";
 import ShoppingCart from "./pages/ShoppingCart/ShoppingCartPage";
-import PurchasePage from "./pages/Purchase/PurchasePage";
+import PurchasePage from "./pages/Purchase/PurchasePage"
+import PurchasePage2 from "./pages/Purchase/PurchasePage2"
 import GroupPage from "./pages/Group/GroupPage";
 import GroupAddPage from "./pages/Group/GroupAddPage";
 import OrderListPage from "./pages/OrderList/OrderListPage";
@@ -38,42 +40,11 @@ function App() {
 
   // 주소지 관련 정보
   const [addressList, setAddressList] = useState({
-    delivery_address: [
-      {
-        delivery_id: "배송지 pk",
-        nickname: "배송지 별칭",
-        address: {
-          zip_code: "string",
-          default_address: "string",
-          detail_address: "string",
-        },
-        is_default: false, //기본 배송지 여부
-      },
-      {
-        delivery_id: "배송지 pk",
-        nickname: "배송지 별칭",
-        address: {
-          zip_code: "string",
-          default_address: "string",
-          detail_address: "string",
-        },
-        is_default: false, //기본 배송지 여부
-      },
-      {
-        delivery_id: "배송지 pk",
-        nickname: "배송지 별칭",
-        address: {
-          zip_code: "string",
-          default_address: "string",
-          detail_address: "string",
-        },
-        is_default: false, //기본 배송지 여부
-      },
-    ],
+    delivery_address: [],
   });
 
   // 주소지 수정 관련
-  const [fixNum, setFixNum] = useState(0);
+  const [fixNum, setFixNum] = useState(-1);
 
   useEffect(() => {
     setIsUserLoading(true);
@@ -83,13 +54,8 @@ function App() {
           Authorization: `Bearer ${localStorage.getItem("access_token")}`,
         },
       })
-      .then((res) => {
-        setUserData(res.data);
-        setIsUserLoading(false);
-      })
-      .catch((err) => {
-        setIsUserLoading(false);
-      });
+      .then((res) => { setUserData(res.data); setIsUserLoading(false) })
+      .catch((err) => { setIsUserLoading(false) });
   }, []);
 
   return (
@@ -122,10 +88,7 @@ function App() {
             path="/category"
             element={<CategoryPage PROXY={PROXY} />}
           ></Route>
-          <Route
-            path="/search"
-            element={<ProductPage PROXY={PROXY} appRef={appRef} />}
-          ></Route>
+          <Route path="/search" element={<ProductPage PROXY={PROXY} appRef={appRef} />}></Route>
           <Route
             path="/productDetail/:id"
             element={<ProductDetailPage PROXY={PROXY} />}
@@ -141,7 +104,7 @@ function App() {
             path="/groupAdd"
             element={<GroupAddPage PROXY={PROXY} />}
           ></Route>
-          <Route path="/orderlist" element={<OrderListPage />}></Route>
+          <Route path="/orderlist" element={<OrderListPage PROXY={PROXY} />}></Route>
           <Route
             path="/address"
             element={
@@ -163,21 +126,17 @@ function App() {
               <AddressFixPage
                 PROXY={PROXY}
                 addressList={addressList}
-                item={addressList.delivery_address[fixNum]}
+                fixNum={fixNum}
+                
               />
             }
           ></Route>
-          <Route path="/review" element={<ReviewPage />}></Route>
-          <Route
-            path="/shoppingCart"
-            element={<ShoppingCart PROXY={PROXY} />}
-          ></Route>
-          \
-          <Route
-            path="/purchase/:id"
-            element={<PurchasePage PROXY={PROXY} userData={userData} />}
-          ></Route>
-          <Route path="/point" element={<PointPage PROXY={PROXY} />}></Route>
+          <Route path="/review" element={<ReviewPage PROXY={PROXY} />}></Route>
+          <Route path="/shoppingCart" element={<ShoppingCart PROXY={PROXY} />}></Route>
+          <Route path="/purchase/:id" element={<PurchasePage PROXY={PROXY} userData={userData} />}></Route>
+          <Route path="/point" element={<PointPage PROXY={PROXY} userData={userData}/>}></Route>
+          <Route path="/purchase" element={<PurchasePage2 PROXY={PROXY} userData={userData} />}></Route>
+          <Route path="/point" element={<PointPage PROXY={PROXY} userData={userData}/>}></Route>
           <Route
             path="/sellerlogin"
             element={<SellerLogin PROXY={PROXY} />}
@@ -194,6 +153,12 @@ function App() {
             path="/sellerProductsOrders"
             element={<SellerOrdersPage PROXY={PROXY} productID={productID} />}
           ></Route>
+
+          <Route 
+            path="/group/login"
+            element={<RedirectGuestLogin PROXY={PROXY} />}  
+          >
+          </Route>
         </Routes>
       </BrowserRouter>
     </div>

@@ -1,5 +1,5 @@
 .MyInfo_container {
-    margin: 20px;
+    padding: 0 16px;
 }
 
 .MyInfo_container .MyInfo_title {
@@ -17,8 +17,6 @@
     margin: 5px 0;
     width: auto;
     height: 90px;
-    background-color: #F5F5F5;
-    border-radius: 10px;
     align-items: center;
 }
 
@@ -29,8 +27,10 @@
 }
 
 .MyInfo_content .account_title {
-    font-size: 10px;
+    font-size: 11px;
     margin-top: 5px;
+    margin-bottom: 3px;
+    color: #535353;
 }
 
 .MyInfo_content .name {
@@ -38,12 +38,13 @@
 }
 
 .MyInfo_content .MyInfo_money {
+    margin-top: 4px; 
     display: flex;
     font-size: 14px;
 }
 
 .MyInfo_content .MyInfo_money .money {
-    margin-left: 10px;
+    margin-left: 6px;
 }
 
 .MyInfo_content .MyInfo_money img {

@@ -4,20 +4,18 @@ import "../../styles/Group/MyInfo.css"
 const MyInfo = ({ group }) => {
     return (
         <div className="MyInfo_container">
-            <div className="MyInfo_title">
-                <div>내 정보</div>
-                <img src="./img/imgGroup/myInfo.png" alt="내정보"></img>
-            </div>
+            <span style={{fontSize: "17px"}} className="pay_span">
+                내 정보 
+            </span>
             <div className="MyInfo_content">
-                <img src="./img/imgGroup/myInfo_Icon.png" alt="내정보아이콘"></img>
-                <div>
-                    <div className="account_title">대표 계정</div>
-                    <div className="name">{group.username}</div>
+                <img style={{margin: "0 10px 0 0", padding: 0, objectFit:"cover", width: "65px",}} src='./img/imgMyPage/profilHost.svg' alt='프로필 사진' />
+                <div style={{marginLeft: "4px"}}>
+                    <div className="account_title">일반 회원</div>
+                    <div style={{margin: "0 0 3px 0", fontWeight: "500",fontSize: "22px"}}>{group.username}</div>
                     <div className="MyInfo_money">
-                        <div>머니: </div>
-                        <div className="money">{group.point}</div>
+                        <div>잔액</div>
+                            {group.point &&<div className="money">{group.point.toLocaleString()}</div>}
                         <div>원</div>
-                        <img src="./img/imgGroup/money_Icon.png"></img>
                     </div>
                 </div>
             </div>
