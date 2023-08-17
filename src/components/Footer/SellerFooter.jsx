@@ -24,8 +24,8 @@ const SellerFooter = () => {
       <div
         className="Footer_icon"
         onClick={() => {
-          if (location.pathname !== "/sellerAddProduct") {
-            navigate(`/sellerAddProduct`);
+          if (location.pathname !== "/sellerProductAddPage") {
+            navigate(`/sellerProductAddPage`);
           }
         }}
       >

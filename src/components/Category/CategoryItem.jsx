@@ -16,6 +16,8 @@ const CategoryItem = ({category_name, category_id, PROXY}) => {
       ]
     })
 
+    console.log(categoryItem)
+
     const onProductListSub = (e) => {
       navigate(`/search?subcategory=${e.currentTarget.id}&name=${encodeURIComponent(e.currentTarget.className)}`)
     }
