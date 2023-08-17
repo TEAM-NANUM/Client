@@ -23,8 +23,15 @@ const OrderItem = ({ orderItem }) => {
                         <div className='OrderItem_price'>가격 &nbsp;</div>
                         <div className='OrderItem_price_num'>{orderItem.total_price}</div>
                     </div>
-                    <div className={orderItem.delivery_status === "DELIVERY_COMPLETE" ? "OrderItem_status_green" : (orderItem.delivery_status === "PAYMENT_COMPLETE" ? "OrderItem_status_black" : "OrderItem_status_red")}>
-                        {orderItem.delivery_status === "DELIVERED" ? "배달 완료" : (orderItem.delivery_status === "PAYMENT_COMPLETE" ? "결제 완료" : orderItem.delivery_status)}
+                    <div className={
+                        orderItem.delivery_status === "DELIVERED" ? "OrderItem_status_green" :
+                            orderItem.delivery_status === "PAYMENT_COMPLETE" ? "OrderItem_status_black" :
+                                "OrderItem_status_red"
+                    }>
+                        {orderItem.delivery_status === "DELIVERED" ? "배달 완료" :
+                            orderItem.delivery_status === "PAYMENT_COMPLETE" ? "결제 완료" :
+                                orderItem.delivery_status === "IN_PROGRESS" ? "배달중" :
+                                    orderItem.delivery_status}
                     </div>
                 </div>
             </div>

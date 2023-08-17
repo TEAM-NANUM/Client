@@ -35,11 +35,12 @@ const ReviewAddItem = ({ PROXY, item }) => {
                 comment: reviewComment
             };
 
-            const response = await axios.post(`${PROXY}/api/reviews`, requestData, {
+            await axios.post(`https://api.hanche.store/api/reviews`, requestData, {
                 headers: {
                     Authorization: `Bearer ${accessToken}`,
                 },
             });
+            window.location.reload();
 
         } catch (error) {
             console.log(error);

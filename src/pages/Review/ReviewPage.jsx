@@ -78,7 +78,6 @@ const ReviewPage = ({ PROXY }) => {
                 {review && (reviewTap === "write") ? <ReviewAddList review={review} /> : <ReviewList PROXY={PROXY} review={writtenReview} />}
             </div>
             <ReviewTap setReviewTap={setReviewTap} />
-            <Footer />
         </>
     );
 };
