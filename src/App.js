@@ -37,6 +37,12 @@ function App() {
   const [userData, setUserData] = useState();
   const [isUserLoading, setIsUserLoading] = useState(true);
 
+  /** 상품 구매 (at 상품 디테일, at 장바구니)
+   *   [{ productId: number, quantity: number }]
+  */
+  const [purchaseDetail, setPurchaseDetail] = useState(null);
+  const [cartSelectedItemForPurchase, setCartSelectedItemForPurchase] = useState(null);
+
   // 판매자 주문 조회 관련
   const [productID, setProductID] = useState();
 
@@ -106,7 +112,7 @@ function App() {
           ></Route>
           <Route
             path="/productDetail/:id"
-            element={<ProductDetailPage PROXY={PROXY} />}
+            element={<ProductDetailPage PROXY={PROXY} setPurchaseDetail={setPurchaseDetail}/>}
           ></Route>
           <Route
             path="/mypage"
@@ -148,27 +154,12 @@ function App() {
               />
             }
           ></Route>
-          <Route path="/review" element={<ReviewPage PROXY={PROXY} />}></Route>
-          <Route
-            path="/shoppingCart"
-            element={<ShoppingCart PROXY={PROXY} />}
-          ></Route>
-          <Route
-            path="/purchase/:id"
-            element={<PurchasePage PROXY={PROXY} userData={userData} />}
-          ></Route>
-          <Route
-            path="/point"
-            element={<PointPage PROXY={PROXY} userData={userData} />}
-          ></Route>
-          <Route
-            path="/purchase"
-            element={<PurchasePage2 PROXY={PROXY} userData={userData} />}
-          ></Route>
-          <Route
-            path="/point"
-            element={<PointPage PROXY={PROXY} userData={userData} />}
-          ></Route>
+          <Route path="/review" element={<ReviewPage />}></Route>
+          <Route path="/shoppingCart" element={<ShoppingCart PROXY={PROXY} setPurchaseDetail={setPurchaseDetail} setCartSelectedItemForPurchase={setCartSelectedItemForPurchase}/>}></Route>\
+          <Route path="/purchase" element={<PurchasePage PROXY={PROXY} userData={userData} purchaseDetail={purchaseDetail} setPurchaseDetail={setPurchaseDetail} cartSelectedItemForPurchase={cartSelectedItemForPurchase}/>}></Route>
+          <Route path="/point" element={<PointPage PROXY={PROXY} userData={userData}/>}></Route>
+          <Route path="/point" element={<PointPage PROXY={PROXY} userData={userData}/>}></Route>
+
           <Route
             path="/sellerlogin"
             element={<SellerLogin PROXY={PROXY} />}

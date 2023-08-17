@@ -1,11 +1,12 @@
 import React from 'react';
 import "../../styles/Address/AddressItem.css";
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 
-const AddressItem = ({PROXY, addressList, item, setFixNum}) => {
+const AddressItem = ({getAddress, PROXY, addressList, item, setFixNum}) => {
 
    const navigate = useNavigate();
+   const [searchParams, setSearchParams]=useSearchParams();
 
    const onDelete = () => {
     axios.delete(`${PROXY}/api/delivery-address/${item.delivery_id}`, {
@@ -13,7 +14,7 @@ const AddressItem = ({PROXY, addressList, item, setFixNum}) => {
           'Authorization': `Bearer ${localStorage.getItem('access_token')}`,
       }})
       .then((res) => alert(`선택한 배송지가 삭제되었습니다.`))
-      .then((res) => window.location.reload())
+      .then((res) => getAddress())
       .catch((err) => console.log(err))
    }
 
@@ -25,13 +26,13 @@ const AddressItem = ({PROXY, addressList, item, setFixNum}) => {
     })
     .then((res) => console.log(res))
     .then((res) => alert(`선택한 배송지가 기본 배송지로 설정되었습니다.`))
-    .then((res) => window.location.reload())
+    .then((res) => getAddress())
     .catch((err) => console.log(err))
    }
 
    const onFixForm = () => {
     setFixNum(addressList.delivery_address.findIndex((i) => i.delivery_id === item.delivery_id))
-    navigate('/addressFix')
+    navigate('/addressFix?purchase='+ searchParams.get("purchase") || "")
    }
 
   return (

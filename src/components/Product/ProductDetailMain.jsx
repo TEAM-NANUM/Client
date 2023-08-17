@@ -2,44 +2,48 @@ import react from "react";
 import "../../styles/Product/ProductDetailMain.css";
 
 const ProductDetailMain = ({ product }) => {
+    const getFormattedRating = (rating) => {
+        if (rating >= 1 && rating < 1.5) {
+            return 1;
+        } else if (rating >= 1.5 && rating < 2) {
+            return 1.5;
+        } else if (rating >= 2 && rating < 2.5) {
+            return 2;
+        } else if (rating >= 2.5 && rating < 3) {
+            return 2.5;
+        } else if (rating >= 3 && rating < 3.5) {
+            return 3;
+        } else if (rating >= 3.5 && rating < 4) {
+            return 3.5;
+        } else if (rating >= 4 && rating < 4.5) {
+            return 4;
+        } else if (rating >= 4.5 && rating < 5) {
+            return 4.5;
+        } else if (rating === 5) {
+            return 5;
+        } else {
+            return 0; // 기본적으로 5로 처리하거나 필요에 따라 다른 기본값 사용
+        }
+    };
+    const formattedRating = getFormattedRating(product.rating ); // 평점 변환
     return (
-        <div className="ProductDetailMain_container">
-            <div className="ProductDetailMain_image">
-                <img src={product.imgUrl} alt="상품이미지"></img>
+        product.price && <div style={{padding:"0 4px"}}>
+        <div className="search_list_detail" style={{cursor:"default", width: "290px"}}>
+            <div className="search_seller" style={{color: "#9b9b9b", marginTop: "10px",marginBottom:"13px"}}>
+                {product.seller}
             </div>
-            <div className="ProductDetailMain_content">
-                <div className="ProductDetailMain_content_top">
-                    <div className="ProductDetailMain_content_name">{product.name}</div>
-                    <div className="Product_image">
-                        <img src="../img/imgProduct/item_icon.png" alt="상품아이콘"></img>
-                    </div>
-                </div>
-                <div className="ProductDetailMain_content_info">
-                    <div className="product_info">상품정보</div>
-                    <div className="ProductDetailMain_content_info_bottom">
-                        <div className="ProductDetailMain_content_info_left">
-                            <div className="ProductDetail_address">{product.seller}</div>
-                            <div className="ProductDetail_price">{product.price}원</div>
-                        </div>
-                        <div className="rating">
-                            <img src={`../img/imgProduct/${product.rating}.svg`}></img>
-                        </div>
-                        <div className="grade_info">
-                            <div className="grade">
-                                평점
-                            </div>
-                            <div className="my_grade">
-                                <div className="my_grade_">{product.rating} </div>
-                                <div>/5</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div className="search_prod_name" style={{fontWeight: "500",fontSize:"18px", marginBottom: "12px"}}>
+                {product.name}
             </div>
-            <div className="ProductDetailMain_coment">
-                현재 보고 계신 상품
+            <div>
+                <img style={{ objectFit: "cover", width: "80px", marginBottom: "12px" }} src={`../img/imgProduct/${formattedRating}.svg`} alt='star' />
+            </div>
+            <div className="search_prod_price" style={{fontWeight: "600",fontSize:"18px", marginBottom: "8px" }}>{product.price.toLocaleString()}원</div>
+            <div className="search_prod_pack" style={{}}>
+                {product.deliveryType === 'PACKAGE' ? '택배 배송 상품' : '직배송 상품'}
             </div>
         </div>
+    </div>
     )
 }
 

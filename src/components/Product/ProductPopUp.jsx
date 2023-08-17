@@ -4,25 +4,6 @@ import "../../styles/Product/ProductPopUp.css"
 
 const ProductPopUp = ({ PROXY, id, onPurchaseClick, onReviewClick }) => {
 
-    const handleSubmit = useCallback(async () => {
-        try {
-            await axios({
-                method: 'post',
-                url: `${PROXY}/api/cart`,
-                data: {
-                    product_id: id,
-                    quantity: 1
-                },
-                headers: {
-                    Authorization: `Bearer ${localStorage.getItem('access_token')}`,
-                },
-            });
-            window.alert("장바구니에 추가되었습니다.");
-        } catch (error) {
-            console.log(error);
-        }
-    }, []);
-
     return (
         <div className="ProductPopUp_container">
             <div className="ProductPopUp_inner">

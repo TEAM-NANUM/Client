@@ -40,7 +40,7 @@ const ShoppingCartList = ({ PROXY, shoppingCart, setShoppingCart, isSelected, ha
             </div>
             <img className="cart_product_img" src={shoppingCart.imgUrl} alt="상품이미지" onClick={() => { navigate(`/productDetail/${shoppingCart.productId}`) }}></img>
             <div className="Product_detail_info">
-                <div className="Product_name" onClick={() => { navigate(`/productDetail/${shoppingCart.productId}`) }} >{shoppingCart.name}</div>
+                <div className="Product_name" style={{marginLeft: "5px"}} onClick={() => { navigate(`/productDetail/${shoppingCart.productId}`) }} >{shoppingCart.name}</div>
                 <div className="Product_price">{shoppingCart.totalPrice.toLocaleString()}원</div>
                 <div className="quantity_update_bar">
                     <img src="../img/imgShoppingCart/minus.svg" alt="-" onClick={() => handleUpdate(-1)} />

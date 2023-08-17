@@ -23,7 +23,7 @@ const PointMethod = ({paymentMethod, setPaymentMethod, point, userData}) => {
                 <p style={{fontWeight: "400", margin: "7px 0", fontSize: "14px", color:"#292929"}}>{(point + userData.point).toLocaleString()}원</p>
             </div>
             <div style={{marginTop: "3px", display: "flex", padding: "4px 0",justifyContent:"space-between"}}>
-                <p style={{fontWeight: "600", margin: "7px 0", fontSize: "14px", color:"#292929"}}>최종 결재 금액</p>
+                <p style={{fontWeight: "600", margin: "7px 0", fontSize: "14px", color:"#292929"}}>최종 결제 금액</p>
                 <p style={{fontWeight: "600", margin: "7px 0", fontSize: "14px", color:"#292929"}}>{point.toLocaleString()}원</p>
             </div>
         </div>

@@ -7,12 +7,13 @@ const AllReview = ({ PROXY }) => {
 
     const navigate = useNavigate();
     const [products, setProducts] = useState([]);
+    const [limitItems, setLimitItems] = useState(4);
 
     useEffect(() => {
         axios
             .get(`${PROXY}/api/reviews/all`, {
                 params: {
-                    limit: 6,
+                    limit: limitItems,
                 },
             })
             .then((res) => {
@@ -22,7 +23,7 @@ const AllReview = ({ PROXY }) => {
             .catch((err) => {
                 console.error("Error fetching products:", err);
             });
-    }, [PROXY]);
+    }, [PROXY, limitItems]);
 
     return (
         <div style={{marginBottom: "50px"}}>
@@ -47,9 +48,28 @@ const AllReview = ({ PROXY }) => {
                             </div>
                         </div>
                     </div>
-                    {index !== products.length-1 && <div style={{margin:"0 0 8px 0", height: "0.1px", backgroundColor:"#e7e7e7"}}></div>}
+                    {index !== products.length-1 && <div style={{margin:"0 0 12px 0", height: "0.1px", backgroundColor:"#e7e7e7"}}></div>}
                 </>
             ))}
+            
+
+            <div style={{
+                    display: "flex",
+                    width: "92%",
+                    fontSize: "14px",
+                    height: "45px",
+                    borderRadius: "11px",
+                    backgroundColor: "white",
+                    border: "0.5px solid lightgray",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    color: "#565656",
+                    fontWeight: "500",
+                    cursor: "pointer",
+                    margin: "12px auto auto auto"
+                }} onClick={()=>{ setLimitItems(limitItems+5) }} > 
+                 더보기 +
+            </div>
 
         </div>
     )
