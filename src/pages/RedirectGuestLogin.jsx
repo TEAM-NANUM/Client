@@ -9,16 +9,18 @@ const RedirectGuestLogin = ({PROXY}) => {
     useEffect(()=>performGeustLogin(), [])
 
     const performGeustLogin = () => {
+    localStorage.clear();
         axios
           .post(`${PROXY}/api/login/guest`, {
             invite_code: searchParams.get("code"),
           })
           .then((res) => {
             localStorage.setItem("access_token", res.data.token);
-            window.location.replace("/main");
+            window.location.replace("/");
           })
           .catch((err) => {
-            window.location.replace("/main");
+            localStorage.setItem("access_token", "");
+            window.location.replace("/");
           });
     };
 };
