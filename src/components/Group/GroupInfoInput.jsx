@@ -6,10 +6,35 @@ import "../../styles/Group/GroupInfoInput.css"
 const GroupInfoInput = ({ PROXY }) => {
     const [nickname, setNickname] = useState("");
     const [openPostCode, setOpenPostCode] = useState(false);
+    const [phoneNumber1, setPhoneNumber1] = useState("");
+    const [phoneNumber2, setPhoneNumber2] = useState("");
+    const [phoneNumber3, setPhoneNumber3] = useState("");
     const [zipCode, setZipCode] = useState("");
     const [address, setAddress] = useState("");
     const [detailAddress, setDetailAddress] = useState("");
     const [addErr, setAddErr] = useState(false);
+
+    const onPhoneNumber1 = (e) => {
+        const regex = /^[0-9]{0,3}$/;
+        if (regex.test(e.currentTarget.value)) {
+            setPhoneNumber1(e.currentTarget.value)
+        }
+        setAddErr(false);
+    }
+    const onPhoneNumber2 = (e) => {
+        const regex = /^[0-9]{0,4}$/;
+        if (regex.test(e.currentTarget.value)) {
+            setPhoneNumber2(e.currentTarget.value)
+        }
+        setAddErr(false);
+    }
+    const onPhoneNumber3 = (e) => {
+        const regex = /^[0-9]{0,4}$/;
+        if (regex.test(e.currentTarget.value)) {
+            setPhoneNumber3(e.currentTarget.value)
+        }
+        setAddErr(false);
+    }
 
     const onChangeNickname = (e) => {
         setNickname(e.target.value);
@@ -39,8 +64,9 @@ const GroupInfoInput = ({ PROXY }) => {
             const accessToken = localStorage.getItem('access_token');
             const requestData = {
                 nickname: nickname,
+                phone_number: `${phoneNumber1}-${phoneNumber2}-${phoneNumber3}`,
                 address: {
-                    zip_code: zipCode,
+                    zip_code: zipCode,  
                     default_address: address,
                     detail_address: detailAddress
                 }
@@ -64,7 +90,7 @@ const GroupInfoInput = ({ PROXY }) => {
         } catch (error) {
             setAddErr(true)
         }
-    }, [nickname, zipCode, address, detailAddress]);
+    }, [nickname, zipCode, address, detailAddress, phoneNumber1, phoneNumber2, phoneNumber3]);
 
     return (
         <>
@@ -80,6 +106,47 @@ const GroupInfoInput = ({ PROXY }) => {
                         value={nickname}
                         onChange={onChangeNickname}
                     ></input>
+                    
+
+                        <div className='group_add_info'>전화번호</div>
+                    <div className="zipCode">
+                        
+                        <input 
+                            type="text"
+                            placeholder='010'
+                            style={{
+                                marginBottom: "15px",
+                                width: "30%",
+                                marginRight: "0"
+                            }}
+                            className='group_add_input' value={phoneNumber1}  onChange={onPhoneNumber1}
+                        />
+                        <div style={{margin:"0 5px 15px 5px", fontSize: "25px", color:"#a8a8a8", fontWeight: "300"}}>-</div>
+                        <input 
+                            style={{
+                                marginBottom: "15px",
+                                width: "30%",
+                                marginRight: "0",
+                                marginLeft: "0"
+                            }}
+                            type="text"
+                            className='group_add_input' value={phoneNumber2} placeholder='1234' onChange={onPhoneNumber2}
+                        />
+                        <div style={{margin:"0 5px 15px 5px", fontSize: "25px", color:"#a8a8a8", fontWeight: "300"}}>-</div>
+                        <input 
+                            style={{
+                                marginBottom: "15px",
+                                width: "30%",
+                                marginLeft: "0"
+                            }}
+                            type="text"   
+                            className='group_add_input' value={phoneNumber3} placeholder='5678' onChange={onPhoneNumber3}
+                        />
+                    </div>
+
+
+
+
                     
                     <div className="group_add_info">주소</div>
                     <div className="zipCode">
