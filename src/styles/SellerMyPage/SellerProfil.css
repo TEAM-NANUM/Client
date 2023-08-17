@@ -1,0 +1,34 @@
+.SellerProfil_container {
+    width: 90%;
+    margin: 0 auto 10% auto;
+    padding: 5%;
+    border-radius: 10px;
+    background-color: #F5F5F5;
+}
+
+.seller_header {
+    font-size: 13px;
+    color: #979696;
+}
+
+.seller_name_logout {
+    display: flex;
+    align-items: center;
+    margin: 5% 0 5% 0;
+}
+
+.seller_name {
+    margin-right: 3%;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.seller_logout {
+    font-size: 11px;
+    color: #DA0000;
+    cursor: pointer;
+}
+
+.seller_point {
+    font-size: 15px;
+}

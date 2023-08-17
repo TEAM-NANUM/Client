@@ -9,7 +9,7 @@ const ProductReview = ({ product, list }) => {
                 <div className="ProductReview_writer">작성자 : {list.username}</div>
                 <div className="ProductReview_name">{product.name}</div>
                 <div className="ProductReview_rating">
-                    <img src={`"../img/imgProduct/rating${list.rating}.png"`} alt={`${list.rating}`}></img>
+                    <img src={`../img/imgProduct/${list.rating}.svg`} alt={`${list.rating}`}></img>
                 </div>
                 <div className="ProductReview_coment">
                     {list.comment}

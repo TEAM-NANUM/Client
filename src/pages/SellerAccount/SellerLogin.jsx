@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import "../../styles/SellerAccount/SellerLogin.css";
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
@@ -30,6 +30,10 @@ const SellerLogin = ({PROXY}) => {
         .then((res) => navigate("/sellerMyPage"))
         .catch((err) => console.log(err))
     }
+
+    useEffect(() => {
+        localStorage.clear();
+    }, [])
 
     return (
         <div className='SellerLogin_container'>

@@ -130,8 +130,7 @@ const PurchasePage = ({ PROXY, userData, purchaseDetail, cartSelectedItemForPurc
                     <span style={{fontSize: "15px", fontWeight:"600",padding: "0 16px"}} className="pay_span">
                         배송지
                     </span>
-                    <div className="group_add_btn" style={{width: "50px", padding: "4px 6px", marginRight:"6px", height: "10px",color: "#1c18ffcd", border: "none"}} onClick={() => { navigate('/address?purchase=true') }}>배송지 변경</div>
-                </div>  
+                {userData.is_guest===true ? "" :<div className="group_add_btn" style={{width: "50px", padding: "4px 6px", marginRight:"6px", height: "10px",color: "#1c18ffcd", border: "none"}} onClick={() => { navigate('/address?purchase=true') }}>배송지 변경</div>}                </div>  
                 <div className='address_man_item_wrapper' style={{margin: "6px 0"}}>
                 <div className='address_man_item_name' style={{fontSize:"12px", fontWeight: "500"}}>
                     <div>{`${userInfo.user_name}`}</div>

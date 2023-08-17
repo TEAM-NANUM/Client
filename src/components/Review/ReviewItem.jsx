@@ -1,7 +1,7 @@
 import React from 'react';
 import "../../styles/Review/ReviewItem.css";
 
-const ReviewItem = ({item}) => {
+const ReviewItem = ({ item }) => {
 
     const ratingRender = (rating) => {
         const ratingStar = [];
@@ -14,7 +14,7 @@ const ReviewItem = ({item}) => {
     return (
         <div className='ReviewItem_container'>
             <div className='ReviewItem_img'>
-                <img src='./img/imgs/icon_logo.svg' alt='상품 사진'/>
+                <img src={item.img_url} alt='상품 사진' />
             </div>
             <div className='ReviewItem_content'>
                 <div className='ReviewItem_name'>{item.name}</div>
