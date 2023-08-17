@@ -24,7 +24,8 @@ import axios from "axios";
 import SellerLogin from "./pages/SellerAccount/SellerLogin";
 import SellerJoin from "./pages/SellerAccount/SellerJoin";
 import SellerMyPage from "./pages/SellerMyPage/SellerMyPage";
-import ScrollTop from "./ScrollTop"
+import ScrollTop from "./ScrollTop";
+import SellerOrdersPage from "./pages/SellerOrders/SellerOrdersPage";
 
 function App() {
   const { access_token, token_set } = useLoginStore();
@@ -33,6 +34,9 @@ function App() {
 
   const [userData, setUserData] = useState();
   const [isUserLoading, setIsUserLoading] = useState(true);
+
+  // 판매자 주문 조회 관련
+  const [productID, setProductID] = useState();
 
   // 주소지 관련 정보
   const [addressList, setAddressList] = useState({
@@ -53,7 +57,6 @@ function App() {
       .then((res) => { setUserData(res.data); setIsUserLoading(false) })
       .catch((err) => { setIsUserLoading(false) });
   }, []);
-
 
   return (
     <div className="App" ref={appRef}>
@@ -92,7 +95,9 @@ function App() {
           ></Route>
           <Route
             path="/mypage"
-            element={<MyPage userData={userData} isUserLoading={isUserLoading} />}
+            element={
+              <MyPage userData={userData} isUserLoading={isUserLoading} />
+            }
           ></Route>
           <Route path="/group" element={<GroupPage PROXY={PROXY} />}></Route>
           <Route
@@ -132,7 +137,6 @@ function App() {
           <Route path="/point" element={<PointPage PROXY={PROXY} userData={userData}/>}></Route>
           <Route path="/purchase" element={<PurchasePage2 PROXY={PROXY} userData={userData} />}></Route>
           <Route path="/point" element={<PointPage PROXY={PROXY} userData={userData}/>}></Route>
-
           <Route
             path="/sellerlogin"
             element={<SellerLogin PROXY={PROXY} />}
@@ -143,7 +147,11 @@ function App() {
           ></Route>
           <Route
             path="/sellerMyPage"
-            element={<SellerMyPage PROXY={PROXY} />}
+            element={<SellerMyPage PROXY={PROXY} setProductID={setProductID} />}
+          ></Route>
+          <Route
+            path="/sellerProductsOrders"
+            element={<SellerOrdersPage PROXY={PROXY} productID={productID} />}
           ></Route>
 
           <Route 

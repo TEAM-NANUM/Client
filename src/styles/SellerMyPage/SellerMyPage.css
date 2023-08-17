@@ -1,0 +1,7 @@
+.sellsrMyPage_container {
+    width: 90%;
+    height: 100vh;
+    margin: 100px auto;
+    display: flex;
+    flex-direction: column;
+}
