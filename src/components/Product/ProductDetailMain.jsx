@@ -22,7 +22,7 @@ const ProductDetailMain = ({ product }) => {
                             <div className="ProductDetail_price">{product.price}원</div>
                         </div>
                         <div className="rating">
-                            <img src={`../img/imgProduct/rating${product.rating}.png`}></img>
+                            <img src={`../img/imgProduct/${product.rating}.svg`}></img>
                         </div>
                         <div className="grade_info">
                             <div className="grade">

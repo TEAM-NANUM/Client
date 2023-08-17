@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel as Carous } from 'react-responsive-carousel';
 
 const Carousel = ({ PROXY }) => {
+
+    const navigate = useNavigate();
     const [carousel, setCarousel] = useState([]);
 
     useEffect(() => {
@@ -11,7 +14,6 @@ const Carousel = ({ PROXY }) => {
             .then((res) => {
                 if (Array.isArray(res.data.products)) {
                     console.log(res.data.products);
-
                     setCarousel(res.data.products);
                 } else {
                     console.error("Carousel data is not an array:", res.data);
@@ -19,6 +21,7 @@ const Carousel = ({ PROXY }) => {
             })
             .catch((err) => console.log(err))
     }, []);
+
     const [currentIndex, setCurrentIndex] = useState();
     function handleChange(index) {
         setCurrentIndex(index);
@@ -36,6 +39,7 @@ const Carousel = ({ PROXY }) => {
 
     return (
         <Carous showArrows={false}
+            onClickItem={(idx) => { window.location.replace(carousel[idx].hyperLink) }}
             autoPlay={true}
             infiniteLoop={true}
             swipeable={true}
@@ -47,7 +51,7 @@ const Carousel = ({ PROXY }) => {
             showStatus={false}
             onChange={handleChange}
             selectedItem={carousel[currentIndex]}
-            renderIndicator={(onClickHandler, isSelected, index, label) => {
+            renderIndicator={(isSelected, index, label) => {
                 if (isSelected) {
                     return (
                         <li
@@ -59,21 +63,28 @@ const Carousel = ({ PROXY }) => {
                 }
                 return (
                     <li
-                        style={indicatorStyles}
-                        onClick={onClickHandler}
-                        onKeyDown={onClickHandler}
                         value={index}
                         key={index}
                         role="button"
                         tabIndex={0}
                         title={`${label} ${index + 1}`}
                         aria-label={`${label} ${index + 1}`}
+                        style={{ ...indicatorStyles, cursor: carousel[index].hyperLink ? 'pointer' : 'default' }} // Change cursor style
                     />
                 );
             }}
         >
             {carousel.map((item, index) => (
-                <img style={{objectFit: "cover", height:"230px"}} src={item.imgUrl} key={index} alt={`Slide ${index}`} />
+                <div
+                    key={index}
+                    style={{ cursor: item.hyperLink ? 'pointer' : 'default' }} // Change cursor style
+                >
+                    <img
+                        style={{ objectFit: "cover", height: "230px", cursor: item.hyperLink ? 'pointer' : 'default' }} // Add cursor style to the image
+                        src={item.imgUrl}
+                        alt={`Slide ${index}`}
+                    />
+                </div>
             ))}
         </Carous>
     );
