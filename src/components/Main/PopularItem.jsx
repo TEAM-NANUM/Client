@@ -45,11 +45,11 @@ const PopularItem = ({ PROXY }) => {
                         <div className="main_prod_container">
                             <img style={{borderRadius: "4px", objectFit: "cover", width: "113px", height: "111.3px"}} src={product.imgUrl} alt={product.name} />
                             <div className="pop_img_des">
-                                <span className="pop_span">
+                                <span className="pop_span" style={{marginBottom: "4px"}}>
                                     <div className="pop_seller">{product.seller}</div>
                                 </span>
                                 <span className="pop_title_span">
-                                    <div className="pop_title">{product.name}</div>
+                                    <div className="pop_title" style={{marginBottom: "3px"}}>{product.name}</div>
                                 </span>
                                 <span className="pop_price">{product.price.toLocaleString()}원</span>
                                 <span className="pop_rating">평점 {product.ratingAvg}</span>

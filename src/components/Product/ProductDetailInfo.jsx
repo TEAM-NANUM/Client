@@ -2,10 +2,20 @@ import react from "react";
 import "../../styles/Product/ProductDetailInfo.css";
 
 const ProductDetailInfo = ({ product }) => {
+
+    const markup = () => {
+    	return {__html : product.description};
+    };
+
     return (
-        <div className="ProductDetailInfo_container">
-            <div>{product.description}</div>
-        </div>
+        <>
+            <div style={{fontSize: "14px", padding: "4px 0 0 10px"}} className="pay_span">
+            상품 정보
+            </div>
+            <div className="ProductDetailInfo_container" style={{padding:"20px 0"}}>
+                <div dangerouslySetInnerHTML={markup()} />
+            </div>
+        </>
     )
 }
 

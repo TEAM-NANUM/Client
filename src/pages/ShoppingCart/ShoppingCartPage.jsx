@@ -6,13 +6,14 @@ import ShoppingCartList from "../../components/ShoppingCart/ShoppingCartList";
 import { useLocation, useNavigate } from 'react-router-dom';
 import ShoppingCartSelect from "../../components/ShoppingCart/ShoppingCartSelect";
 
-const ShoppingCartPage = ({ PROXY }) => {
+const ShoppingCartPage = ({ PROXY, setPurchaseDetail, setCartSelectedItemForPurchase }) => {
     const [shoppingCart, setShoppingCart] = useState([]);
     const [isCartLoading, setIsCartLoading] = useState(true);
     const [selectedItems, setSelectedItems] = useState([]);
     const navigate = useNavigate();
 
     useEffect(() => {
+        setPurchaseDetail(null);
         setIsCartLoading(true);
         axios.get(`${PROXY}/api/cart`, {
             headers: {
@@ -101,7 +102,7 @@ const ShoppingCartPage = ({ PROXY }) => {
             </div>
             {
                 shoppingCart.length !== 0 ?
-                    <ShoppingCartSelect PROXY={PROXY} selectedItems={selectedItems} shoppingCart={shoppingCart} />
+                    <ShoppingCartSelect PROXY={PROXY} selectedItems={selectedItems} shoppingCart={shoppingCart} setPurchaseDetail={setPurchaseDetail} setCartSelectedItemForPurchase={setCartSelectedItemForPurchase}/>
                     : ""
             }
         </>

@@ -2,7 +2,7 @@ import React from 'react';
 import AddressItem from './AddressItem';
 import "../../styles/Address/AddressList.css";
 
-const AddressList = ({addressList, PROXY, setFixNum}) => {
+const AddressList = ({getAddress, addressList, PROXY, setFixNum}) => {
     addressList.delivery_address.sort((a, b) => {
         if (a.is_default && !b.is_default) {
             return -1; // a가 b보다 앞으로 오도록 정렬
@@ -15,7 +15,7 @@ const AddressList = ({addressList, PROXY, setFixNum}) => {
     return (
         addressList &&
         <div className='AddressList_container'>
-            {addressList.delivery_address.map((item, key) => <AddressItem PROXY={PROXY} addressList={addressList} setFixNum={setFixNum} key={key} item={item}/>)}  
+            {addressList.delivery_address.map((item, key) => <AddressItem getAddress={getAddress} PROXY={PROXY} addressList={addressList} setFixNum={setFixNum} key={key} item={item}/>)}  
         </div>
     );
 };

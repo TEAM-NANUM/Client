@@ -25,6 +25,10 @@
     border: 0.5px solid rgb(177, 177, 177);
 }
 
+.group_add_input::placeholder {
+    color: rgb(233, 233, 233);
+}
+
 .zipCode{
     display: flex;
 }

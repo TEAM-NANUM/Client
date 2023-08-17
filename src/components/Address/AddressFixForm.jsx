@@ -7,12 +7,13 @@
     import React, { useEffect, useState } from 'react';
     import DaumPostcode from 'react-daum-postcode';
     import "../../styles/Address/AddressAddForm.css";
-    import { useNavigate } from 'react-router-dom';
+    import { useNavigate, useSearchParams } from 'react-router-dom';
     import axios from 'axios';
     
     
     const AddressFixForm = ({PROXY, item}) => {
-    
+        const [searchParams, setSearchParams]=useSearchParams();
+
         const navigate = useNavigate();
     
         const [openPostCode, setOpenPostCode] = useState(false);
@@ -54,7 +55,7 @@
         }
     
         useEffect(()=>{
-            setAddressAddForm({...addressAddForm, "phone_number" : `${phoneNumber1.toString()}-${phoneNumber2.toString()}-${phoneNumber2.toString()}`})
+            setAddressAddForm({...addressAddForm, "phone_number" : `${phoneNumber1.toString()}-${phoneNumber2.toString()}-${phoneNumber3.toString()}`})
         }, [phoneNumber1, phoneNumber2, phoneNumber3])
     
         const onPhoneNumber1 = (e) => {
@@ -101,7 +102,7 @@
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('access_token')}`,
                 }})
-            .then((res) => window.location.replace("/address"))
+            .then((res) => navigate("/address?form=true&purchase="+ searchParams.get("purchase") || ""))
             .catch((err) => setAddErr(true))
         }
     

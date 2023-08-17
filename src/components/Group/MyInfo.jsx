@@ -14,7 +14,7 @@ const MyInfo = ({ group }) => {
                     <div style={{margin: "0 0 3px 0", fontWeight: "500",fontSize: "22px"}}>{group.username}</div>
                     <div className="MyInfo_money">
                         <div>잔액</div>
-                            {group.point &&<div className="money">{group.point.toLocaleString()}</div>}
+                            {group.point !== undefined &&<div className="money">{group.point.toLocaleString()}</div>}
                         <div>원</div>
                     </div>
                 </div>
