@@ -9,14 +9,15 @@ const LoginPage = ({ access_token, token_set, PROXY, setUserData }) => {
 
     const navigate = useNavigate()
     const [code, setCode] = useState("")
+    const [chk, setChk] = useState(false);
 
     return (
-        <div className='login_container'>
+        <div className='login_container' style={{display: chk?"":'none'}}>
             <div className='login_logo'>
                 <Logo />
             </div>
             <div className='login_form'>
-                <Kakao access_token={access_token} token_set={token_set} PROXY={PROXY}/>
+                <Kakao access_token={access_token} token_set={token_set} PROXY={PROXY} setChk={setChk}/>
                 <p>또는</p>
                 <Code code={code} setCode={setCode} PROXY={PROXY} setUserData={setUserData} />
                 <p onClick={()=>navigate("/sellerlogin")}>판매자 로그인</p>
