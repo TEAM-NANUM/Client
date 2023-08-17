@@ -21,36 +21,28 @@ const ReviewAddItem = ({ PROXY, item }) => {
         setReviewComment(e.currentTarget.value);
     }
 
-    const onReviewSummit = async () => {
+    const onReviewSubmit = async () => {
         try {
             const accessToken = localStorage.getItem('access_token');
+            if (!accessToken) {
+                console.log("Access token이 없습니다.");
+                return;
+            }
+
             const requestData = {
                 order_id: item.id,
                 rating: reviewRating,
                 comment: reviewComment
             };
 
-            if (accessToken) {
-                await axios.post(`${PROXY}/api/reviews`, requestData, {
-                    headers: {
-                        Authorization: `Bearer ${accessToken}`,
-                    },
-                });
+            const response = await axios.post(`${PROXY}/api/reviews`, requestData, {
+                headers: {
+                    Authorization: `Bearer ${accessToken}`,
+                },
+            });
 
-                onReviewAdd();
-            } else {
-                console.log("Access token이 없습니다.");
-            }
         } catch (error) {
             console.log(error);
-        }
-    }
-
-    const onReviewAdd = () => {
-        if (reviewForm.rating) {
-            alert("리뷰 작성 완료 !")
-        } else {
-            alert("평점을 입력 해주세요.")
         }
     }
 
@@ -77,7 +69,7 @@ const ReviewAddItem = ({ PROXY, item }) => {
                     </div>
                 </div>
             </div>
-            <div className='ReviewAddItem_addBtn' onClick={onReviewSummit}>리뷰 작성 완료</div>
+            <div className='ReviewAddItem_addBtn' onClick={onReviewSubmit}>리뷰 작성 완료</div>
         </div>
     );
 };
