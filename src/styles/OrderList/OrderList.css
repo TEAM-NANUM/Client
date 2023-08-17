@@ -4,8 +4,6 @@
 
 .OrderList_container {
     width: 90%;
-    height: calc(100vh - 200px);
-    overflow-y: scroll;
     margin: 0 auto;
 }
 
@@ -17,6 +15,6 @@
     align-items: center;
 }
 
-.OrderList_header > p {
+.OrderList_header>p {
     font-weight: bold;
 }

@@ -37,7 +37,7 @@
     border-radius: 10px;
 }
 
-.ReviewAddItem_rating_check > div {
+.ReviewAddItem_rating_check>div {
     width: 20%;
     display: flex;
     align-items: center;
@@ -46,11 +46,11 @@
     cursor: default;
 }
 
-.ReviewAddItem_rating_check > div > input {
+.ReviewAddItem_rating_check>div>input {
     width: 30%;
 }
 
-.ReviewAddItem_comment > textarea {
+.ReviewAddItem_comment>textarea {
     width: 100%;
     border: 1px solid rgb(255, 145, 111, 0.1);
     background-color: rgb(255, 145, 111, 0.1);

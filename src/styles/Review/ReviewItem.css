@@ -12,6 +12,10 @@
     width: 25%;
 }
 
+.ReviewItem_img img {
+    width: 90px
+}
+
 .ReviewItem_content {
     width: 75%;
     margin-left: 5%;

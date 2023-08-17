@@ -42,6 +42,7 @@ const PurchaseInfo = ({ PROXY, userInfo, id, quantity }) => {
 
                 if (response.status === 201) {
                     window.alert("결제완료되었습니다.");
+                    navigate('/main')
                 } else {
                     console.log("주문 등록에 실패하였습니다.");
                     navigate('/point')
@@ -65,7 +66,7 @@ const PurchaseInfo = ({ PROXY, userInfo, id, quantity }) => {
             <PurchaseUserInfo userInfo={userInfo}></PurchaseUserInfo>
             <img className={'contour'} src="../img/imgPurchase/contour.png" alt="구분선"></img>
             <div className="ProductInfo">
-                <Product list={product}></Product>
+                {product && <Product list={product}></Product>}
                 {product && (
                     <div className="ProductInfo2">
                         <div className="quantity">수량: {quantity}</div>
