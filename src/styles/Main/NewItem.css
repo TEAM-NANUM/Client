@@ -40,3 +40,39 @@
     width: 25px;
     height: 25px;
 }
+
+.main_review {
+    font-size: 16px;
+    width: 300px;
+    padding: 0 0 10px 0;
+    padding-left: 16px;
+    padding-right: 16px;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.main_review_user {
+    font-size: 0.875rem;
+    line-height: 1.125rem;
+    font-weight: bold;
+    color: rgb(77, 78, 89);
+    margin: 0;
+    padding: 0;
+    border: 0;
+    margin-bottom: 6px;
+}
+
+.main_review_comment {
+    font-weight: 400;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: rgb(56, 56, 67);
+    white-space: no-wrap;
+    text-align: left;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    text-overflow: "ellipsis"
+}

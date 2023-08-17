@@ -40,14 +40,10 @@ const GroupPage = ({ PROXY }) => {
         <div className='GroupPage_container'>
             <SubHeader page="그룹관리" />
             <MyInfo group={group.host}></MyInfo>
+            <div style={{marginTop: "24px"}} className="divider"></div>
             <GroupList group={group.members}></GroupList>
-            <div
-                className='add_group'
-                onClick={() => { navigate('/groupAdd') }}
-            >+ 그룹원 추가하기</div>
             <div className='group_page_coment'>그룹원들은 대표 계정의 머니를 공유합니다.</div>
             <div className='group_page_coment'>초대 코드 및 링크가 노출되지 않도록 주의해주세요.</div>
-            <Footer></Footer>
         </div>
     );
 };

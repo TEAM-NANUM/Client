@@ -1,34 +1,12 @@
-import React from 'react';
+import React, {useState} from 'react';
 import "../../styles/Point/PointBtn.css";
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-const PointBtn = ({PROXY, point, paymentMethod}) => {
-
+const PointBtn = ({PROXY, point, paymentMethod, payErr, setPayErr}) => {
     const navigate = useNavigate();
 
     const chargeEcoPoint = () => {
-        // try {
-        //   const token = localStorage.getItem("access_token");
-        //   const response = await axios.post(
-        //     `${PROXY}/api/user/charge`,
-        //     {
-        //       "point": point
-        //     },
-        //     {
-        //         headers: {
-        //             'Authorization': `Bearer ${localStorage.getItem('access_token')}`,
-        //         },
-        //     }
-        //   );
-        //   if (response.status === 200) {
-        //     console.log(response.body);
-        //   } else {
-        //     console.error("결제 실패 : ", response.status);
-        //   }
-        // } catch (error) {
-        //   console.error("결제 실패 : 서버 통신 오류", error);
-        // }
         axios.put(`${PROXY}/api/user/charge`, {
             "point" : Number(point)
         }, {
@@ -38,8 +16,6 @@ const PointBtn = ({PROXY, point, paymentMethod}) => {
         .then((res) => alert(`${point} 포인트가 충전 됐습니다.`))
         .then((res) => window.location.replace("/mypage"))
         .catch((err) => console.log(err))
-        
-
       };
     
       const handlePayment = () => {
@@ -70,18 +46,29 @@ const PointBtn = ({PROXY, point, paymentMethod}) => {
       /* 3. 콜백 함수 정의하기 */
       function callback(response) {
         const { success, error_msg } = response;
-    
         if (success) {
           chargeEcoPoint();
         } else {
-          alert("결제 수단을 선택 해주세요.")
+          setPayErr(true)
         }
     }
 
     return (
-        <div className='PointBtn_container' onClick={handlePayment}>
-            충전하기
+      <>
+        <div className="ShoppingCartSelect_container" style={{flexDirection: "column", height: payErr?"92px":""}}>
+        {payErr && <p style={{margin  : "5px 0 0 0", padding: 0, fontWeight: "400", fontSize: "14px", color:"rgb(247, 0, 0)"}}>결제에 실패하였습니다.</p>}
+            <div className={point === 0 ? "purchase_disable" : "select_purchase"}  onClick={() => handlePayment()}>
+                <> 
+                    {
+                        point === 0 ? "0원 결제하기" : 
+                        <>
+                            <p>{point.toLocaleString()}원 결제하기</p>
+                        </>
+                    }
+                </>
+            </div>
         </div>
+      </>
     );
 };
 

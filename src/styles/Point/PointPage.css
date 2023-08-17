@@ -1,13 +1,4 @@
 .PointPage_container {
-    width: 90%;
-    height: calc(100vh - 100px);
-    overflow-y: scroll;
-    margin: 5% auto;
-    display: flex;
-    flex-direction: column;
-    background-color: #fff;
+    padding: 0 15px
 }
 
-.PointPage_container::-webkit-scrollbar {
-    display: none;
-}

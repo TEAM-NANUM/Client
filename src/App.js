@@ -2,6 +2,7 @@ import "./App.css";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import LoginPage from "./pages/Account/LoginPage";
 import MainPage from "./pages/Main/MainPage";
+import RedirectGuestLogin from "./pages/RedirectGuestLogin"
 import CategoryPage from "./pages/Category/CategoryPage";
 import ProductPage from "./pages/Product/ProductPage";
 import ProductDetailPage from "./pages/Product/ProductDetailPage";
@@ -35,42 +36,11 @@ function App() {
 
   // 주소지 관련 정보
   const [addressList, setAddressList] = useState({
-    delivery_address: [
-      {
-        delivery_id: "배송지 pk",
-        nickname: "배송지 별칭",
-        address: {
-          zip_code: "string",
-          default_address: "string",
-          detail_address: "string",
-        },
-        is_default: false, //기본 배송지 여부
-      },
-      {
-        delivery_id: "배송지 pk",
-        nickname: "배송지 별칭",
-        address: {
-          zip_code: "string",
-          default_address: "string",
-          detail_address: "string",
-        },
-        is_default: false, //기본 배송지 여부
-      },
-      {
-        delivery_id: "배송지 pk",
-        nickname: "배송지 별칭",
-        address: {
-          zip_code: "string",
-          default_address: "string",
-          detail_address: "string",
-        },
-        is_default: false, //기본 배송지 여부
-      },
-    ],
+    delivery_address: [],
   });
 
   // 주소지 수정 관련
-  const [fixNum, setFixNum] = useState(0);
+  const [fixNum, setFixNum] = useState(-1);
 
   useEffect(() => {
     setIsUserLoading(true);
@@ -151,15 +121,18 @@ function App() {
               <AddressFixPage
                 PROXY={PROXY}
                 addressList={addressList}
-                item={addressList.delivery_address[fixNum]}
+                fixNum={fixNum}
+                
               />
             }
           ></Route>
           <Route path="/review" element={<ReviewPage PROXY={PROXY} />}></Route>
           <Route path="/shoppingCart" element={<ShoppingCart PROXY={PROXY} />}></Route>
           <Route path="/purchase/:id" element={<PurchasePage PROXY={PROXY} userData={userData} />}></Route>
+          <Route path="/point" element={<PointPage PROXY={PROXY} userData={userData}/>}></Route>
           <Route path="/purchase" element={<PurchasePage2 PROXY={PROXY} userData={userData} />}></Route>
-          <Route path="/point" element={<PointPage PROXY={PROXY} />}></Route>
+          <Route path="/point" element={<PointPage PROXY={PROXY} userData={userData}/>}></Route>
+
           <Route
             path="/sellerlogin"
             element={<SellerLogin PROXY={PROXY} />}
@@ -172,6 +145,12 @@ function App() {
             path="/sellerMyPage"
             element={<SellerMyPage PROXY={PROXY} />}
           ></Route>
+
+          <Route 
+            path="/group/login"
+            element={<RedirectGuestLogin PROXY={PROXY} />}  
+          >
+          </Route>
         </Routes>
       </BrowserRouter>
     </div>
