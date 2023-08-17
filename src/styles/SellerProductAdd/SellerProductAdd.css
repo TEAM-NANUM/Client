@@ -1,0 +1,218 @@
+.ProductAddBtn {
+    width: 80%;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 5%;
+    margin: 0 auto;
+    border-radius: 20px;
+    background-color: #FF916F;
+    cursor: pointer;
+}
+
+.MainImg_container {
+    width: 90%;
+    margin: 80px auto 5% auto;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    background-color: #f5f5f5;
+}
+
+.MainImg_text{
+    width: 100%;
+    padding: 5%;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.MainImg_container > img{
+    width: 80%;
+    margin: 0 auto 5% auto;
+}
+
+.MainImg_container > input{
+    width: 90%;
+    margin: 0 auto 5% auto;
+}
+
+.img_change_btn {
+    text-align: center;
+    width: 30%;
+    padding: 3%;
+    margin-bottom: 5%;
+    margin-left: 5%;
+    font-size: 13px;
+    background-color: #FF916F;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.ProductName_container {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    background-color: #f5f5f5;
+}
+
+.ProductName_header {
+    width: 100%;
+    padding: 5%;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.ProductName_text {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.ProductName_text > input {
+    width: 96%;
+    padding: 2%;
+    height: 25px;
+    margin: 0 auto 5% auto;
+    border: 1px solid #FF916F;
+    border-radius: 10px;
+}
+
+.Category_container {
+    width: 90%;
+    height: 100px;
+    margin: 5% auto;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    background-color: #f5f5f5;
+}
+
+.Category_header {
+    width: 100%;
+    padding: 5%;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.Category_container > select {
+    width: 90%;
+    margin: 0 auto;
+    padding: 2%;
+    margin-bottom: 5%;
+    border: 1px solid #FF916F;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.Price_container {
+    width: 90%;
+    margin: 5% auto;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    background-color: #f5f5f5;
+}
+
+.Price_header {
+    width: 100%;
+    padding: 5%;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.Price_text {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.Price_text > div {
+    font-size: 13px;
+}
+
+.Price_text > input {
+    width: 30%;
+    padding: 2%;
+    margin-bottom: 5%;
+    margin-right: 3%;
+    height: 25px;
+    border: 1px solid #FF916F;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.Unit_container {
+    width: 90%;
+    margin: 5% auto;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    background-color: #f5f5f5;
+}
+
+.Unit_header {
+    width: 100%;
+    padding: 5%;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.Unit_text {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.Unit_text > div {
+    font-size: 13px;
+}
+
+.Unit_text > input {
+    width: 30%;
+    padding: 2%;
+    margin-bottom: 5%;
+    margin-right: 3%;
+    height: 25px;
+    border: 1px solid #FF916F;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.DeliveryType_container {
+    width: 90%;
+    margin: 5% auto;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    background-color: #f5f5f5;
+}
+
+.DeliveryType_header {
+    width: 100%;
+    padding: 5%;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.DeliveryType_text {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.DeliveryType_text > select {
+    width: 90%;
+    margin: 0 auto;
+    padding: 2%;
+    margin-bottom: 5%;
+    border: 1px solid #FF916F;
+    border-radius: 10px;
+    text-align: center;
+}
