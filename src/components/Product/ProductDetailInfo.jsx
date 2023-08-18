@@ -12,8 +12,8 @@ const ProductDetailInfo = ({ product }) => {
             <div style={{fontSize: "14px", padding: "4px 0 0 10px"}} className="pay_span">
             상품 정보
             </div>
-            <div className="ProductDetailInfo_container" style={{padding:"20px 0"}}>
-                <div dangerouslySetInnerHTML={markup()} />
+            <div className="ProductDetailInfo_container" style={{padding:"0 0"}}>
+                <div className="ProductDetailInfo_box" dangerouslySetInnerHTML={markup()} />
             </div>
         </>
     )

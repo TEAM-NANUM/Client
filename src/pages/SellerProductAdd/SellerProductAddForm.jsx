@@ -138,7 +138,7 @@ const SellerProductAddForm = memo(({ setAnswer, PROXY, quillRef, api, htmlConten
     return (
         <>
             <ReactQuill
-            style={{width: "100%"}}
+            style={{width: "100%", zIndex: "0"}}
                 ref={quillRef}
                 value={htmlContent}
                 onChange={onHTML}
