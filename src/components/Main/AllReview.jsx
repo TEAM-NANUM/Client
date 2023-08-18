@@ -40,7 +40,7 @@ const AllReview = ({ PROXY }) => {
                         <span className="main_review_user">{product.userName}</span>
                         <div style={{display: "flex", flexDirection: "row", justifyContent: "space-between", width: "360px"}}>
                             <div style={{width: "260px", display:"flex", flexDirection:"column"}}>
-                                <div className="main_review_comment">{product.comment}</div>
+                                <div className="main_review_comment" style={{wordBreak:"break-all", wordWrap:"breakWord"}}>{product.comment.length <= 40 ? product.comment :product.comment.slice(0, 40)+"..."}</div>
                                 <img style={{marginBottom: "4px", marginTop: "auto", objectFit: "cover", width: "70px"}}src={`./img/imgProduct/${product.rating}.svg`} alt="평점"/>
                             </div>
                             <div>

@@ -8,50 +8,10 @@ import OrderTap from '../../components/OrderList/OrderTap';
 
 const OrderListPage = ({ PROXY }) => {
 
-  const [orderList, setOrderList] = useState({
-    "progress_orders": [
-      {
-        "order_id": "주문 ID 1",
-        "customer": "고객 이름",
-        "total_price": 25000,
-        "status": "결제 완료",
-        "name": "싱싱한 햇감자",
-        "unit": "5kg",
-        "quantity": "5"
-      },
-      {
-        "order_id": "주문 ID 2",
-        "customer": "고객 이름",
-        "total_amount": 15000,
-        "status": "배송중",
-        "description": "주문 정보"
-      },
-    ]
-  })
-
-  const [completeOrderList, setCompleteOrderList] = useState({
-    "complete_orders": [
-      {
-        "order_id": "주문 ID 1",
-        "customer": "고객 이름",
-        "total_price": 25000,
-        "status": "결제 완료",
-        "name": "싱싱한 햇감자",
-        "unit": "5kg",
-        "quantity": "5"
-      },
-      {
-        "order_id": "주문 ID 2",
-        "customer": "고객 이름",
-        "total_amount": 15000,
-        "status": "배송중",
-        "description": "주문 정보"
-      },
-    ]
-  })
-
-  const [orderTap, setOrderTap] = useState("progress_orders");
-
+  const [orderList, setOrderList] = useState()
+  const [completeOrderList, setCompleteOrderList] = useState()
+  const [tab, setTab] = useState("progress");
+  
   useEffect(() => {
     axios.get(`${PROXY}/api/orders/in-progress`, {
       headers: { Authorization: `Bearer ${localStorage.getItem('access_token')}` }
@@ -80,12 +40,17 @@ const OrderListPage = ({ PROXY }) => {
   return (
     <>
       <SubHeader page={"My 주문내역"} />
-      <div className='OrderListPage_container'>
-        {orderTap == "progress_orders" ?
-          <OrderList orderList={orderList} orderTap={orderTap} />
-          : <OrderList orderList={completeOrderList} orderTap={orderTap} />}
+      <div className='ShoppingCartPage_top' style={{cursor: "pointer"}}>
+            <div style={{height: "43px", width: "50%", display: "flex", borderRight: "0.1px solid lightgray",flexDirection:"row",alignItems: "center", backgroundColor: tab==="progress"?"":"#f6f6f6"}} onClick={()=>{setTab("progress")}}>
+                <p style={{margin: "auto", padding: 0}}>진행중인 주문</p>
+            </div>
+            <div style={{height: "43px", width: "50%", display: "flex", borderLeft: "0.1px solid lightgray",flexDirection:"row",alignItems: "center",backgroundColor: tab==="complete"?"":"#f6f6f6"}} onClick={()=>{setTab("complete")}}>
+                <p style={{margin: "auto", padding: 0}}>완료된 주문</p>
+            </div>
+        </div>
+      <div className='ReviewPage_container'>
+          <OrderList orderList={tab==="progress" ?orderList :completeOrderList}  />
       </div>
-      <OrderTap setOrderTap={setOrderTap} />
     </>
   );
 };

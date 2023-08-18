@@ -3,8 +3,6 @@
     align-items: center;
     width: 100%;
     margin: 5% auto;
-    background-color: #F5F5F5;
-    border-radius: 10px;
 }
 
 .OrderItem_img {
@@ -40,14 +38,6 @@
     display: flex;
     flex-direction: row;
     align-items: center; 
-}
-
-.OrderItem_quantity_box, .OrderItem_price_box, .OrderItem_status_green, .OrderItem_status_black, .OrderItem_status_red {
-    width: 33%;
-    display: flex;
-    flex-direction: row;
-    justify-content: start;
-    align-items: center;
 }
 
 .OrderItem_quantity, .OrderItem_price {
