@@ -14,6 +14,8 @@ const MainImg = ({PROXY, productForm, setProductForm, mainImg, setMainImg} ) => 
 
         reader.readAsDataURL(e.target.files[0]);
 
+        console.log(e.target.files[0])
+
 
         let fileInfo = e.target.files[0].name.split(".")
 

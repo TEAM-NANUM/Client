@@ -1,11 +1,82 @@
-import React, { useMemo, useCallback, memo, useState, useRef } from 'react'
+import React, { useMemo, useCallback, memo, useState, useRef, useEffect } from 'react'
 import styles from 'react-quill/dist/quill.snow.css';
 import ReactQuill from 'react-quill'; 
 import 'react-quill/dist/quill.snow.css'; // react-quill과 css파일 import 하기
+import axios from 'axios';
 
-const SellerProductAddForm = memo(({ quillRef, api, htmlContent, setHtmlContent }) => {
+const SellerProductAddForm = memo(({ setAnswer, PROXY, quillRef, api, htmlContent, setHtmlContent }) => {
 
-    console.log(htmlContent)
+    const dataURLtoFile = (dataurl, fileName) => {
+ 
+        var arr = dataurl.split(','),
+            mime = arr[0].match(/:(.*?);/)[1],
+            bstr = atob(arr[1]), 
+            n = bstr.length, 
+            u8arr = new Uint8Array(n);
+            
+        while(n--){
+            u8arr[n] = bstr.charCodeAt(n);
+        }
+        
+        return new File([u8arr], fileName, {type:mime});
+    }
+
+
+    const [img_url, setImg_Url] = useState();
+    const onHTML = (e) => {
+        setHtmlContent(e);
+
+        let content_data = htmlContent.split('<img src="')
+        let answer_arr;
+
+        answer_arr = content_data.map((item, idx) => {
+
+            let base64_img_data;
+            let change_idx;
+
+            if((item.slice(0, 4)) === "data") {
+                base64_img_data = (item.slice(item.indexOf("data"), item.indexOf(">") - 1))
+                let file = dataURLtoFile(base64_img_data, 'product_content_img')
+                
+
+                axios.post(`${PROXY}/api/presigned`, {
+                    "image_list" : [
+                        {
+                            "file_name" : file.name,
+                            "file_type" : file.type
+                        }
+                    ]
+                }, {
+                    headers : {
+                        Authorization: `Bearer ${localStorage.getItem('access_token')}`
+                    }
+                })
+                .then((res) => {
+                    axios.put(res.data.URLlist[0].presigned_url, file, {
+                        headers: {
+                            'Content-Type': file.type, // 파일의 MIME 타입 설정
+                          },
+                    })
+                    .then((res) => console.log(res))
+                    .catch((err) => console.log(err))
+
+                    setImg_Url(res.data.URLlist[0].image_url);
+                    // console.log((item.slice(item.indexOf("data"), item.indexOf(">") - 1)))
+                })
+                .catch((err) => console.log(err))
+
+                change_idx = '<img src="' + item.replace(base64_img_data, img_url);
+                return change_idx
+
+            } else {
+                return item
+            }
+        })
+
+        setAnswer(answer_arr)
+    }
+
+
 
     // 툴바의 사진 아이콘 클릭시 기존에 작동하던 방식 대신에 실행시킬 핸들러를 만들어주자.
     const imageHandler = useCallback(() => {
@@ -54,15 +125,9 @@ const SellerProductAddForm = memo(({ quillRef, api, htmlContent, setHtmlContent 
     const modules = useMemo(
         () => ({
             toolbar: [
-                [{ header: '1' }, { header: '2' }, { font: ["Spoqa Han Sans Neo"] }],
-                [{ size: [] }],
+                [{ font: ["Spoqa Han Sans Neo"] }],
+                [{ 'header': [1, 2, 3, false] }],
                 ['bold', 'italic', 'underline', 'strike', 'blockquote'],
-                [
-                  { list: 'ordered' },
-                  { list: 'bullet' },
-                  { indent: '-1' },
-                  { indent: '+1' },
-                ],
                 ['image'],
               ],
               clipboard: {
@@ -73,9 +138,10 @@ const SellerProductAddForm = memo(({ quillRef, api, htmlContent, setHtmlContent 
     return (
         <>
             <ReactQuill
+            style={{width: "100%"}}
                 ref={quillRef}
                 value={htmlContent}
-                onChange={setHtmlContent}
+                onChange={onHTML}
                 modules={modules}
                 theme="snow"
                 className={styles.quillEditor}
