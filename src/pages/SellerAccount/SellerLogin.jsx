@@ -28,7 +28,7 @@ const SellerLogin = ({PROXY}) => {
         axios.post(`${PROXY}/api/login/seller`, sellerLoginForm)
         .then((res) => localStorage.setItem("access_token", res.data.token))
         .then((res) => navigate("/sellerMyPage"))
-        .catch((err) => console.log(err))
+        .catch((err) => alert("로그인에 실패했습니다. 이메일과 비밀번호를 확인 해주세요."))
     }
 
     useEffect(() => {
