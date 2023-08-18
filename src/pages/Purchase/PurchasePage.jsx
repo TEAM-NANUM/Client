@@ -89,6 +89,10 @@ const PurchasePage = ({ PROXY, userData, purchaseDetail, cartSelectedItemForPurc
                 console.log(res.data);
             })
             .catch((err) => {
+                if (err.response && err.response.status === 404) {
+                    alert("상품 주문 전 배송지 등록이 필요합니다!")
+                    navigate("/address?purchase=true");
+                }
                 console.log(err);
             });
     }, [PROXY]);
