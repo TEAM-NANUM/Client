@@ -1,106 +1,105 @@
 .PointForm_container {
-    width: 100%;
-    margin: 40px 0 10% 0;
+  width: 100%;
+  margin: 40px 0 10% 0;
 }
 
 .PointForm_text {
-    width: 20%;
-    padding: 1.5%;
-    font-size: 14px;
-    font-weight: bold;
-    text-align: center;
-    background-color: #FF916F;
-    border-radius: 20px;
+  width: 20%;
+  padding: 1.5%;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  background-color: #ff916f;
+  border-radius: 20px;
 }
 
 .PointForm_box {
-    width: 95%;
-    margin: 5% auto;
-    padding: 2%;
-    display: flex;
-    justify-content: space-between;
-    border: 1px solid #FF916F;
-    border-radius: 10px;
+  width: 95%;
+  margin: 5% auto;
+  padding: 2%;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid #ff916f;
+  border-radius: 10px;
 }
 
 .PointForm_won {
-    font-size: 24px;
+  font-size: 24px;
 }
 
 .PointForm_add_box {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .PointForm_add {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 74px;
-    padding: 8px 4px;
-    text-align: center;
-    background-color: rgb(233, 233, 233);
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 74px;
+  padding: 8px 4px;
+  text-align: center;
+  background-color: rgb(233, 233, 233);
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
 }
 
 .pay_header {
-    margin: 50px 0 0 0;
-    padding: 0;
-    border: 0;
-    padding-bottom: 10px;
-    padding-top: 24px;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    display: flex;
-    background-color: rgb(255, 255, 255);
+  margin: 50px 0 0 0;
+  padding: 0;
+  border: 0;
+  padding-bottom: 10px;
+  padding-top: 24px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  background-color: rgb(255, 255, 255);
 }
 
 .pay_header_txt {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    display: flex;
-    flex-direction: column;
-    flex-shrink: 1;
-    
+  margin: 0;
+  padding: 0;
+  border: 0;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 1;
 }
 
 .pay_span {
-    box-sizing: border-box;
-    padding: 0;
-    border: 0;
-    margin: 0px;
-    font-size: 20px;
-    line-height: 1.75rem;
-    font-weight: bold;
-    text-align: left;
-    color: rgb(35, 35, 46);
-    white-space: pre-line;
-    letter-spacing:-1px;
-    margin-top: 5px;
+  box-sizing: border-box;
+  padding: 0;
+  border: 0;
+  margin: 0px;
+  font-size: 20px;
+  line-height: 1.75rem;
+  font-weight: bold;
+  text-align: left;
+  color: rgb(35, 35, 46);
+  white-space: pre-line;
+  letter-spacing: -1px;
+  margin-top: 5px;
 }
 
 .form_point {
-    width: 343px;
-    height: 38px;
-    background-color: #ffffff;
-    border: 0.6px solid rgb(143, 143, 143);
-    border-radius: 9px;
-    padding-left: 14px;
-    font-size: 16px;
-    font-weight: 600;
+  width: 343px;
+  height: 38px;
+  background-color: #ffffff;
+  border: 0.6px solid rgb(143, 143, 143);
+  border-radius: 9px;
+  padding-left: 14px;
+  font-size: 16px;
+  font-weight: 600;
 }
 .form_point::placeholder {
-    color: lightgray;
-    font-weight: 300;
+  color: lightgray;
+  font-weight: 300;
 }
 
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+  -webkit-appearance: none;
+  margin: 0;
 }

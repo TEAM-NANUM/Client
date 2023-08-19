@@ -1,47 +1,47 @@
 .group_add_conatiner {
-    padding: 70px 0px;
+  padding: 70px 0px;
 }
 
 .group_add_info {
-    font-size: 12px;
-    font-weight: 500;
-    margin: 8px 16px;
+  font-size: 12px;
+  font-weight: 500;
+  margin: 8px 16px;
 }
 
 .group_add_input {
-    display: flex;
-    align-items: center;
-    font-size: 16px;
-    font-weight: 400;
-    color: #353535;
-    width: 338px;
-    height: 32px;
-    font-size: 12px;
-    border-radius: 6px;
-    margin: 0 16px;
-    padding-left: 10px;
-    padding-right: 10px;
-    background-color:rgb(255, 255, 255);
-    border: 0.5px solid rgb(177, 177, 177);
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 400;
+  color: #353535;
+  width: 338px;
+  height: 32px;
+  font-size: 12px;
+  border-radius: 6px;
+  margin: 0 16px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: rgb(255, 255, 255);
+  border: 0.5px solid rgb(177, 177, 177);
 }
 
 .group_add_input::placeholder {
-    color: rgb(233, 233, 233);
+  color: rgb(233, 233, 233);
 }
 
-.zipCode{
-    display: flex;
+.zipCode {
+  display: flex;
 }
 
 .zip_btn {
-    cursor: pointer;
-    font-weight: 500;
-    color: #353535;
-    width: 90px;
-    font-size: 10px;
-    border-radius: 4px;
-    margin: 0 16px 0 0;
-    padding-left: 10px;
-    padding-right: 10px;
-    border: 0;
+  cursor: pointer;
+  font-weight: 500;
+  color: #353535;
+  width: 90px;
+  font-size: 10px;
+  border-radius: 4px;
+  margin: 0 16px 0 0;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: 0;
 }

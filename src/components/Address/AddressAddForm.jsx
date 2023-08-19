@@ -1,185 +1,262 @@
-import React, { useEffect, useState } from 'react';
-import DaumPostcode from 'react-daum-postcode';
+import React, { useEffect, useState } from "react";
+import DaumPostcode from "react-daum-postcode";
 import "../../styles/Address/AddressAddForm.css";
-import { useNavigate, useSearchParams } from 'react-router-dom';
-import axios from 'axios';
+import { useNavigate, useSearchParams } from "react-router-dom";
+import axios from "axios";
 
+const AddressAddForm = ({ PROXY }) => {
+  const navigate = useNavigate();
+  const [searchParams, setSearchParams] = useSearchParams();
 
-const AddressAddForm = ({PROXY}) => {
+  const [openPostCode, setOpenPostCode] = useState(false);
 
-    const navigate = useNavigate();
-    const [searchParams, setSearchParams]=useSearchParams();
+  const [receiver, setReceiver] = useState("");
+  const [nickname, setNickname] = useState("");
+  const [phoneNumber1, setPhoneNumber1] = useState("");
+  const [phoneNumber2, setPhoneNumber2] = useState("");
+  const [phoneNumber3, setPhoneNumber3] = useState("");
+  const [zip_code, setZip_code] = useState("");
+  const [default_address, setDefault_address] = useState("");
+  const [detail_address, setDetail_address] = useState("");
 
-    const [openPostCode, setOpenPostCode] = useState(false);
-    
-    const [receiver, setReceiver] = useState("");
-    const [nickname, setNickname] = useState("");
-    const [phoneNumber1, setPhoneNumber1] = useState("");
-    const [phoneNumber2, setPhoneNumber2] = useState("");
-    const [phoneNumber3, setPhoneNumber3] = useState("");
-    const [zip_code, setZip_code] = useState("");
-    const [default_address, setDefault_address] = useState("");
-    const [detail_address, setDetail_address] = useState("");
+  const [addErr, setAddErr] = useState(false);
 
-    const [addErr, setAddErr] = useState(false);
+  const [addressAddForm, setAddressAddForm] = useState({
+    receiver: "",
+    nickname: "",
+    address: {
+      zip_code: "",
+      default_address: "",
+      detail_address: "",
+    },
+    phone_number: "",
+  });
 
-    const [addressAddForm, setAddressAddForm] = useState(
-        {
-            "receiver": "",
-            "nickname" : "",
-            "address" : {
-                "zip_code": "",
-                "default_address": "",
-                "detail_address": ""
-            },
-            "phone_number" : ""
-        }
-    );
+  const onReceiver = (e) => {
+    setReceiver(e.currentTarget.value);
+    setAddressAddForm({ ...addressAddForm, receiver: e.currentTarget.value });
+    setAddErr(false);
+  };
 
-    const onReceiver = (e) => {
-        setReceiver(e.currentTarget.value)
-        setAddressAddForm({...addressAddForm, "receiver" : e.currentTarget.value})
-        setAddErr(false);
+  const onNickname = (e) => {
+    setNickname(e.currentTarget.value);
+    setAddressAddForm({ ...addressAddForm, nickname: e.currentTarget.value });
+    setAddErr(false);
+  };
+
+  useEffect(() => {
+    setAddressAddForm({
+      ...addressAddForm,
+      phone_number: `${phoneNumber1.toString()}-${phoneNumber2.toString()}-${phoneNumber3.toString()}`,
+    });
+  }, [phoneNumber1, phoneNumber2, phoneNumber3]);
+
+  const onPhoneNumber1 = (e) => {
+    const regex = /^[0-9]{0,3}$/;
+    if (regex.test(e.currentTarget.value)) {
+      setPhoneNumber1(e.currentTarget.value);
     }
+    setAddErr(false);
+  };
+  const onPhoneNumber2 = (e) => {
+    const regex = /^[0-9]{0,4}$/;
+    if (regex.test(e.currentTarget.value)) {
+      setPhoneNumber2(e.currentTarget.value);
+    }
+    setAddErr(false);
+  };
+  const onPhoneNumber3 = (e) => {
+    const regex = /^[0-9]{0,4}$/;
+    if (regex.test(e.currentTarget.value)) {
+      setPhoneNumber3(e.currentTarget.value);
+    }
+    setAddErr(false);
+  };
 
-    const onNickname = (e) => {
-        setNickname(e.currentTarget.value)
-        setAddressAddForm({...addressAddForm, "nickname" : e.currentTarget.value})
-        setAddErr(false);
-    }
+  const onDetailAddress = (e) => {
+    setDetail_address(e.currentTarget.value);
+    setAddressAddForm({
+      ...addressAddForm,
+      address: {
+        zip_code: zip_code,
+        default_address: default_address,
+        detail_address: e.currentTarget.value,
+      },
+    });
+    setAddErr(false);
+  };
 
-    useEffect(()=>{
-        setAddressAddForm({...addressAddForm, "phone_number" : `${phoneNumber1.toString()}-${phoneNumber2.toString()}-${phoneNumber3.toString()}`})
-    }, [phoneNumber1, phoneNumber2, phoneNumber3])
+  const handle = {
+    clickButton: () => {
+      setOpenPostCode((current) => !current);
+    },
+    selectAddress: (data) => {
+      setZip_code(data.zonecode);
+      setDefault_address(data.address);
+      setOpenPostCode(false);
+    },
+  };
 
-    const onPhoneNumber1 = (e) => {
-        const regex = /^[0-9]{0,3}$/;
-        if (regex.test(e.currentTarget.value)) {
-            setPhoneNumber1(e.currentTarget.value)
-        }
-        setAddErr(false);
-    }
-    const onPhoneNumber2 = (e) => {
-        const regex = /^[0-9]{0,4}$/;
-        if (regex.test(e.currentTarget.value)) {
-            setPhoneNumber2(e.currentTarget.value)
-        }
-        setAddErr(false);
-    }
-    const onPhoneNumber3 = (e) => {
-        const regex = /^[0-9]{0,4}$/;
-        if (regex.test(e.currentTarget.value)) {
-            setPhoneNumber3(e.currentTarget.value)
-        }
-        setAddErr(false);
-    }
-
-    const onDetailAddress = (e) => {
-        setDetail_address(e.currentTarget.value)
-        setAddressAddForm({...addressAddForm, "address" : {"zip_code" : zip_code, "default_address" : default_address, "detail_address" : e.currentTarget.value}})
-        setAddErr(false);
-    }
- 
-    const handle = {
-        clickButton: () => {
-            setOpenPostCode(current => !current);
+  const onForm = () => {
+    axios
+      .post(`${PROXY}/api/delivery-address`, addressAddForm, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("access_token")}`,
         },
-        selectAddress: (data) => {
-            setZip_code(data.zonecode);
-            setDefault_address(data.address);
-            setOpenPostCode(false);
-        },
-    }
+      })
+      .then((res) =>
+        navigate(
+          "/address?form=true&purchase=" + searchParams.get("purchase") || ""
+        )
+      )
+      .catch((err) => setAddErr(true));
+  };
 
-    const onForm = () => {
-        axios.post(`${PROXY}/api/delivery-address`, addressAddForm, {
-            headers: {
-                'Authorization': `Bearer ${localStorage.getItem('access_token')}`,
-            }})
-        .then((res) => navigate("/address?form=true&purchase="+ searchParams.get("purchase") || ""))
-        .catch((err) => setAddErr(true))
-    }
+  return (
+    <div className="AddressAddForm_container">
+      <div className="group_add_info">이름</div>
+      <input
+        style={{
+          marginBottom: "15px",
+        }}
+        className="group_add_input"
+        value={receiver}
+        type="text"
+        placeholder="홍길동"
+        onChange={onReceiver}
+      />
 
-    return (
-        <div className='AddressAddForm_container'>
-                <div className='group_add_info'>이름</div>
-                <input 
-                        style={{
-                            marginBottom: "15px"
-                        }}className='group_add_input' value={receiver} type='text' placeholder='홍길동' onChange={onReceiver}/>
-
-
-                <div className='group_add_info'>전화번호</div>
-                <div className="zipCode">
-                    
-                    <input 
-                        type="text"
-                        placeholder='010'
-                        style={{
-                            marginBottom: "15px",
-                            width: "30%",
-                            marginRight: "0"
-                        }}
-                        className='group_add_input' value={phoneNumber1}  onChange={onPhoneNumber1}
-                    />
-                    <div style={{margin:"0 5px 15px 5px", fontSize: "25px", color:"#a8a8a8", fontWeight: "300"}}>-</div>
-                    <input 
-                        style={{
-                            marginBottom: "15px",
-                            width: "30%",
-                            marginRight: "0",
-                            marginLeft: "0"
-                        }}
-                        type="text"
-                        className='group_add_input' value={phoneNumber2} placeholder='1234' onChange={onPhoneNumber2}
-                    />
-                    <div style={{margin:"0 5px 15px 5px", fontSize: "25px", color:"#a8a8a8", fontWeight: "300"}}>-</div>
-                    <input 
-                        style={{
-                            marginBottom: "15px",
-                            width: "30%",
-                            marginLeft: "0"
-                        }}
-                        type="text"   
-                        className='group_add_input' value={phoneNumber3} placeholder='5678' onChange={onPhoneNumber3}
-                    />
-                </div>
-
-                <div className='group_add_info'>별칭</div>
-                <input 
-                        style={{
-                            marginBottom: "15px"
-                        }}className='group_add_input' value={nickname} type='text' placeholder='집' onChange={onNickname}/>
-
-
-                <div className="group_add_info">주소</div>
-                <div className="zipCode">
-                    <input className="group_add_input" placeholder="우편번호" value={zip_code} disabled></input>
-                    <button className="zip_btn" onClick={handle.clickButton}>주소 찾기</button>
-                </div>
-                {openPostCode &&
-                        <div style={{margin: "8px 16px", border: "1px solid darkgray"}}>
-                            <DaumPostcode
-                                onComplete={handle.selectAddress}
-                                autoClose={false}/></div>
-                    }
-                <input className="group_add_input" style={{marginTop: "6px"}} placeholder="주소" value={default_address} disabled></input>
-                <input
-                    style={{marginTop: "6px"}}
-                    className="group_add_input"
-                    placeholder="상세주소"
-                    value={detail_address}
-                    onChange={onDetailAddress}
-                 ></input>
-            
-            <div className="ShoppingCartSelect_container" style={{flexDirection: "column", height: addErr ? "92px":""}}>        
-                {addErr && <p style={{margin  : "5px 0 0 0", padding: 0, fontWeight: "400", fontSize: "14px", color:"rgb(247, 0, 0)"}}>정보를 모두 입력해주세요</p>}
-                <div className={false ? "purchase_disable" : "select_purchase"}  onClick={onForm}>
-                    <p>완료</p>
-                </div>
-            </div>
+      <div className="group_add_info">전화번호</div>
+      <div className="zipCode">
+        <input
+          type="text"
+          placeholder="010"
+          style={{
+            marginBottom: "15px",
+            width: "30%",
+            marginRight: "0",
+          }}
+          className="group_add_input"
+          value={phoneNumber1}
+          onChange={onPhoneNumber1}
+        />
+        <div
+          style={{
+            margin: "0 5px 15px 5px",
+            fontSize: "25px",
+            color: "#a8a8a8",
+            fontWeight: "300",
+          }}
+        >
+          -
         </div>
-    );
+        <input
+          style={{
+            marginBottom: "15px",
+            width: "30%",
+            marginRight: "0",
+            marginLeft: "0",
+          }}
+          type="text"
+          className="group_add_input"
+          value={phoneNumber2}
+          placeholder="1234"
+          onChange={onPhoneNumber2}
+        />
+        <div
+          style={{
+            margin: "0 5px 15px 5px",
+            fontSize: "25px",
+            color: "#a8a8a8",
+            fontWeight: "300",
+          }}
+        >
+          -
+        </div>
+        <input
+          style={{
+            marginBottom: "15px",
+            width: "30%",
+            marginLeft: "0",
+          }}
+          type="text"
+          className="group_add_input"
+          value={phoneNumber3}
+          placeholder="5678"
+          onChange={onPhoneNumber3}
+        />
+      </div>
+
+      <div className="group_add_info">별칭</div>
+      <input
+        style={{
+          marginBottom: "15px",
+        }}
+        className="group_add_input"
+        value={nickname}
+        type="text"
+        placeholder="집"
+        onChange={onNickname}
+      />
+
+      <div className="group_add_info">주소</div>
+      <div className="zipCode">
+        <input
+          className="group_add_input"
+          placeholder="우편번호"
+          value={zip_code}
+          disabled
+        ></input>
+        <button className="zip_btn" onClick={handle.clickButton}>
+          주소 찾기
+        </button>
+      </div>
+      {openPostCode && (
+        <div style={{ margin: "8px 16px", border: "1px solid darkgray" }}>
+          <DaumPostcode onComplete={handle.selectAddress} autoClose={false} />
+        </div>
+      )}
+      <input
+        className="group_add_input"
+        style={{ marginTop: "6px" }}
+        placeholder="주소"
+        value={default_address}
+        disabled
+      ></input>
+      <input
+        style={{ marginTop: "6px" }}
+        className="group_add_input"
+        placeholder="상세주소"
+        value={detail_address}
+        onChange={onDetailAddress}
+      ></input>
+
+      <div
+        className="ShoppingCartSelect_container"
+        style={{ flexDirection: "column", height: addErr ? "92px" : "" }}
+      >
+        {addErr && (
+          <p
+            style={{
+              margin: "5px 0 0 0",
+              padding: 0,
+              fontWeight: "400",
+              fontSize: "14px",
+              color: "rgb(247, 0, 0)",
+            }}
+          >
+            정보를 모두 입력해주세요
+          </p>
+        )}
+        <div
+          className={false ? "purchase_disable" : "select_purchase"}
+          onClick={onForm}
+        >
+          <p>완료</p>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default AddressAddForm;

@@ -1,9 +1,9 @@
 .Carousel_container {
-    width: 300px;
+  width: 300px;
 }
 
 .Carousel img {
-    margin: 0 auto;
-    width: auto;
-    height: 180px;
+  margin: 0 auto;
+  width: auto;
+  height: 180px;
 }

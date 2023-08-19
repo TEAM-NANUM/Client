@@ -1,141 +1,141 @@
 .Product_container {
-    margin: 10px 0;
-    padding: 5px;
-    height: 140px;
+  margin: 10px 0;
+  padding: 5px;
+  height: 140px;
 }
 
 .Product_container .Product_top {
-    display: flex;
-    margin: 0 10px;
-    padding: 0 10px;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #FF916F;
+  display: flex;
+  margin: 0 10px;
+  padding: 0 10px;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ff916f;
 }
 
 .Product_container .Product_top .Product_top_left {
-    display: flex;
+  display: flex;
 }
 
 .Product_container .Product_top .Product_top_left .Product_info {
-    font-size: 13px;
+  font-size: 13px;
 }
 
 .Product_container .Product_top .Product_top_left img {
-    margin-left: 5px;
+  margin-left: 5px;
 }
 
 .Product_container .Product_top .Product_top_right img {
-    width: 15px;
+  width: 15px;
 }
 
 .Product_container .Product_content {
-    display: flex;
-    width: 100%;
-    padding: 10px;
-    align-items: center;
+  display: flex;
+  width: 100%;
+  padding: 10px;
+  align-items: center;
 }
 
 .Product_container .Product_content .Product_detail_info {
-    margin: 0 10px;
-    display: flex;
-    flex-direction: column;
+  margin: 0 10px;
+  display: flex;
+  flex-direction: column;
 }
 
 .Product_name,
 .Product_location,
 .Product_other_info {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .Product_location,
 .Product_other_info {
-    margin-left: 5px;
+  margin-left: 5px;
 }
 
 .Product_container .Product_content .Product_type {
-    font-size: 10px;
-    color: gray;
+  font-size: 10px;
+  color: gray;
 }
 
 .Product_container .Product_content .Product_info {
-    font-size: 12px;
+  font-size: 12px;
 }
 
 .Product_container .Product_content .Product_other_info {
-    display: flex;
+  display: flex;
 }
 
 .Product_container .Product_other_info .Product_delivery {
-    width: 100px;
+  width: 100px;
 }
 
 .search_prod_container {
-    width: 120px;
-    height: 120px;
-    object-fit: cover;
-    border-radius: 4px;
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 4px;
 }
 
-.Product_image{
-    display: flex;
-    align-items: center;
-    cursor: pointer;
+.Product_image {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
 }
 
 .Product_container {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .prod_list_divider {
-    width: 100%;
-    height: 4px;
-    background-color: rgb(243, 243, 246);
+  width: 100%;
+  height: 4px;
+  background-color: rgb(243, 243, 246);
 }
 
 .search_seller {
-    font-size: 12px;
-    font-weight: 500;
-    color: rgb(63, 63, 63);
-    white-space: pre-wrap;
-    box-sizing: border-box;
-    margin: 0 0 5px 0;
-    padding: 0;
-    border: 0;
+  font-size: 12px;
+  font-weight: 500;
+  color: rgb(63, 63, 63);
+  white-space: pre-wrap;
+  box-sizing: border-box;
+  margin: 0 0 5px 0;
+  padding: 0;
+  border: 0;
 }
 
 .search_prod_name {
-    font-weight: 600;
-    font-size: 16px;
-    color: rgb(58, 58, 58);
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    border: 0;
+  font-weight: 600;
+  font-size: 16px;
+  color: rgb(58, 58, 58);
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
 }
 
 .search_list_detail {
-    cursor: pointer;
-    width: 230px;
-    padding: 10px 10px 10px 10px;
+  cursor: pointer;
+  width: 230px;
+  padding: 10px 10px 10px 10px;
 }
 
 .search_prod_price {
-    font-weight: 500;
-    font-size: 16px;
-    padding-top: 2px;
-    color: rgb(58, 58, 58);
-    box-sizing: border-box;
-    margin: 0;
+  font-weight: 500;
+  font-size: 16px;
+  padding-top: 2px;
+  color: rgb(58, 58, 58);
+  box-sizing: border-box;
+  margin: 0;
 }
 
 .search_prod_pack {
-    font-size: 11px;
-    box-sizing: border-box;
-    margin: 4px 0 0 0;
-    border-radius: 4px;
-    padding: 2px 4px;
-    width: fit-content;
-    border: 1px solid rgb(234, 234, 239);
+  font-size: 11px;
+  box-sizing: border-box;
+  margin: 4px 0 0 0;
+  border-radius: 4px;
+  padding: 2px 4px;
+  width: fit-content;
+  border: 1px solid rgb(234, 234, 239);
 }

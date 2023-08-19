@@ -1,9 +1,8 @@
-import React from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import React from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import "../../styles/Footer/Footer.css";
 
 const SellerFooter = () => {
-    
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -16,9 +15,15 @@ const SellerFooter = () => {
         }}
       >
         {location.pathname === "/sellerMyPage" ? (
-          <img src="./img/imgFooter/sellerMyPageActive.svg" alt="마이페이지"></img>
+          <img
+            src="./img/imgFooter/sellerMyPageActive.svg"
+            alt="마이페이지"
+          ></img>
         ) : (
-          <img src="./img/imgFooter/sellerMyPageActive.svg" alt="마이페이지"></img>
+          <img
+            src="./img/imgFooter/sellerMyPageActive.svg"
+            alt="마이페이지"
+          ></img>
         )}
       </div>
       <div

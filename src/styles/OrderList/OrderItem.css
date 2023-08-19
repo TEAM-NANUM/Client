@@ -1,66 +1,70 @@
 .OrderItem_container {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    margin: 5% auto;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin: 5% auto;
 }
 
 .OrderItem_img {
-    width: 25%;
+  width: 25%;
 }
 
 .OrderItem_content {
-    width: 75%;
-    padding: 4%;
+  width: 75%;
+  padding: 4%;
 }
 
 .OrderItem_customer {
-    width: 90%;
-    border-bottom: 1px solid #FF916F;
-    font-weight: bold;
+  width: 90%;
+  border-bottom: 1px solid #ff916f;
+  font-weight: bold;
 }
 
 .ItemInfo {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .ItemInfo > p {
-    font-size: 8px;
+  font-size: 8px;
 }
 
 .OrderItem_name {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .OrderItem_bottom {
-    margin-top: 8%;
-    display: flex;
-    flex-direction: row;
-    align-items: center; 
+  margin-top: 8%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
-.OrderItem_quantity, .OrderItem_price {
-    font-size: 8px;
+.OrderItem_quantity,
+.OrderItem_price {
+  font-size: 8px;
 }
 
-.OrderItem_quantity_num, .OrderItem_price_num {
-    font-size: 16px;
+.OrderItem_quantity_num,
+.OrderItem_price_num {
+  font-size: 16px;
 }
 
-.OrderItem_status_green, .OrderItem_status_black, .OrderItem_status_red {
-    font-size: 14px;
-    font-weight: bold;
+.OrderItem_status_green,
+.OrderItem_status_black,
+.OrderItem_status_red {
+  font-size: 14px;
+  font-weight: bold;
 }
 
 .OrderItem_status_green {
-    color: #08C03B;
+  color: #08c03b;
 }
 
 .OrderItem_status_black {
-    color: #000;
+  color: #000;
 }
 
 .OrderItem_status_red {
-    color: #FF0000;
+  color: #ff0000;
 }

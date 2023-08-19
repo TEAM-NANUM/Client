@@ -1,20 +1,20 @@
 .PointResult_text {
-    width: 30%;
-    padding: 1.5%;
-    font-size: 14px;
-    font-weight: bold;
-    text-align: center;
-    background-color: #FF916F;
-    border-radius: 20px;
+  width: 30%;
+  padding: 1.5%;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  background-color: #ff916f;
+  border-radius: 20px;
 }
 
 .PointResult_result {
-    width: 93%;
-    font-size: 14px;
-    margin: 5% auto;
-    padding: 3%;
-    display: flex;
-    justify-content: space-between;
-    border: 1px solid #FF916F;
-    border-radius: 10px;
+  width: 93%;
+  font-size: 14px;
+  margin: 5% auto;
+  padding: 3%;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid #ff916f;
+  border-radius: 10px;
 }

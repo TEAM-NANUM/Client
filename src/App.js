@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoginPage from "./pages/Account/LoginPage";
 import MainPage from "./pages/Main/MainPage";
 import RedirectGuestLogin from "./pages/RedirectGuestLogin";
@@ -9,7 +9,6 @@ import ProductDetailPage from "./pages/Product/ProductDetailPage";
 import MyPage from "./pages/MyPage/MyPage";
 import ShoppingCart from "./pages/ShoppingCart/ShoppingCartPage";
 import PurchasePage from "./pages/Purchase/PurchasePage";
-import PurchasePage2 from "./pages/Purchase/PurchasePage2";
 import GroupPage from "./pages/Group/GroupPage";
 import GroupAddPage from "./pages/Group/GroupAddPage";
 import OrderListPage from "./pages/OrderList/OrderListPage";
@@ -26,7 +25,6 @@ import SellerJoin from "./pages/SellerAccount/SellerJoin";
 import SellerMyPage from "./pages/SellerMyPage/SellerMyPage";
 import ScrollTop from "./ScrollTop";
 import SellerOrdersPage from "./pages/SellerOrders/SellerOrdersPage";
-import SellerProductAddForm from "./pages/SellerProductAdd/SellerProductAddForm";
 import SellerProductAddPage from "./pages/SellerProductAdd/SellerProductAddPage";
 
 function App() {

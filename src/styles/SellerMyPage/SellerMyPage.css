@@ -1,8 +1,8 @@
 .sellsrMyPage_container {
-    width: 90%;
-    height: 100vh;
-    margin: 100px auto;
-    padding-bottom: 200px;
-    display: flex;
-    flex-direction: column;
+  width: 90%;
+  height: 100vh;
+  margin: 100px auto;
+  padding-bottom: 200px;
+  display: flex;
+  flex-direction: column;
 }

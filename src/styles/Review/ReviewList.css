@@ -1,22 +1,22 @@
 .ReviewList_container::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 .ReviewList_container {
-    width: 100%;
-    height: calc(100vh - 200px);
-    overflow-y: scroll;
-    margin: 0 auto;
+  width: 100%;
+  height: calc(100vh - 200px);
+  overflow-y: scroll;
+  margin: 0 auto;
 }
 
 .ReviewList_header {
-    width: 40%;
-    margin-top: 5%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  width: 40%;
+  margin-top: 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .ReviewList_header > p {
-    font-weight: bold;
+  font-weight: bold;
 }

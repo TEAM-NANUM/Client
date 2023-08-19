@@ -5,7 +5,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid rgb(243, 243, 246)
+  border-bottom: 1px solid rgb(243, 243, 246);
 }
 
 .categoryList_name_icon {

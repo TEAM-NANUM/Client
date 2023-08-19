@@ -1,17 +1,17 @@
 .not_login_wrapper {
-    width: 100%;
-    margin-top: 60px;
-    padding: 24px 16px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  width: 100%;
+  margin-top: 60px;
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .not_login_wrapper > p {
-    margin: 2px;
-    font-size: 17px;
-    font-weight: 600;
-    color: #444444;
+  margin: 2px;
+  font-size: 17px;
+  font-weight: 600;
+  color: #444444;
 }
 
 .redirect_loginpage {
@@ -22,7 +22,7 @@
   font-size: 16px;
   height: 52px;
   border-radius: 11px;
-  background-color: #FF7A51;
+  background-color: #ff7a51;
   align-items: center;
   justify-content: center;
   color: white;

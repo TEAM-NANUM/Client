@@ -1,63 +1,63 @@
 .Group_container {
-    margin: 5px 0;
-    align-items: center;
+  margin: 5px 0;
+  align-items: center;
 
-    padding: 0 16px;
+  padding: 0 16px;
 }
 
 .Group_container .Group_content {
-    padding: 0 8px;
-    display: flex;
-    align-items: center;
+  padding: 0 8px;
+  display: flex;
+  align-items: center;
 }
 
 .Group_container .Group_content .name {
-    margin: 0;
-    font-weight: 500;
-    font-size: 18px;
-    margin-bottom: 5px;
+  margin: 0;
+  font-weight: 500;
+  font-size: 18px;
+  margin-bottom: 5px;
 }
 
 .Group_container .Group_content .address {
-    margin: 0;
-    font-size: 12px;
+  margin: 0;
+  font-size: 12px;
 }
 
 .Group_container .Group_content img {
-    width: 50px;
-    height: auto;
+  width: 50px;
+  height: auto;
 }
 
 .invitation_code {
-    display: flex;
-    padding-bottom: 10px;
+  display: flex;
+  padding-bottom: 10px;
 }
 
 .invitation_code_text {
-    margin: 10px 0 10px 69px;
-    width: 120px;
-    height: 28px;
-    font-size: 12px;
-    padding: 0 10px;
-    line-height: 30px;
-    border-radius: 6px;
-    background-color: #FFFFFF;
-    border: 0.5px solid rgb(173, 173, 173);
+  margin: 10px 0 10px 69px;
+  width: 120px;
+  height: 28px;
+  font-size: 12px;
+  padding: 0 10px;
+  line-height: 30px;
+  border-radius: 6px;
+  background-color: #ffffff;
+  border: 0.5px solid rgb(173, 173, 173);
 }
 
 .invitation_code_button {
-    font-weight: 500;
-    margin: 10px 0;
-    padding: 4px 10px;
-    height: 30px;
-    font-size: 12px;
-    border-radius: 8px;
-    border: none;
-    color: white;
-    background-color: #FF7A51;
-    cursor: pointer;
+  font-weight: 500;
+  margin: 10px 0;
+  padding: 4px 10px;
+  height: 30px;
+  font-size: 12px;
+  border-radius: 8px;
+  border: none;
+  color: white;
+  background-color: #ff7a51;
+  cursor: pointer;
 }
 
 .invitation_code_button:hover {
-    background-color: #ff7045;
+  background-color: #ff7045;
 }

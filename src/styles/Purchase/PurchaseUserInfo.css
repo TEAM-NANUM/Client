@@ -1,83 +1,83 @@
 .PurchaseUserInfo_container {
-    height: 160px;
-    background-color: #F5F5F5;
-    border-radius: 10px;
+  height: 160px;
+  background-color: #f5f5f5;
+  border-radius: 10px;
 }
 
 .PurchaseUserInfo_top {
-    display: flex;
-    border-bottom: 1px solid #FF916F;
-    margin: 5px;
-    padding: 5px;
-    justify-content: space-between;
+  display: flex;
+  border-bottom: 1px solid #ff916f;
+  margin: 5px;
+  padding: 5px;
+  justify-content: space-between;
 }
 
 .PurchaseUserInfo_top .User_info {
-    display: flex;
-    margin-top: 5px;
+  display: flex;
+  margin-top: 5px;
 }
 
 .PurchaseUserInfo_top .User_info .User_info_coment {
-    font-size: 13px;
-    font-weight: bold;
+  font-size: 13px;
+  font-weight: bold;
 }
 
 .PurchaseUserInfo_top .User_info img {
-    width: 20px;
-    height: 20px;
+  width: 20px;
+  height: 20px;
 }
 
 .PurchaseUserInfo_top .Delivery_address_management {
-    width: 80px;
-    height: 25px;
-    font-size: 12px;
-    background-color: #FF916F;
-    border-radius: 10px;
-    text-align: center;
-    line-height: 25px;
+  width: 80px;
+  height: 25px;
+  font-size: 12px;
+  background-color: #ff916f;
+  border-radius: 10px;
+  text-align: center;
+  line-height: 25px;
 }
 
 .PurchaseUserInfo_top .Delivery_address_management:hover {
-    background-color: #ff7f58;
+  background-color: #ff7f58;
 }
 
 .address {
-    display: flex;
-    margin: 10px;
+  display: flex;
+  margin: 10px;
 }
 
 .name,
 .phone_num {
-    display: flex;
-    margin: 10px;
+  display: flex;
+  margin: 10px;
 }
 
 .PurchaseUserInfo_content .PurchaseUserInfo_type {
-    width: 80px;
-    height: 20px;
-    font-size: 13px;
-    font-weight: bold;
-    text-align: center;
-    line-height: 20px;
-    background-color: #FFFFFF;
-    border: 1px solid #FF916F;
+  width: 80px;
+  height: 20px;
+  font-size: 13px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 20px;
+  background-color: #ffffff;
+  border: 1px solid #ff916f;
 }
 
 .PurchaseUserInfo_content .PurchaseUserInfo {
-    width: 250px;
-    height: 20px;
-    font-size: 13px;
-    text-align: center;
-    line-height: 20px;
-    background-color: #ffd6ca;
-    border: 1px solid #FFD6CA;
+  width: 250px;
+  height: 20px;
+  font-size: 13px;
+  text-align: center;
+  line-height: 20px;
+  background-color: #ffd6ca;
+  border: 1px solid #ffd6ca;
 }
 
 .address .PurchaseUserInfo_type,
 .address .PurchaseUserInfo {
-    height: 40px;
+  height: 40px;
 }
 
 .address .PurchaseUserInfo_type {
-    line-height: 40px;
+  line-height: 40px;
 }

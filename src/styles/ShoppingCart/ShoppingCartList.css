@@ -1,149 +1,148 @@
 .ShoppingCartList_top_left .Product_info {
-    font-size: 10px;
-    margin-top: 3px;
+  font-size: 10px;
+  margin-top: 3px;
 }
 
 .ShoppingCartList_top_left img {
-    width: 20px;
+  width: 20px;
 }
 
 .ShoppingCartList_select_circle {
-    width: 15px;
-    height: 15px;
-    margin: 3px 5px 0 0;
-    border: 1px solid #FF916F;
-    border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  margin: 3px 5px 0 0;
+  border: 1px solid #ff916f;
+  border-radius: 50%;
 }
 
 .ShoppingCartList_top_left .select {
-    background-color: #ff8864;
+  background-color: #ff8864;
 }
 
 .ShoppingCartList_content {
-    padding-top: 10px;
-    width: 100%;
-    height: 140px;
-    display: flex;
-    align-items: center;
+  padding-top: 10px;
+  width: 100%;
+  height: 140px;
+  display: flex;
+  align-items: center;
 }
 
-
 .Product_detail_info {
-    width: 200px;
-    margin-top: 10px;
-    margin-bottom: auto;
+  width: 200px;
+  margin-top: 10px;
+  margin-bottom: auto;
 }
 
 .Product_detail_info .Product_name {
-    font-size: 14px
+  font-size: 14px;
 }
 
 .Product_detail_info .Product_quantity {
-    width: 30px;
+  width: 30px;
 }
 
 .Product_detail_info .quantity {
-    font-size: 10px;
-    color: gray;
-    margin-left: 5px;
+  font-size: 10px;
+  color: gray;
+  margin-left: 5px;
 }
 
 .Product_detail_info .quantity_info {
-    display: flex;
-    font-size: 14px;
-    margin-left: 5px;
+  display: flex;
+  font-size: 14px;
+  margin-left: 5px;
 }
 
 .Product_detail_info .quantity_update_bar {
-    display: flex;
+  display: flex;
 }
 
 .quantity_bar {
-    user-select: none;
-    font-family: Pretendard;
-    font-size: 15px;
-    font-weight: bold;
-    line-height: 1.5;
-    color: rgb(35, 35, 46);
-    white-space: pre-wrap;
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    border: 0;
+  user-select: none;
+  font-family: Pretendard;
+  font-size: 15px;
+  font-weight: bold;
+  line-height: 1.5;
+  color: rgb(35, 35, 46);
+  white-space: pre-wrap;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
 }
 
 .plus_bar,
 .quantity_bar {
-    border-right: none;
+  border-right: none;
 }
 
 .update_button:hover {
-    background-color: #ff8864;
+  background-color: #ff8864;
 }
 
 .Product_detail_info .price_info {
-    display: flex;
-    margin: 5px 0 0 10px;
+  display: flex;
+  margin: 5px 0 0 10px;
 }
 
 .Product_detail_info .price {
-    font-size: 11px;
-    margin-top: 5px;
+  font-size: 11px;
+  margin-top: 5px;
 }
 
 .Product_detail_info .Product_price {
-    margin-left: 5px;
+  margin-left: 5px;
 }
 
 .cart_product_img {
-    width: 74px;
-    height: 74px;
-    object-fit: cover;
-    border-radius: 4px;
-    margin-top: 14px;
-    margin-left: 16px;
-    margin-right: 10px;
-    margin-bottom: auto;
-    cursor: pointer;
+  width: 74px;
+  height: 74px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-top: 14px;
+  margin-left: 16px;
+  margin-right: 10px;
+  margin-bottom: auto;
+  cursor: pointer;
 }
 
 .opt_btn_wrapper {
-    display: flex;
-    margin-top: 14px; 
-    margin-bottom: auto;
-    height: auto;
-    cursor: pointer;
+  display: flex;
+  margin-top: 14px;
+  margin-bottom: auto;
+  height: auto;
+  cursor: pointer;
 }
 
 .Product_name {
-    margin-top: 2px;
-    font-size: 14px;
-    font-weight: 500;
-    color: black;
-    margin-bottom: 3px;
-    cursor: pointer;
+  margin-top: 2px;
+  font-size: 14px;
+  font-weight: 500;
+  color: black;
+  margin-bottom: 3px;
+  cursor: pointer;
 }
 
 .Product_price {
-    font-weight: 600;
-    font-size: 16px;
+  font-weight: 600;
+  font-size: 16px;
 }
 
 .quantity_update_bar {
-    font-size: 16px;
-    box-sizing: border-box;
-    margin: 10px 0 0 5px;
-    padding: 0;
-    display: flex;
-    flex-direction: row;
-    border-radius: 4px;
-    border: 1px solid rgb(234, 234, 239);
-    width: 90px;
-    height: 32px;
-    -webkit-box-align: center;
-    align-items: center;
-    user-select: none;
-    -webkit-box-pack: justify;
-    justify-content: space-between;
-    cursor: pointer;
+  font-size: 16px;
+  box-sizing: border-box;
+  margin: 10px 0 0 5px;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  border-radius: 4px;
+  border: 1px solid rgb(234, 234, 239);
+  width: 90px;
+  height: 32px;
+  -webkit-box-align: center;
+  align-items: center;
+  user-select: none;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  cursor: pointer;
 }

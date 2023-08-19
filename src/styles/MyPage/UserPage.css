@@ -1,80 +1,82 @@
 .userpage_container::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
-.user_profil, .user_shopping, .user_point {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
+.user_profil,
+.user_shopping,
+.user_point {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 .user_profil {
-    margin-top: 60px; 
+  margin-top: 60px;
 }
 
 .divider {
-    height: 8px;
-    background-color: rgb(243, 243, 246);
+  height: 8px;
+  background-color: rgb(243, 243, 246);
 }
 
 .user_header {
-    width: 100%;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 16px;
-    color: #23232E;
-    border-bottom: 1px solid #f0f0f0;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+  color: #23232e;
+  border-bottom: 1px solid #f0f0f0;
 }
 
 .user_header > p {
-    font-size: 15px;
-    font-weight: bold;
+  font-size: 15px;
+  font-weight: bold;
 }
 
 .user_profil_info {
-    padding: 24px 16px;
-    display: flex;
-    align-items: center;
+  padding: 24px 16px;
+  display: flex;
+  align-items: center;
 }
 
 .user_shopping_info {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .user_shopping_info > div {
-    display: flex;
-    flex-direction: row;
-    padding:  19px 18px;
-    font-size: 15px;
-    color: rgb(37, 37, 37);
-    cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  padding: 19px 18px;
+  font-size: 15px;
+  color: rgb(37, 37, 37);
+  cursor: pointer;
 }
 
 .user_point_info {
-    width: 90%;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .user_point_current {
-    font-size: 16px;
-    font-weight: 500;
-    color: #202020;
-    width: 70%;
+  font-size: 16px;
+  font-weight: 500;
+  color: #202020;
+  width: 70%;
 }
 
 .user_point_charge {
-    padding: 7px 10px;
-    font-size: 12px;
-    font-weight: 500;
-    color: rgb(65, 65, 65);
-    border: 0.5px solid lightgray;
-    border-radius: 20px;
-    cursor: pointer;
+  padding: 7px 10px;
+  font-size: 12px;
+  font-weight: 500;
+  color: rgb(65, 65, 65);
+  border: 0.5px solid lightgray;
+  border-radius: 20px;
+  cursor: pointer;
 }

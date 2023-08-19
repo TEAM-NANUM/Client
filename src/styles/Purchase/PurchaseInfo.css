@@ -1,44 +1,44 @@
 .PurchaseInfo_container {
-    padding: 20px;
-    height: 510px;
-    margin-top: 40px;
+  padding: 20px;
+  height: 510px;
+  margin-top: 40px;
 }
 
 .PurchaseInfo_container .contour {
-    margin: 10px 0 0 160px;
+  margin: 10px 0 0 160px;
 }
 
 .Purchase_buttom {
-    margin: 20px 0 0 8px;
-    width: 320px;
-    height: 40px;
-    font-weight: bold;
-    background-color: #FF916F;
-    border-radius: 10px;
-    text-align: center;
-    line-height: 40px;
+  margin: 20px 0 0 8px;
+  width: 320px;
+  height: 40px;
+  font-weight: bold;
+  background-color: #ff916f;
+  border-radius: 10px;
+  text-align: center;
+  line-height: 40px;
 }
 
 .Purchase_buttom:hover {
-    background-color: #ff825c;
+  background-color: #ff825c;
 }
 
 .ProductInfo2 {
-    display: flex;
-    background-color: #F5F5F5;
-    font-size: 13px;
-    border-radius: 10px;
-    padding: 10px;
+  display: flex;
+  background-color: #f5f5f5;
+  font-size: 13px;
+  border-radius: 10px;
+  padding: 10px;
 }
 
 .PurchaseInfo_container .quantity {
-    height: 10px;
-    line-height: 10px;
-    margin-left: 200px;
+  height: 10px;
+  line-height: 10px;
+  margin-left: 200px;
 }
 
 .total_price {
-    font-size: 13px;
-    line-height: 10px;
-    margin-left: 10px;
+  font-size: 13px;
+  line-height: 10px;
+  margin-left: 10px;
 }

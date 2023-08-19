@@ -1,49 +1,49 @@
 .address_man_item_wrapper {
-    margin: 30px 0;
-    padding: 0 16px;
+  margin: 30px 0;
+  padding: 0 16px;
 }
 
 .address_man_item_name {
-    font-weight: 700;
-    margin-bottom: 6px;
-    font-size: 16px;
-    display: flex;
-    align-items: center;
+  font-weight: 700;
+  margin-bottom: 6px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
 }
 
 .address_man_item_phone {
-    font-weight: 400;
-    margin-bottom: 3px;
-    font-size: 12px;
+  font-weight: 400;
+  margin-bottom: 3px;
+  font-size: 12px;
 }
 
 .address_man_item_address {
-    font-weight: 400;
-    font-size: 11px;
+  font-weight: 400;
+  font-size: 11px;
 }
 
 .address_man_item_default {
-    font-size: 4px;
-    font-weight: 500;
-    border: 1px solid #FF7A51;
-    color: #FF7A51;
-    padding: 2px 6px;
-    margin-left: 8px;
-    border-radius: 15px;
+  font-size: 4px;
+  font-weight: 500;
+  border: 1px solid #ff7a51;
+  color: #ff7a51;
+  padding: 2px 6px;
+  margin-left: 8px;
+  border-radius: 15px;
 }
 
 .address_man_item_btn_container {
-    display: flex;
-    margin-top: 15px;
-    align-items: center;
+  display: flex;
+  margin-top: 15px;
+  align-items: center;
 }
 
 .address_man_item_btn {
-    font-size: 6px;
-    cursor: pointer;
-    font-weight: 500;
-    border: 0.9px solid #cccccc;
-    padding: 4px 10px;
-    margin-right: 8px;
-    border-radius: 4px;
+  font-size: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  border: 0.9px solid #cccccc;
+  padding: 4px 10px;
+  margin-right: 8px;
+  border-radius: 4px;
 }

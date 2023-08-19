@@ -1,175 +1,172 @@
-
-
 .PopularItem_list {
-    font-size: 16px;
-    user-select: none;
-    box-sizing: border-box;
-    margin: 0;
-    border: 0;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    padding: 0px 16px 0 18px;
+  font-size: 16px;
+  user-select: none;
+  box-sizing: border-box;
+  margin: 0;
+  border: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 0px 16px 0 18px;
 }
 
 .main_prod_wrapper {
-    user-select: none;
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    border: 0;
-    cursor: pointer;
+  user-select: none;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  cursor: pointer;
 }
 
 .main_prod_container {
-    font-size: 16px;
-    user-select: none;
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    border: 0;
-    padding-top: 8px;
-    padding-bottom: 8px;
-    display: flex;
-    align-items: left;
-    flex-direction: column;
-    margin-right: 8px;
+  font-size: 16px;
+  user-select: none;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  display: flex;
+  align-items: left;
+  flex-direction: column;
+  margin-right: 8px;
 }
 
 .pop_header {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    padding-bottom: 10px;
-    padding-top: 24px;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    display: flex;
-    background-color: rgb(255, 255, 255);
+  margin: 0;
+  padding: 0;
+  border: 0;
+  padding-bottom: 10px;
+  padding-top: 24px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  background-color: rgb(255, 255, 255);
 }
 
 .pop_header_txt {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    display: flex;
-    flex-direction: column;
-    flex-shrink: 1;
-    padding-left: 16px;
-    
+  margin: 0;
+  padding: 0;
+  border: 0;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 1;
+  padding-left: 16px;
 }
 
 .pop_span {
-    box-sizing: border-box;
-    padding: 0;
-    border: 0;
-    margin: 0px;
-    font-size: 18px;
-    line-height: 1.75rem;
-    font-weight: bold;
-    text-align: left;
-    color: rgb(35, 35, 46);
-    white-space: pre-line;
-    letter-spacing:-1px;
-    margin-top: 5px;
-    margin-bottom: 10px;
+  box-sizing: border-box;
+  padding: 0;
+  border: 0;
+  margin: 0px;
+  font-size: 18px;
+  line-height: 1.75rem;
+  font-weight: bold;
+  text-align: left;
+  color: rgb(35, 35, 46);
+  white-space: pre-line;
+  letter-spacing: -1px;
+  margin-top: 5px;
+  margin-bottom: 10px;
 }
 
 .pop_img_des {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    display: flex;
-    flex-direction: column;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .pop_seller {
-    padding: 0;
-    border: 0;
-    margin: 0px;
-    font-size:10px;
-    line-height: 1rem;
-    font-weight: bold;
-    color: rgb(56, 56, 67);
-    white-space: pre-wrap;
+  padding: 0;
+  border: 0;
+  margin: 0px;
+  font-size: 10px;
+  line-height: 1rem;
+  font-weight: bold;
+  color: rgb(56, 56, 67);
+  white-space: pre-wrap;
 }
 
 .pop_title {
-    font-weight: 400;
-    line-height: 10px;
-    color: rgb(77, 78, 89);
-    white-space: nowrap;
-    box-sizing: border-box;
-    text-overflow: ellipsis;
-    overflow: hidden; 
-    margin: 0;
-    padding: 0;
-    border: 0;
+  font-weight: 400;
+  line-height: 10px;
+  color: rgb(77, 78, 89);
+  white-space: nowrap;
+  box-sizing: border-box;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  border: 0;
 }
 
 .pop_title_span {
-    user-select: none;
-    box-sizing: border-box;
-    padding: 0;
-    border: 0;
-    margin: 0px;
-    font-weight: 400;
-    font-size: 11px;
-    color: rgb(77, 78, 89);
-    width: 114px;
-    overflow: hidden;
-    margin-top: 2px;
+  user-select: none;
+  box-sizing: border-box;
+  padding: 0;
+  border: 0;
+  margin: 0px;
+  font-weight: 400;
+  font-size: 11px;
+  color: rgb(77, 78, 89);
+  width: 114px;
+  overflow: hidden;
+  margin-top: 2px;
 }
 
 .pop_price {
-    margin-top: 2px;
-    font-weight: 600;
-    font-size: 12px;
-    letter-spacing:0px;
+  margin-top: 2px;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0px;
 }
 
 .pop_prod_pack {
-    box-sizing: border-box;
-    margin: 3px 0 0 0;
-    border-radius: 4px;
-    padding: 2px 4px;
-    width: fit-content;
-    border: 1px solid rgb(234, 234, 239);
-    font-size: 6px;
+  box-sizing: border-box;
+  margin: 3px 0 0 0;
+  border-radius: 4px;
+  padding: 2px 4px;
+  width: fit-content;
+  border: 1px solid rgb(234, 234, 239);
+  font-size: 6px;
 }
 
 .pop_rating {
-    color: #707070;
-    margin-top: 2px;
-    font-weight: 400;
-    font-size: 10px;
-    letter-spacing:0px;
+  color: #707070;
+  margin-top: 2px;
+  font-weight: 400;
+  font-size: 10px;
+  letter-spacing: 0px;
 }
 
 .pop_opt_btn {
-    cursor: pointer;
-    font-size: 11px;
-    font-weight: 500;
-    color: #8d8d8d;
-    background-color: #f3f3f6;
-    padding: 6px 10px;
-    margin-left: 5px;
-    border-radius: 15px;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 500;
+  color: #8d8d8d;
+  background-color: #f3f3f6;
+  padding: 6px 10px;
+  margin-left: 5px;
+  border-radius: 15px;
 }
 
 .pop_opt_selected {
-    background-color: #ff6d41;
-    color:white;
+  background-color: #ff6d41;
+  color: white;
 }
 
 .pop_opt_container {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    padding-bottom: 6px;
-    padding-left: 11px;
-    flex-direction: row;
-    align-items: center;
-    display: flex;
-    background-color: rgb(255, 255, 255);
+  margin: 0;
+  padding: 0;
+  border: 0;
+  padding-bottom: 6px;
+  padding-left: 11px;
+  flex-direction: row;
+  align-items: center;
+  display: flex;
+  background-color: rgb(255, 255, 255);
 }

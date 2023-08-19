@@ -1,50 +1,50 @@
 .PointMethod_container {
-    width: 100%;
-    margin: 20px 0 10px 0;
+  width: 100%;
+  margin: 20px 0 10px 0;
 }
 
 .PointMethod_text {
-    width: 20%;
-    padding: 1.5%;
-    font-size: 14px;
-    font-weight: bold;
-    text-align: center;
-    background-color: #FF916F;
-    border-radius: 20px;
+  width: 20%;
+  padding: 1.5%;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  background-color: #ff916f;
+  border-radius: 20px;
 }
 
 .PointMethod_method {
-    display: flex;
-    justify-content: space-between;
-    margin: 10px auto;
-    padding: 0;
+  display: flex;
+  justify-content: space-between;
+  margin: 10px auto;
+  padding: 0;
 }
 
 .method {
-    width: 30%;
-    display: flex;
-    flex-direction: row;
-    height: 73px;
-    justify-content: space-between;
-    align-items: center;
-    border: 0.5px solid #dddddd;
-    margin: 0;
-    padding: 0;
-    border-radius: 6px;
-    cursor: pointer;
+  width: 30%;
+  display: flex;
+  flex-direction: row;
+  height: 73px;
+  justify-content: space-between;
+  align-items: center;
+  border: 0.5px solid #dddddd;
+  margin: 0;
+  padding: 0;
+  border-radius: 6px;
+  cursor: pointer;
 }
 
 .method:hover {
-    background-color: #f0f0f0;
+  background-color: #f0f0f0;
 }
 
 .method_active {
-    width: 30%;
-    height: 73px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border: 1px solid #FF7A51;
-    border-radius: 6px;
-    cursor: pointer;
+  width: 30%;
+  height: 73px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #ff7a51;
+  border-radius: 6px;
+  cursor: pointer;
 }
