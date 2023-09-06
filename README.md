@@ -1,5 +1,6 @@
 # 한채
 
+Notion
 <a href="https://outgoing-gravity-13d.notion.site/11-f49499388b444edcb115ceb9929ee8ea?pvs=4"><img src="https://img.shields.io/badge/Project Notion-000000?style=flat&logo=Notion&logoColor=ffffff"/></a>
 
 [사이트 바로가기](https://hanche.store/main)
